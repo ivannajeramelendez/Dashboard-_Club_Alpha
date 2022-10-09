@@ -1,0 +1,236 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Domiciliación{% endblock %}
+{% block Domiciliacion %}active{% endblock %}
+{% block Domiciliacion_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Pagos</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Generar Cobros por Domiciliación</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- MENSAJE DE ERROR -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="col-md-auto">
+        <div class="{{category}}" role="alert">
+          <strong>Sistema: </strong> {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- CARDS -->
+  <div class="container-fluid py-2">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body p-3 position-relative">
+            <div class="row">
+              <div class="col-7 text-start">
+                <p class="text-sm mb-1 text-capitalize font-weight-bold">Monto Total</p>
+                <h3 class="font-weight-bolder mb-0">
+                    {{ '$ {0:,}'.format(dom | sum(attribute='monto'))  }} MXN
+                </h3>
+                <!-- <span class="text-sm text-end text-success font-weight-bolder mt-auto mb-0">Cargos</span> -->
+              </div>
+              <div class="col-5">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-sm-0 mt-4">
+        <div class="card">
+          <div class="card-body p-3 position-relative">
+            <div class="row">
+              <div class="col-7 text-start">
+                <p class="text-sm mb-1 text-capitalize font-weight-bold">Usuarios Domiciliados</p>
+                <h3 class="font-weight-bolder mb-0">
+                  {{dom|length}} Clientes
+                </h3>
+                <!-- <span class="text-sm text-end text-success font-weight-bolder mt-auto mb-0">Clientes</span> -->
+              </div>
+              <div class="col-5">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-sm-0 mt-4">
+        <div class="card">
+          <div class="card-body p-3 position-relative">
+            <div class="row">
+              <div class="col-7 text-start">
+                <!-- <p class="text-sm mb-1 text-capitalize font-weight-bold">Corte</p> -->
+                <h5 class="font-weight-bolder mb-0">
+                    {{Mes}}
+                </h5>
+                <span class="font-weight-normal text-secondary text-sm"><span class="font-weight-bolder">Mes de Aplicación</span></span>
+              </div>
+              <div class="col-5">
+                <form method="POST">
+                  <input type="text" name="tipo" value="actualizar" hidden>
+                  <button class="btn btn-sm bg-gradient-primary">Actualizar Datos</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 mt-sm-0 mt-4">
+        <div class="card">
+          <div class="card-body p-3 position-relative">
+            <div class="row">
+              <div class="col-7 text-start">
+                <h5 class="font-weight-bolder mb-0">
+                  Generar
+                </h5>
+                <span class="font-weight-normal text-secondary text-sm"><span class="font-weight-bolder">Aplicar Cobro</span></span>
+              </div>
+              <div class="col-5">
+                <form method="POST">
+                  <input type="text" name="tipo" value="pagar" hidden>
+                  {% for dato in dom %}
+                    {% if dato.monto > 0 %}
+                    <input type="text" value="{{dato.id_cliente}}" name="id_cliente" hidden>
+                    <input type="text" value="{{dato.monto}}" name="monto" hidden>
+                    {% endif %}
+                  {% endfor %}
+                  <button class="btn btn-sm btn-club">Realizar Cobro</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLA DOMICILIADOS -->
+  <div class="container-fluid py-2">
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="row">
+            <div class="col-sm-10">
+              <div class="card-header pb-0">
+                <h6>Usuarios Para Domiciliación</h6>
+              </div>
+            </div>
+            <div class="col-sm-2" style="padding-top: 0.5%;">
+              <button type="button" class="btn btn-outline-club btn-sm" onclick="exportData()">Exportar</button>
+              <script>
+                function exportData(){
+                  /* Get the HTML data using Element by Id */
+                  var table = document.getElementById("Datos_tabla");
+                  /* Declaring array variable */
+                  var rows =[];
+                    //iterate through rows of table
+                  for(var i=0,row; row = table.rows[i];i++){
+                      //rows would be accessed using the "row" variable assigned in the for loop
+                      //Get each cell value/column from the row
+                      column1 = row.cells[0].innerText;
+                      column2 = row.cells[1].innerText;
+                      column3 = row.cells[2].innerText;
+                      column4 = row.cells[3].innerText;
+                      column5 = row.cells[4].innerText;
+                  /* add a new records in the array */
+                      rows.push(
+                          [
+                              column1,
+                              column2,
+                              column3,
+                              column4,
+                              column5
+                          ]
+                      );
+                      }
+                      csvContent = "data:text/csv;charset=UTF-8,";
+                      /* add the column delimiter as comma(,) and each row splitted by new line character (\n) */
+                      rows.forEach(function(rowArray){
+                          row = rowArray.join(",");
+                          csvContent += row + "\r\n";
+                      });
+                      /* create a hidden <a> DOM node and set its download attribute */
+                      var encodedUri = encodeURI(csvContent);
+                      var link = document.createElement("a");
+                      link.setAttribute("href", encodedUri);
+                      link.setAttribute("download", "Reporte_Domiciliacion.csv");
+                      document.body.appendChild(link);
+                      /* download the data file named "Stock_Price_Report.csv" */
+                      link.click();
+              }
+              </script>
+            </div>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0" id="Datos_tabla">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">NOMBRE</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ID CLIENTE</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">MEMBRESIA</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CARGO TOTAL</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">DOMICILIACIÓN</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for dato in dom %}
+                  <tr>
+                    <td>
+                      <div class="d-flex px-3 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">{{dato.nombre}}</h6>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-sm font-weight-bold mb-0">{{dato.id_cliente}}</p>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <p class="text-sm font-weight-bold mb-0">{{dato.membresia}}</p>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <p class="text-sm font-weight-bold mb-0">
+                        {{ '$ {0:,.0f}'.format(dato.monto)  }}
+                        <!-- ${{dato.monto}} -->
+                      </p>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <p class="text-sm font-weight-bold mb-0">
+                        {% if dato.domiciliado == 'DATAFLOW' %}
+                        <span class="badge bg-info">{{dato.domiciliado}}</span>
+                        {% elif dato.domiciliado == 'FISERV' %}
+                        <span class="badge bg-warning">{{dato.domiciliado}}</span>
+                        {% else %}
+                        SN
+                        {% endif %}
+                      </p>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+{% endblock %}

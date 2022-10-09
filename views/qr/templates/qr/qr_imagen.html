@@ -1,0 +1,67 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Sports Plaza - Generar códigos QR{% endblock %}
+{% block QR %}active{% endblock %}
+{% block QR_boton %}white{% endblock %} 
+{% block contenido %}
+  <div class="container-fluid">
+    <div class="page-header min-height-100 border-radius-xl mt-4">
+      <span class="mask bg-gradient-dark opacity-2"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="row gx-4">
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              Hola, {{current_user.nombre}} 
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              Excelente Dia!
+            </p>
+          </div>
+        </div>
+        <div class="col-md-5 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="input-group mb-3">
+            <a class="btn btn-sm btn-club mb-0" type="button" href="{{ url_for('qr.qr_busqueda') }}">QR Gym</a>
+            <a class="btn btn-sm btn-club mb-0" type="button" href="{{ url_for('qr.qr_generador_pases') }}">QR Pases</a>
+            <a class="btn btn-sm btn-club mb-0" type="button" href="{{ url_for('qr.qr_generador_pases_parking') }}">QR Parking</a>
+            {% if current_user.is_user_gerente() and current_user.is_alpha_4()%}
+            <a class="btn btn-sm btn-secondary mb-0" type="button" href="{{ url_for('qr.qr_generador_pases_parking_empleados') }}">QR Empleados</a>
+            <a class="btn btn-sm btn-secondary mb-0" type="button" href="{{ url_for('qr.qr_generador_pases_parking_cortesias') }}">QR Cortesías</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- QR -->
+  <form method="post">
+      <div class="container-fluid py-4">
+          <div class="row">
+          </div>
+      </div>
+  </form>
+  <!-- IMPRESION IMAGEN QR -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card text-center">
+          <div class="card-header">
+            <b>Codigo QR Generado</b>
+          </div>
+          <div class="card-body">
+            <img src="{{ url_for('qr.static', filename='qr/img/code_qr.png') }}" alt=""><br>
+            <p>{{codigo}}</p><br>
+            <a type="botton" class="btn btn-primary" href="#" onClick="Imprimir('{{ url_for('qr.static', filename='qr/img/code_qr.png') }}');">Imprimir</a>
+            <script>
+              function Imprimir(imagen) {
+                newWindow = window.open("","Imagenes","width=400,height=450,left=100,top=60");
+                newWindow.document.open();
+                newWindow.document.write('<html><head></head><body onload="window.print()"><img src="'+ imagen +'"/></body></html>');  
+                newWindow.document.close();
+                newWindow.focus();
+              }
+            </script>
+          </div>
+      </div>
+    </div>
+  </div>
+{% endblock%}

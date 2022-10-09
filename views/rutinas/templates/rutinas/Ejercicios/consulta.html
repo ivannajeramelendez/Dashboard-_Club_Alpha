@@ -1,0 +1,352 @@
+{% extends "mainpages/page-layout.html" %} 
+{% block titulo %}Ejercicios - Consulta{% endblock %} 
+{% block Rutinas_boton %}white{% endblock %} 
+{% block Rutinas %}active{% endblock %} {% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Rutinas</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Rutinas - Configuración</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Crea un Nuevo Ejercicio">
+          <a class="btn btn-sm btn-club bg-gradient-club" data-bs-toggle="modal" data-bs-target="#nuevo_ejercicio">
+            Nuevo
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MENSAJE DE ERROR -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="col-md-auto">
+        <div class="{{category}}" role="alert">
+          <strong>Sistema: </strong> {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- PAGINACION -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        {% if ejercicios.has_prev %}
+        <a class="page-link" href="{{ url_for('rutinas.rutinas_ejercicios', page=ejercicios.prev_num) }}">
+          <i class="fa fa-angle-left"></i>
+          <span class="sr-only">Anterior</span>
+        </a>
+        {% else %}
+        <a class="page-link">
+          <i class="fas fa-home"></i>
+        </a>
+        {% endif %}
+      </li>
+      <li class="page-item">
+        {% if ejercicios.has_next %}
+        <a class="page-link" href="{{ url_for('rutinas.rutinas_ejercicios', page=ejercicios.next_num) }}">
+          <i class="fa fa-angle-right"></i>
+          <span class="sr-only">Siguiente</span>
+        </a>
+        {% else %}
+        <a class="page-link">
+          <i class="fas fa-hand-paper"></i>
+        </a>
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+
+  <!-- BUSQUEDA -->
+  <div class="container mb-3">
+    <div class="card card-body blur shadow-blur overflow-hidden">
+      <input type="text" class="form-control" placeholder="Buscar por Nombre" id="myInput" onkeyup="myFunction()"  data-bs-toggle="tooltip" data-bs-placement="top" title="Buscar Ejercicio">
+      <script>
+        function myFunction() {
+          // Declare variables
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("Datos_tabla");
+          tr = table.getElementsByTagName("tr");
+        
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+          }
+        }
+      </script>
+    </div>
+  </div>
+
+  <!-- TABLA DE EJERCICIOS -->
+  <div class="container-fluid py-4">
+    <div class="card">
+      <div class="table-responsive">
+        <table class="table table-sm align-items-center mb-0" id="Datos_tabla">
+          <thead>
+            <tr align="center">
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Img</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Grupo Muscular</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Maquina o Material</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for dato in ejercicios.items %}
+            <tr align="center">
+              <td data-bs-toggle="tooltip" data-bs-placement="top" title="Nombre del Ejercicio">
+                <p class="text-dark text-xs mb-0"><b>{{dato.nombre}}</b></p>
+              </td>
+              <td data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Ejercicio">
+                <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank">
+                  <i class="fas fa-eye"></i>
+                </a>
+                <!-- <div data-bs-toggle="modal" data-bs-target="#img_ejercicio{{dato.id}}">
+                  <img src="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" width="35" height="35">
+                </div> -->
+              </td>
+              <td data-bs-toggle="tooltip" data-bs-placement="top" title="Grupo">
+                <span class="text-dark text-xs"><b>{{dato.grupo_muscular}}</b></span>
+              </td>
+              <td data-bs-toggle="tooltip" data-bs-placement="top" title="Máquina">
+                <span class="text-dark text-xs"><b>{{dato.maquina}}</b></span>
+              </td>
+              <td class="align-middle" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar Ejercicio">
+                <button class="btn btn-link mb-0" data-bs-toggle="modal" data-bs-target="#editar_ejercicio{{dato.id}}">
+                  <i class="fa fa-pencil text-xs text-gradient text-club"></i> <small class="text-xs text-gradient text-club">Editar</small> 
+                </button>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL NUEVO -->
+  <div class="modal fade" id="nuevo_ejercicio" tabindex="-1" role="dialog" aria-labelledby="nuevo_ejercicio" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Nuevo Ejercicio</h3>
+                </div>
+              </div>
+              <div class="col-md-3" hidden>
+                <div class="card-header pb-0 text-end">
+                  <button type="button" class="btn btn-sm bg-gradient-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="#!" method="post">
+                <div class="row mb-3">
+                  <div class="col-sm-12">
+                    <label>Nombre del Ejercicio</label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Nombre Ejercicio" name="nombre" required>
+                  </div>
+                  <div class="col-sm-6" hidden>
+                    <label>Tipo de Plantilla</label>
+                    <select class="form-control form-control-sm" name="segmento">
+                      <option value="">Selecciona Tipo</option>
+                      <option value="CALENTAMIENTO">Calentamiento</option>
+                      <option value="PRINCIPAL">Pricipal</option>
+                      <option value="VUELTA A LA CALMA">Vuelta a la calma</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label>Nombre de la Imagen</label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Ejemplo: Abductor-de-pie" name="url" required>
+                    <label>URL Video</label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Ejemplo: https://..." name="url_video">
+                    <input type="text" value="nuevo" name="metodo" hidden>
+                  </div>
+                  <div class="col-sm-6">
+                    <label>Grupo Muscular</label>
+                    <select class="form-control form-control-sm" name="grupo" required>
+                      <option value="">Selecciona Grupo Muscular</option>
+                      <option value="PECTORAL">Pectoral</option>
+                      <option value="ESPALDA">Espalda </option>
+                      <option value="HOMBRO">Hombro</option>
+                      <option value="TRICEPS">Tríceps</option>
+                      <option value="BICEPS">Bíceps</option>
+                      <option value="TRAPECIO">Trapecio</option>
+                      <option value="ANTEBRAZO">Antebrazo </option>
+                      <option value="CUADRICEPS">Cuádriceps </option>
+                      <option value="ISQUIOTIBIALES">Isquiotibiales</option>
+                      <option value="GLUTEO">Glúteo</option>
+                      <option value="ABDUCTORES">Abductores</option>
+                      <option value="PANTORRILLA">Pantorrilla </option>
+                      <option value="LUMBARES">Lumbares </option>
+                      <option value="ABDOMEN">Abdomen</option>
+                      <option value="MULTIARTICULAR">Multiarticular</option> 
+                    </select>
+                    <label>Máquina o Material</label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Máquina o Material" name="maquina" required>
+                  </div>
+                </div>
+                <button class="btn btn-sm btn-club btn-lg w-100">Crear Nuevo</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL IMAGEN EJERCICIO -->
+  <!-- {% for dato in ejercicios.items %}
+  <div class="modal fade" id="img_ejercicio{{dato.id}}" tabindex="-1" role="dialog" aria-labelledby="img_ejercicio{{dato.id}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Demo Ejercicio</h3>
+                </div>
+              </div>
+              <div class="col-md-3" hidden>
+                <div class="card-header pb-0 text-end">
+                  <button type="button" class="btn btn-sm bg-gradient-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row mb-3">
+                <div class="col-sm-12" align="center">
+                  <img src="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif"  width="650" height="450">
+                  <br>
+                  <label>{{dato.nombre}} - {{dato.grupo_muscular}}</label> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %} -->
+
+  {% for dato in ejercicios.items %}
+  <!-- MODAL EDITAR / ELIMINAR -->
+  <div class="modal fade" id="editar_ejercicio{{dato.id}}" tabindex="-1" role="dialog" aria-labelledby="editar_ejercicio{{dato.id}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Editar Ejercicio</h3>
+                </div>
+              </div>
+              <div class="col-md-3" hidden>
+                <div class="card-header pb-0 text-end">
+                  <button type="button" class="btn btn-sm bg-gradient-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('rutinas.rutinas_ejercicios')}}" method="post">
+                <div class="row mb-3">
+                  {% if dato.ruta_video == '' %}
+                  <div class="col-sm-12" align="center">
+                    <!-- <img src="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif"  width="300" height="200"> -->
+                  </div>
+                  {% else %}
+                  <div class="col-sm-6" align="center">
+                    <!-- <img src="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif"  width="300" height="200"> -->
+                  </div>
+                  <div class="col-sm-6" align="center">
+                    <iframe width="400" height="200" src="{{dato.ruta_video}}"></iframe>
+                  </div>
+                  {% endif %}
+                  <div class="col-sm-12">
+                    <label>Nombre del Ejercicio</label>
+                    <input type="text" class="form-control form-control-sm" value="{{dato.nombre}}" name="nombre" required>
+                  </div>
+                  <div class="col-sm-6" hidden>
+                    <label>Tipo de Plantilla</label>
+                    <select class="form-control form-control-sm" name="segmento" required>
+                      <option value="{{dato.segmento}}">{{dato.segmento}}</option>
+                      <option value="CALENTAMIENTO">CALENTAMIENTO</option>
+                      <option value="PRINCIPAL">PRINCIPAL</option>
+                      <option value="VUELTA A LA CALMA">VUELTA A LA CALMA</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label>Nombre de la Imagen</label>
+                    <input type="text" class="form-control form-control-sm" value="{{dato.ruta}}" name="url" required>
+                    <label>URL Video</label>
+                    <input type="text" class="form-control form-control-sm" value="{{dato.ruta_video}}" name="url_video" placeholder="https://...">
+                    <input type="text" value="editar" name="metodo" hidden>
+                  </div>
+                  <div class="col-sm-6">
+                    <label>Grupo Muscular</label>
+                    <select class="form-control form-control-sm" name="grupo" required>
+                      <option value="{{dato.grupo_muscular}}">{{dato.grupo_muscular}}</option>
+                      <option value="PECTORAL">PECTORAL</option>
+                      <option value="ESPALDA">ESPALDA </option>
+                      <option value="HOMBRO">HOMBRO</option>
+                      <option value="TRICEPS">TRICEPS</option>
+                      <option value="BICEPS">BICEPS</option>
+                      <option value="TRAPECIO">TRAPECIO</option>
+                      <option value="ANTEBRAZO">ANTEBRAZO </option>
+                      <option value="CUADRICEPS">CUADRICEPS </option>
+                      <option value="ISQUIOTIBIALES">ISQUIOTIBIALES</option>
+                      <option value="GLUTEO">GLUTEO</option>
+                      <option value="ABDUCTORES">ABDUCTORES</option>
+                      <option value="PANTORRILLA">PANTORRILLA</option>
+                      <option value="LUMBARES">LUMBARES </option>
+                      <option value="ABDOMEN">ABDOMEN</option>
+                      <option value="MULTIARTICULAR">MULTIARTICULAR</option> 
+                    </select>
+                    <label>Máquina o Material</label>
+                    <input type="text" class="form-control form-control-sm" value="{{dato.maquina}}" name="maquina" required>
+                    <input type="text" value="{{dato.id}}" name="id" hidden>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <button class="btn btn-sm btn-club bg-gradient-club btn-lg w-100">Guardar</button>
+                  </div>
+                </div>
+              </form>
+              <form action="{{url_for('rutinas.rutinas_ejercicios')}}" method="post">
+                <input type="text" name="metodo" value="eliminar" hidden>
+                <input type="text" name="id" value="{{dato.id}}" hidden>
+                <button class="btn btn-sm bg-gradient-danger btn-lg w-100">Eliminar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+{% endblock %}

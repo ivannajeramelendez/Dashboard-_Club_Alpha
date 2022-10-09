@@ -1,0 +1,159 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Parking - Corte de Ingresos{% endblock %}
+{% block Parking %}active{% endblock %}
+{% block Parking_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- BOTONES INICIO -->
+  <div class="container-fluid mb-4">
+    <div class="page-header min-height-100 border-radius-xl mt-4">
+      <span class="mask bg-gradient-dark opacity-2"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="row gx-4">
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              Hola, {{current_user.nombre}} 
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              Excelente Dia!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+              <li class="nav-item">
+                <button class="btn btn-sm btn-club w-100" onclick="ExportToExcel('xlsx')">Exportar Excel</button>
+                <script>
+                  function ExportToExcel(type, fn, dl) {
+                        var elt = document.getElementById('Datos_tabla');
+                        var wb = XLSX.utils.table_to_book(elt, { sheet: "Datos_Corte" });
+                        return dl ?
+                            XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                            XLSX.writeFile(wb, fn || ('Datos_Completos.' + (type || 'xlsx')));
+                    }
+                </script>
+                <!-- EXPORT CSV -->
+                <!-- <button class="btn btn-sm bg-gradient-primary w-100" id="download-button">Imprimir Corte</button>  -->
+                <!-- <script>
+                  function htmlToCSV(html, filename) {
+                    var data = [];
+                    var rows = document.querySelectorAll("table tr");
+                    for (var i = 0; i < rows.length; i++) {
+                      var row = [], cols = rows[i].querySelectorAll("td, th");
+                      for (var j = 0; j < cols.length; j++) {
+                              row.push(cols[j].innerText);
+                          }
+                      data.push(row.join(",")); 		
+                    }
+                    downloadCSVFile(data.join("\n"), filename);
+                  }
+                  function downloadCSVFile(csv, filename) {
+                    var csv_file, download_link;
+                    csv_file = new Blob([csv], {type: "text/csv"});
+                    download_link = document.createElement("a");
+                    download_link.download = filename;
+                    download_link.href = window.URL.createObjectURL(csv_file);
+                    download_link.style.display = "none";
+                    document.body.appendChild(download_link);
+                    download_link.click();
+                  }
+                  document.getElementById("download-button").addEventListener("click", function () {
+                    var html = document.querySelector("table").outerHTML;
+                    htmlToCSV(html, "Datos_completo.csv");
+                  });
+                </script> -->
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- TABLA CON RESULTADOS -->
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table align-items-center mb-0" id="Datos_tabla">
+        <thead>
+          <tr align="center">
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Folio</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fecha</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hora de Corte</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Club</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tipo</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cantidad</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Costo Total</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ver</th>
+            <th class="text-secondary opacity-7"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for dato in corte_a3 %}
+          <tr align="center">
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.folio}}</h6>
+            </td>
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.fecha}}</h6>
+            </td>
+            {% if dato.fecha_corte_min == None %}
+            <td>
+              <h6 class="mb-0 text-xs">-</h6>
+            </td>
+            {% else %}
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.fecha_corte_min}}</h6>
+            </td>
+            {% endif %}
+            {% if dato.club == 'A3' %}
+            <td>
+              <h6 class="mb-0 text-xs">Club Alpha 3</h6>
+            </td>
+            {% elif dato.club == 'CIM' %}
+            <td>
+              <h6 class="mb-0 text-xs">Cimera</h6>
+            </td>
+            {% else %}
+            <td>
+              <h6 class="mb-0 text-xs">Club Alpha 2</h6>
+            </td>
+            {% endif %}
+            {% if dato.tipo == 'caja' %}
+            <td>
+              <span class="badge bg-dark">Caja</span>
+            </td>
+            {% else %}
+            <td>
+              <span class="badge bg-primary">Caseta</span>
+            </td>
+            {% endif %}         
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.cantidad_vendida}}</h6>
+            </td>
+            <td>
+              {% if current_user.is_alpha_2() %}
+              <h6 class="mb-0 text-xs">{{5 * dato.cantidad_vendida + dato.costo_total | int}} MXN</h6>
+              {% elif current_user.is_alpha_3() %}
+              <h6 class="mb-0 text-xs">{{dato.costo_total}} MXN</h6>
+              {% else %}
+              <h6 class="mb-0 text-xs">{{dato.costo_total}} MXN</h6>
+              {% endif %}
+            </td>
+            <td>
+              <form method="post" action="{{url_for('caseta.caseta_consulta_corte_ingresos_view')}}">
+                <input name="Club" value="{{dato.club}}" hidden>
+                <input name="Fecha" value="{{dato.fecha}}" hidden>
+                <input name="Tipo" value="{{dato.tipo}}" hidden>
+                <input name="Folio" value="{{dato.folio}}" hidden>
+                <button class="btn btn-sm bg-gradient-default">Ver Corte</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

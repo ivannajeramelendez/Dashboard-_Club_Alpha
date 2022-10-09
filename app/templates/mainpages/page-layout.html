@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="description" content="Sistema Dashboard Club Alpha"/>
+    <meta name="author" content="Sistema creado por IVAN NAJERA MELENDEZ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static', filename='login_css/img/apple-icon.png') }}">
+    {% if current_user.is_alpha_2() or current_user.is_alpha_3() %}
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='login_css/img/favicon_alpha.png') }}">
+    {% elif current_user.is_cimera() %}
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='login_css/img/favicon_cimera.svg') }}">
+    {% elif current_user.is_alpha_4() %}
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='login_css/img/sport_plaza.png') }}">
+    {% else %}
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='login_css/img/favicon_alpha.png') }}">
+    {% endif %}
+    <title>{% block titulo %}{% endblock %}</title>
+    <!-- Fonts and icons -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='login_css/css/nucleo-svg.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login_css/css/nucleo-icons.css') }}"/>
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='login_css/css/soft-ui-dashboard.css') }}"/>
+    <!-- PRELOADER -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- DATATABLES -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <!-- BUSQUEDAS EN TABLAS -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></script>
+    <!-- EXPORT EXCEL -->
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+    <!-- TEXTAREA FROLALA -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='textarea/css/froala_editor.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='textarea/css/froala_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='textarea/css/line_breaker.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+  </head>
+  <body class="g-sidenav-show bg-gray-100 g-sidenav-hidden">
+    <div id="preloader"></div>
+    <!-- SIDENAVAR -->
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl fixed-start border-0 my-0 ms-1 ps ps--active-y" id="sidenav-main">
+      <div class="sidenav-header" align="center">
+        {% if current_user.is_alpha_2() or current_user.is_alpha_3() %}
+        <a class="navbar-brand m-0" href="#!">
+          <img src="{{ url_for('static', filename='login_css/img/alpha.png') }}" style="width: auto; height: auto;">
+        </a>
+        {% elif current_user.is_cimera() %}
+        <a class="navbar-brand m-0" href="#!">
+          <img src="{{ url_for('static', filename='login_css/img/cimera.svg') }}" style="width: auto; height: auto;">
+        </a>
+        {% elif current_user.is_alpha_4() %}
+        <a class="navbar-brand m-0" href="#!">
+          <!-- <img src="{{ url_for('static', filename='login_css/img/sport_plaza.png') }}" width="100" height="90"> -->
+          <img src="{{ url_for('static', filename='login_css/img/sport_plaza.png') }}" style="width: auto; height: auto;">
+        </a>
+        {% else %}
+        <a class="navbar-brand m-0" href="#!">
+          <img src="{{ url_for('static', filename='login_css/img/alpha.png') }}" style="width: auto; height: auto;">
+        </a>
+        {% endif %}
+      </div>
+      <hr class="horizontal dark mt-0">
+      <div class="collapse navbar-collapse w-auto h-auto h-100 ps" id="sidenav-collapse-main">
+        <ul class="navbar-nav">
+          <li class="nav-item mt-0">
+            <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Menu</h6>
+          </li>
+          {% if current_user.is_user_apartados() %}
+          <li class="nav-item">
+            <a class="nav-link {% block Apartados %}{% endblock %}" href="{{ url_for('aforo.aforo_club') }}">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-check text-lg opacity-10 text-dark{% block Apartados_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-2">Aforos</span>
+            </a>
+          </li>
+          {% endif %}
+          {% if current_user.is_user_qr_pases() %}
+          <li class="nav-item">
+            <a class="nav-link {% block QR %}{% endblock %}" href="{{ url_for('qr.qr_busqueda') }}">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-qrcode my-3 text-lg opacity-10 text-dark{% block QR_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">QR</span>
+            </a>
+          </li>
+          {% endif %}
+          {% if current_user.is_user_registro() %}
+          <li class="nav-item">
+            <a data-bs-toggle="collapse" href="#registro" class="nav-link {% block Registro %}{% endblock %}" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-users  my-3 text-lg opacity-10 text-dark{% block Registro_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">Registro Usuarios</span>
+            </a>
+            <div class="collapse" id="registro">
+              <ul class="nav ms-4 ps-3">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('registro.registro_consulta') }}">
+                    <span class="text-gradient text-club">Consultar Usuarios</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          {% endif %}
+          {% if current_user.is_user_gerente() or current_user.is_user_aux() or current_user.is_user_subgerente() %}
+          <li class="nav-item">
+            <a data-bs-toggle="collapse" href="#clientes" class="nav-link {% block Clientes %}{% endblock %}" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-user-friends my-3 text-lg opacity-10 text-dark{% block Clientes_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">Clientes</span>
+            </a>
+            <div class="collapse" id="clientes">
+              <ul class="nav ms-4 ps-3">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('acceso.acceso_busqueda') }}">
+                    <span class="text-gradient text-club">Estatus del Cliente</span>
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{url_for('acceso.acceso_estado_de_cuenta')}}">
+                    <span class="text-gradient text-club">Estado de Cuenta</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          {% endif %}
+          {% if current_user.is_user_configuracion() %}
+          <li class="nav-item">
+            <a class="nav-link {% block Configuracion %}{% endblock %}" href="{{ url_for('configuracion.configuracion_menu') }}">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-cogs my-3 text-lg opacity-10 text-dark{% block Configuracion_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">Configuración</span>
+            </a>
+          </li>
+          {% endif %}
+          {% if current_user.is_user_domiciliacion() %}
+          <li class="nav-item">
+            <a data-bs-toggle="collapse" href="#dom" class="nav-link {% block Domiciliacion %}{% endblock %}" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-university my-3 text-lg opacity-10 text-dark{% block Domiciliacion_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">Domiciliación</span>
+            </a>
+            <div class="collapse" id="dom">
+              <ul class="nav ms-4 ps-3">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('domiciliacion.domiciliacion_inicio') }}">
+                    <span class="text-gradient text-dark">Cobro por Domiciliacion</span>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav ms-4 ps-3">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('domiciliacion.domiciliacion_reporte') }}">
+                    <span class="text-gradient text-dark">Reporte de Domiciliacion</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          {% endif %}
+          {% if current_user.is_user_pagos() %}
+          <li class="nav-item">
+            <a data-bs-toggle="collapse" href="#pagos" class="nav-link {% block Pagos %}{% endblock %}" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-money-bill-wave text-lg opacity-10 text-dark{% block Pagos_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">Pagos</span>
+            </a>
+            <div class="collapse" id="pagos">
+              <ul class="nav ms-4 ps-3">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('pagos.pagos_busqueda') }}">
+                    <span class="text-gradient text-club">Referencia Oxxo</span>
+                  </a>
+                </li>
+                {% if current_user.is_admin() %}
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('pagos.pagos_busqueda_openpay') }}">
+                    <span class="text-gradient text-club">Referencia Openpay</span>
+                  </a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+          </li>
+          {% endif %}
+          {% if current_user.is_user_parking()%}
+          <li class="nav-item">
+            <a data-bs-toggle="collapse" href="#parking" class="nav-link {% block Parking %}{% endblock %}" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-car my-3 text-lg opacity-10 text-dark{% block Parking_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">Parking</span>
+            </a>
+            <div class="collapse" id="parking">
+              <ul class="nav ms-4 ps-3">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('parking.parking_registro_vehiculo') }}">
+                    <span class="text-gradient text-dark">Registrar Usuario</span>
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('parking.parking_registro_vehiculo_empleados') }}">
+                    <span class="text-gradient text-dark">Registrar Empleado</span>
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('parking.parking_update_vehiculo') }}">
+                    <span class="text-gradient text-dark">Act. Datos Vehículo</span>
+                  </a>
+                </li>
+                {% if current_user.username == 'admin' or current_user.username == 'daniel.garcia' %}
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('parking.parking_update_chip') }}">
+                    <span class="text-gradient text-dark">Cambiar N° ChipTag</span>
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('parking.parking_delete_chip') }}">
+                    <span class="text-gradient text-dark">Eliminar ChipTag</span>
+                  </a>
+                </li>
+                {% endif %}
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('parking.parking_reporte_usuario') }}">
+                    <span class="text-gradient text-club">Reporte de Usuario</span>
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('parking.parking_consulta_vehiculo') }}">
+                    <span class="text-gradient text-club">Consultar Vehiculo</span>
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('parking.parking_consulta_chip') }}">
+                    <span class="text-gradient text-club">Chips Tag Activos</span>
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('caseta.caseta_consulta_chip') }}">
+                    <span class="text-gradient text-dark">Corte de Ingresos QR</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          {% endif %}
+          {% if current_user.is_user_rh() or current_user.is_user_rh_consulta() %}
+          <li class="nav-item">
+            <a data-bs-toggle="collapse" href="#rh" class="nav-link {% block Rh %}{% endblock %}" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-user-tie my-3 text-lg opacity-10 text-dark{% block Rh_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">Recursos Humanos</span>
+            </a>
+            <div class="collapse" id="rh">
+              <ul class="nav ms-4 ps-3">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('rh.rh_consulta') }}">
+                    <span class="text-gradient text-club">Consultar Vacaciones</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          {% endif %}
+          {% if current_user.is_user_caseta() %}
+          <li class="nav-item">
+            <a data-bs-toggle="collapse" href="#caseta" class="nav-link {% block Caseta %}{% endblock %}" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-parking my-3 text-lg opacity-10 text-dark{% block Caseta_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">Caseta</span>
+            </a>
+            <div class="collapse" id="caseta">
+              <ul class="nav ms-4 ps-3">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('caseta.caseta_registro_qr') }}">
+                    <span class="text-gradient text-club">Registrar Ingreso</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          {% endif %}
+          {% if current_user.is_user_reportes() %}
+          <li class="nav-item">
+            <a data-bs-toggle="collapse" href="#reportes" class="nav-link {% block Reportes %}{% endblock %}" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-chart-pie my-3 text-lg opacity-10 text-dark{% block Reportes_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">Reportes</span>
+            </a>
+            <div class="collapse" id="reportes">
+              <ul class="nav ms-4 ps-3">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('reportes.reportes_club') }}">
+                    <span class="text-gradient text-club">Reportes de Club</span>
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{url_for('reportes.reportes_especiales_menu')}}">
+                    <span class="text-gradient text-club">Reportes Especiales</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          {% endif %}
+          {% if current_user.is_user_rutinas() %}
+          <li class="nav-item">
+            <a data-bs-toggle="collapse" href="#rutinas" class="nav-link {% block Rutinas %}{% endblock %}" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center ">
+                <i class="fas fa-dumbbell my-3 text-lg opacity-10 text-dark{% block Rutinas_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">Asesor</span>
+            </a>
+            <div class="collapse" id="rutinas">
+              <ul class="nav ms-4 ps-3">
+                <li class="nav-item active" >
+                  <a class="nav-link" href="{{url_for('rutinas.rutinas_agenda')}}">
+                    <span class="text-gradient text-club">Agenda</span>
+                  </a>
+                </li>
+                <li class="nav-item active" >
+                  <a class="nav-link" href="{{url_for('rutinas.rutinas_asignar_rutina')}}">
+                    <span class="text-gradient text-club">Rutinas</span>
+                  </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{{url_for('rutinas.rutinas_ejercicios')}}">
+                    <span class="text-gradient text-club">Ejercicios</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          {% endif %}
+          {% if current_user.is_user_facturas() %}
+          <li class="nav-item">
+            <a data-bs-toggle="collapse" href="#factura" class="nav-link {% block Factura %}{% endblock %}" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center ">
+                <i class="fa fa-check-double my-3 text-lg opacity-10 text-dark{% block Factura_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">Factura</span>
+            </a>
+            <div class="collapse" id="factura">
+              <ul class="nav ms-4 ps-3">
+                <li class="nav-item active" >
+                  <a class="nav-link" href="{{url_for('factura.factura_consulta')}}">
+                    <span class="text-gradient text-club">Consulta</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          {% endif %}
+          <li class="nav-item mt-2">
+            <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">User</h6>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% block Scrum %}{% endblock %}" href="{{ url_for('scrum.scrum_inicio') }}">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-tasks  my-3 text-lg opacity-10 text-dark{% block Scrum_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">To-Do</span>
+            </a>
+          </li>
+          {% if current_user.is_leader_fi()%}
+          <li class="nav-item">
+            <a class="nav-link {% block Usuarios %}{% endblock %}" href="{{ url_for('usuarios.usuarios_perfil') }}">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-users  my-3 text-lg opacity-10 text-dark{% block Usuarios_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">Usuarios</span>
+            </a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link {% block Perfil %}{% endblock %}" href="{{ url_for('perfil.perfil_perfil') }}">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-running my-3 text-lg opacity-10 text-dark{% block Perfil_boton %}{% endblock %}"></i>
+              </div>
+              <span class="nav-link-text ms-1">Perfil</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('logout') }}">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="fas fa-sign-out-alt my-3 text-lg opacity-10 text-dark"></i>
+              </div>
+              <span class="nav-link-text ms-1">Salir</span>
+            </a>
+          </li>
+          <div class="sidenav-footer mx-3 mt-3 pt-3">
+            <div class="card card-background shadow-none card-background-mask-club">
+              <div class="card-body text-start p-3 w-100">
+                <div class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
+                  <i class="fas fa-book text-dark text-gradient text-lg top-0"></i>
+                </div>
+                <div class="docs-info">
+                  <h6 class="text-white up mb-0">Necesitas ayuda?</h6>
+                  <p class="text-xs font-weight-bold">Por favor, consulte nuestro manual.</p>
+                  {% if current_user.is_alpha_2() or current_user.is_alpha_3() or current_user.is_cimera() %}
+                  <a href="http://192.168.20.106/index.php/s/CxCB3G4XRNbzgPw" target="_blank" class="btn btn-white btn-sm w-100 mb-0">Documentación</a>
+                  {% endif %}
+                  {% if current_user.is_alpha_4() %}
+                  <a href="http://192.168.20.106/index.php/s/yjLSGij9oRmCZFH" target="_blank" class="btn btn-white btn-sm w-100 mb-0">Documentación</a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </aside>
+    <!-- CONTENT -->
+    <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
+      {% block contenido %}{% endblock %}
+      <!-- FOOTER -->
+      <footer class="footer pt-3  ">
+        <div class="container-fluid">
+          <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-6 mb-lg-0 mb-4">
+              <div class="copyright text-center text-sm text-muted text-lg-start">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>, Club Alpha
+              </div>
+            </div>
+            <div class="col-lg-6">
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='login_css/js/calendario.js') }}"></script>
+    <script src="{{ url_for('static', filename='login_css/js/core/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='login_css/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='login_css/js/plugins/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='login_css/js/plugins/sweetalert.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='login_css/js/plugins/smooth-scrollbar.min.js') }}"></script>
+    <!-- LOGO 2022 CLUB -->
+    <script>
+      var win = navigator.platform.indexOf('Win') > -1;
+      if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+          damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+      }
+    </script>
+    <!-- BOTONES GITHUB -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- CENTRO DE CONTROL PARA CAMBIAR COLORES -->
+    <script src="{{ url_for('static', filename='login_css/js/soft-ui-dashboard.min.js') }}"></script>
+    <!-- PRELOADER -->
+    <script src="{{ url_for('static', filename='login_css/javascript_per/preloader.js') }}"></script>
+  </body>
+</html>

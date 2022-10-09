@@ -1,0 +1,508 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}RH - Consulta Empleado{% endblock %}
+{% block Rh %}active{% endblock %}
+{% block Rh_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">R.H</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Consulta Vacaciones por Empleado</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <a class="btn btn-sm bg-gradient-primary w-100" href="javascript: history.go(-1)">Volver atrás</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="col-md-auto">
+          <div class="{{category}}" role="alert">
+            <strong>Sistema: </strong> {{ message }}
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <br>
+  <!-- INFORMACION DEL EMPLEADO -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body pb-0">
+          <div class="row align-items-center mb-3">
+            <div class="col-9">
+              <h5 class="mb-1 text-gradient text-club">
+                Información de Vacaciones
+              </h5>
+            </div>
+            <div class="col-3 text-end">
+              <div class="dropstart">
+                <a class="btn btn-sm bg-secondary text-white" data-bs-toggle="modal" data-bs-target="#edit">Solicita</a>
+                {% for dato in rh_vacaciones %}
+                  {% if current_user.is_user_rh() %}
+                    <a href="{{url_for('rh.rh_consulta_empleado_registros',id=dato.id_empleado)}}" class="btn btn-sm btn-club">Historico</a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            {% for dato in rh_vacaciones %}
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Nombre</label>
+              <div class="input-group">
+                <h5>{{dato.empleado}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">ID Empleado</label>
+              <div class="input-group">
+                <h5>{{dato.id_empleado}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Clave</label>
+              <div class="input-group">
+                <h5>{{dato.clave_externa}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Club</label>
+              <div class="input-group">
+                <h5>{{dato.club}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Antiguedad</label>
+              <div class="input-group">
+                <h5>{{dato.antiguedad}} Años</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Fecha de Ingreso</label>
+              <div class="input-group">
+                <h5>{{dato.ingreso}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Vacaciones Asignadas</label>
+              <div class="input-group">
+                <h5>{{dato.dias}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Vacaciones Restantes</label>
+              <div class="input-group">
+                <h5>{{dato.dias_restantes}}</h5>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- REGRISTRO DE TODAS LAS SOLICITUDES -->
+  <br>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="mb-1 text-gradient text-club">
+            Registro de Solicitud
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr align="center">
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7">N° Solicitud</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7">Solicita</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Fecha de Solicitud</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Fecha Inicio</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Fecha Fin</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Días Solicitados</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Días no contables</th>
+            <th class="text-center text-uppercase text-dark text-xxs font-weight-bolder opacity-7">Solicitud Aprobada</th>
+            <th class="text-center text-uppercase text-dark text-xxs font-weight-bolder opacity-7">Formato Aprobado</th>
+            {% if current_user.is_user_rh() %}
+            <th class="text-center text-uppercase text-dark text-xxs font-weight-bolder opacity-7">Aprobar</th>
+            <th class="text-center text-uppercase text-dark text-xxs font-weight-bolder opacity-7">Firma</th>
+            {% endif %}
+            <th class="text-center text-uppercase text-dark text-xxs font-weight-bolder opacity-7">Formato</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for dato in dato_api %}
+          <tr align="center">
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.id}}</h6>
+            </td>
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.solicita}}</h6>
+            </td>
+            <td>
+              <p class="text-xs font-weight-bold mb-0">{{dato.fechaSolicitud}}</p>
+            </td>
+            <td class="align-middle text-center text-sm">
+              <p class="text-xs font-weight-bold mb-0">{{dato.fechaInicio}}</p>
+            </td>
+            <td class="align-middle text-center">
+              <p class="text-xs font-weight-bold mb-0">{{dato.fechaFin}}</p>
+            </td>
+            <td class="align-middle text-center">
+              {{dato.diasSolicitados}}
+            </td>
+            <td class="align-middle text-center">
+              {{dato.diasMenos}}
+            </td>
+            {% if dato.aprovados == 'NO' %}
+            <td>
+              <span class="badge bg-danger">{{dato.aprovados}}</span>
+            </td>
+            {% else %}
+            <td>
+              <span class="badge bg-info">{{dato.aprovados}}</span>
+            </td>
+            {% endif %}
+            {% if dato.validacion == 'NO' %}
+            <td>
+              <span class="badge bg-danger">{{dato.validacion}}</span>
+            </td>
+            {% else %}
+            <td>
+              <span class="badge bg-info">{{dato.validacion}}</span>
+            </td>
+            {% endif %}
+            {% if current_user.is_user_rh() %}
+            <td>
+              <a class="badge bg-gradient-club" data-bs-toggle="modal" data-bs-target="#aprovar{{dato.id}}">Ver</a>
+            </td>
+            <td>
+              <a class="badge bg-gradient-club" data-bs-toggle="modal" data-bs-target="#firma{{dato.id}}">Ver</a>
+            </td>
+            {% endif %}
+            {% if dato.aprovados == 'SI' %}
+            <td>
+              <a class="badge bg-success" data-bs-toggle="modal" data-bs-target="#formato">Descargar formato</a>
+            </td>
+            {% else %}
+            <td>
+              <a class="badge bg-gradient-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Necesita ser Aprobado" data-container="body" data-animation="true">Descargar formato</a>
+            </td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SOLICITUD MODAL -->
+  <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Solicitud de Vacaciones</h3>
+                </div>
+              </div>
+              <div class="col-md-3" hidden>
+                <div class="card-header pb-0 text-left">
+                  <button type="button" class="btn btn-sm bg-gradient-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('rh.rh_consulta_empleado_solicitud')}}" method="post">
+                <div class="row">
+                  <div class="col-4">
+                    {% for dato in rh_vacaciones %}
+                    <label class="form-label">ID Empleado</label>
+                    <div class="input-group">
+                      <input name="empleado" class="form-control" type="text" placeholder="{{dato.id_empleado}}" value="{{dato.id_empleado}}" readonly>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <div class="col-4">
+                    <label class="form-label">Solicita</label>
+                    <div class="input-group">
+                      <input name="solicita" class="form-control" type="text" placeholder="{{current_user.nombre}}" value="{{current_user.nombre}}" readonly>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <label class="form-label">Días no considerados</label>
+                    <div class="input-group">
+                      <input name="dias_menos" class="form-control" type="number" value="0">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label">Fecha Inicio</label>
+                    <div class="input-group">
+                      <input class="form-control datepicker" type="date" name="fechaInicio" required>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label">Fecha Fin</label>
+                    <div class="input-group">
+                      <input class="form-control datepicker" type="date" name="fechaFin" required>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <button class="btn btn-sm btn-club mb-0 btn-lg w-100">Solicitar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMATO -->
+  <div class="modal fade" id="formato" tabindex="-1" role="dialog" aria-labelledby="formato" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Formato de Vacaciones</h3>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card-header pb-0 text-left">
+                  <button type="button" class="btn btn-sm bg-danger" data-bs-dismiss="modal" style="color: white;">Cerrar</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12" id="boundary">
+                  <div class="card" id="printableArea">
+                    <div class="card-header text-center">
+                      <div class="row justify-content-between">
+                        <div class="col-md-6">
+                          <img class="mb-2 w-20 p-2" src="{{ url_for('static', filename='login_css/img/alpha.png') }}">
+                        </div>
+                        <div class="col-md-6">
+                          <h5 class="d-block mt-2 mb-0">Solicitud de Vacaciones</h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        {% for dato in rh_vacaciones %}
+                        <p>
+                          <small>
+                          {{dato.empleado}}<br>
+                          Por medio de la presente, me dirijo a usted para solicitar los días de vacaciones que me corresponden en el presente año.<br>
+                          De esta forma, le informo con anticipación mi ausencia para que se tomen las medidas correspondientes.
+                          Asimismo, me comprometo a finalizar con los proyectos en curso antes de llegar a la fecha solicitada.
+                          </small>
+                        </p>
+                        <p>
+                          <small>
+                            Confirmando mis solicitudes aprobadas en los períodos:
+                          </small>
+                        </p>
+                        {% for dato in dato_api %}
+                          {% if dato.aprovados == 'NO' %}
+                          {% else %}
+                          <small>
+                            <em>
+                              Folio: {{dato.id}}, Fecha Inicio {{dato.fechaInicio}} - Fecha Fin {{dato.fechaFin}} - Solicitando {{dato.diasSolicitados}} Días<br>
+                            </em>
+                          </small>
+                          {% endif %}
+                        {% endfor %}
+                        <br>
+                        <br>
+                        <p>
+                          <small>
+                          {% for dato in rh_vacaciones %}
+                            Fecha de Ingreso: {{dato.ingreso}}<br>
+                            Club: {{dato.club}}<br>
+                            Total de días de vacaciones por mi antigüedad de {{dato.antiguedad}} años: {{dato.dias}} días. <br>
+                            Total de días de vacaciones por disfrutar: {{dato.dias_restantes}} días.<br>
+                          {% endfor %}
+                          </small>
+                        </p>
+                        <p>
+                          <small>
+                          Regresando a laborar el día: _____________/_____________/_____________.<br>
+                          De antemano agradezco su atención, y quedo en espera de su respuesta.
+                          </small>
+                        </p>
+                        {% endfor %}
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Firma Trabajador</label>
+                            <p>
+                              <small>
+                              Solicita:____________________       Huella:_____________________
+                              </small>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Nombre y Firma Aprobado Club/Área</label>
+                            <p>
+                              <small>
+                              Autoriza: _________________________________________
+                              </small>
+                            </p>
+                          </div>
+                        </div>
+                        <p>
+                          <small>
+                            *La solicitud quedara en espera de aprobación por R.H.<br>
+                            *Se requiere el documento firmado para aprobación.
+                          </small>
+                        </p>
+                        <div class="col-md-12 text-center">
+                          <p class="text-end">
+                            <small>Correo Recursos Humanos:</small><br>
+                            <small>amando.zamora@clubalpha.com.mx </small>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- SCRIPTS -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>  
+                <script type="text/javascript">
+                  document.getElementById("download").addEventListener("click", function() {
+                    html2canvas(document.querySelector('#boundary')).then(function(canvas) {
+                      console.log(canvas);
+                      saveAs(canvas.toDataURL(), 'Corte.png');
+                    });
+                  });
+
+                  function saveAs(uri, filename) {
+                  var link = document.createElement('a');
+                  if (typeof link.download === 'string') {
+                      link.href = uri;
+                      link.download = filename;
+                      //Firefox requires the link to be in the body
+                      document.body.appendChild(link);
+                      //simulate click
+                      link.click();
+                      //remove the link when done
+                      document.body.removeChild(link);
+                  } else {
+                      window.open(uri);
+                  }
+                  }
+                </script>
+                <input class="btn btn-sm btn-club mt-lg-3 mb-0" type="button" onclick="printDiv('printableArea')" value="Imprimir"/>
+                <!-- <button class="btn btn-lg btn-sm btn-primary" onclick="window.print()">Imprimir</button> -->
+              </div>
+              <script type="text/javascript">
+                  function printDiv(divName) {
+                  var printContents = document.getElementById(divName).innerHTML;
+                  var originalContents = document.body.innerHTML;
+                  document.body.innerHTML = printContents;
+                  window.print();
+                  document.body.innerHTML = originalContents;
+                  }
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APROBACION -->
+  {% for dato in dato_api %}
+  <div class="modal fade" id="aprovar{{dato.id}}" tabindex="-1" role="dialog" aria-labelledby="{{dato.id}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+              <h3 class="font-weight-bolder text-club text-gradient">Aprobar Vacaciones</h3>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('rh.rh_consulta_empleado_aprovacion')}}" method="post">
+                <input type="text" value="{{id}}" name="id_empleado" hidden>
+                <input type="text" value="{{dato.id}}" name="id_solicitud" hidden>
+                <div class="row">
+                  <div class="col-12">
+                    <label class="form-label">Estado de la solicitud</label>
+                    <select name="aprovacion" class="form-control form-control-sm">
+                      <option value="NO" selected>No Aprobada</option>
+                      <option value="SI">Solicitud Aprobada</option>
+                    </select>
+                  </div>
+                </div>
+                <br>
+                <button class="btn btn-sm btn-club mb-0 btn-lg w-100">Guardar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- FIRMA -->
+  {% for dato in dato_api %}
+  <div class="modal fade" id="firma{{dato.id}}" tabindex="-1" role="dialog" aria-labelledby="{{dato.id}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+              <h3 class="font-weight-bolder text-club text-gradient">Firma de Documento</h3>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('rh.rh_consulta_empleado_firma')}}" method="post">
+                <input type="text" value="{{id}}" name="id_empleado" hidden>
+                <input type="text" value="{{dato.id}}" name="id_solicitud" hidden>
+                <div class="row">
+                  <div class="col-6">
+                    <label class="form-label">Recibo de Documento</label>
+                    <select name="documento" class="form-control form-control-sm">
+                      <option value="NO" selected>No Recibido</option>
+                      <option value="SI">Si Recibido</option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label">Validación de Documento</label>
+                    <select name="validacion" class="form-control form-control-sm">
+                      <option value="NO" selected>No Aprobada</option>
+                      <option value="SI">Solicitud Aprobada</option>
+                    </select>
+                  </div>
+                </div>
+                <br>
+                <button class="btn btn-sm btn-club mb-0 btn-lg w-100">Guardar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+{% endblock %}

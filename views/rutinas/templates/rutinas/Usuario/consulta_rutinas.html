@@ -1,0 +1,196 @@
+{% extends "mainpages/page-layout.html" %} 
+{% block titulo %}Rutinas - Consultas{% endblock %} 
+{% block Rutinas_boton %}white{% endblock %} 
+{% block Rutinas %}active{% endblock %} {% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl mb-3" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Rutinas</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Rutinas - Consulta</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Terminar Rutina">
+          <a class="btn btn-sm btn-club text-white" href="javascript: history.go(-1)">Volver atrás</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CARD -->
+  <div class="container-fluid py-2">
+    <div class="row">
+      <div class="col-lg-12 mx-auto">
+        <div class="card mb-4">
+          <div class="card-header p-3 pb-0">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h6>Rutina Asignada</h6>
+                <p class="text-sm mb-0">
+                  Fecha de aplicación: <b>{{ejercicios.diaInicio}}</b>
+                </p>
+                <p class="text-sm">
+                  Fecha de vigencia: <b>{{ejercicios.diaFinal}}</b>
+                </p>
+              </div>
+              <form action="{{url_for('rutinas.rutinas_consulta_rutina')}}" method="post">
+                <input type="text" value="{{cliente.idCliente}}" name="ID_Cliente" hidden>
+                <input type="text" value="eliminar" name="eliminar" hidden>
+                <button class="btn bg-danger text-white ms-auto mb-0">Eliminar Rutina</button>
+              </form>
+            </div>
+          </div>
+          <div class="card-body p-3 pt-0">
+            <hr class="horizontal dark mt-0 mb-4">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+                <div class="d-flex">
+                  <div>
+                    <img src="data:image/png;base64, {{cliente.imagen}}" class="avatar avatar-xxl me-3" style="max-width: 65%; max-height: 80%;">
+                  </div>
+                  <div>
+                    <h6 class="text-lg mb-0 mt-2">{{cliente.nombre}}</h6>
+                    <p class="text-sm mb-3">{{cliente.idCliente}} / {{cliente.estatusCobranza}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-group">
+                  <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+                    <div class="d-flex flex-column">
+                      <span class="mb-2 text-xs">Nombre de la Rutina: <span class="text-dark font-weight-bold ms-2">{{ejercicios.nombreRutina}}</span></span>
+                      <span class="mb-2 text-xs">Nombre del Objetivo: <span class="text-dark ms-2 font-weight-bold">{{ejercicios.nombreObjetivo}}</span></span>
+                      <span class="text-xs">Semanas Vigentes: <span class="text-dark ms-2 font-weight-bold">{{ejercicios.semanas}}</span></span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <hr class="horizontal dark mt-4 mb-4">
+            <div class="row">
+              <!-- DIA 1 -->
+              <div class="col-lg-2 col-md-6 col-12">
+                <h6 class="mb-3">Dia 1</h6>
+                <div class="timeline timeline-one-side">
+                  <div class="timeline-block mb-3">
+                    {% for dato in ejercicios.ejercicios %}
+                      {% if dato.dia == 1 %}
+                      <span class="timeline-step">
+                      <i class="ni ni-check-bold text-success text-gradient"></i>
+                      </span>
+                      <div class="timeline-content">
+                        <h6 class="text-dark text-sm font-weight-bold mb-0">{{dato.grupoMuscular}} {{ejercicios.ejercicios.nombre}}</h6>
+                        <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{dato.nombre}}</p>
+                      </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <!-- DIA 2 -->
+              <div class="col-lg-2 col-md-6 col-12">
+                <h6 class="mb-3">Dia 2</h6>
+                <div class="timeline timeline-one-side">
+                  <div class="timeline-block mb-3">
+                    {% for dato in ejercicios.ejercicios %}
+                      {% if dato.dia == 2 %}
+                      <span class="timeline-step">
+                      <i class="ni ni-check-bold text-success text-gradient"></i>
+                      </span>
+                      <div class="timeline-content">
+                        <h6 class="text-dark text-sm font-weight-bold mb-0">{{dato.grupoMuscular}} {{ejercicios.ejercicios.nombre}}</h6>
+                        <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{dato.nombre}}</p>
+                      </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <!-- DIA 3 -->
+              <div class="col-lg-2 col-md-6 col-12">
+                <h6 class="mb-3">Dia 3</h6>
+                <div class="timeline timeline-one-side">
+                  <div class="timeline-block mb-3">
+                    {% for dato in ejercicios.ejercicios %}
+                      {% if dato.dia == 3 %}
+                      <span class="timeline-step">
+                      <i class="ni ni-check-bold text-success text-gradient"></i>
+                      </span>
+                      <div class="timeline-content">
+                        <h6 class="text-dark text-sm font-weight-bold mb-0">{{dato.grupoMuscular}} {{ejercicios.ejercicios.nombre}}</h6>
+                        <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{dato.nombre}}</p>
+                      </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <!-- DIA 4 -->
+              <div class="col-lg-2 col-md-6 col-12">
+                <h6 class="mb-3">Dia 4</h6>
+                <div class="timeline timeline-one-side">
+                  <div class="timeline-block mb-3">
+                    {% for dato in ejercicios.ejercicios %}
+                      {% if dato.dia == 4 %}
+                      <span class="timeline-step">
+                      <i class="ni ni-check-bold text-success text-gradient"></i>
+                      </span>
+                      <div class="timeline-content">
+                        <h6 class="text-dark text-sm font-weight-bold mb-0">{{dato.grupoMuscular}} {{ejercicios.ejercicios.nombre}}</h6>
+                        <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{dato.nombre}}</p>
+                      </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <!-- DIA 5 -->
+              <div class="col-lg-2 col-md-6 col-12">
+                <h6 class="mb-3">Dia 5</h6>
+                <div class="timeline timeline-one-side">
+                  <div class="timeline-block mb-3">
+                    {% for dato in ejercicios.ejercicios %}
+                      {% if dato.dia == 5 %}
+                      <span class="timeline-step">
+                      <i class="ni ni-check-bold text-success text-gradient"></i>
+                      </span>
+                      <div class="timeline-content">
+                        <h6 class="text-dark text-sm font-weight-bold mb-0">{{dato.grupoMuscular}} {{ejercicios.ejercicios.nombre}}</h6>
+                        <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{dato.nombre}}</p>
+                      </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <!-- DIA 6 -->
+              <div class="col-lg-2 col-md-6 col-12">
+                <h6 class="mb-3">Dia 6</h6>
+                <div class="timeline timeline-one-side">
+                  <div class="timeline-block mb-3">
+                    {% for dato in ejercicios.ejercicios %}
+                      {% if dato.dia == 6 %}
+                      <span class="timeline-step">
+                      <i class="ni ni-check-bold text-success text-gradient"></i>
+                      </span>
+                      <div class="timeline-content">
+                        <h6 class="text-dark text-sm font-weight-bold mb-0">{{dato.grupoMuscular}} {{ejercicios.ejercicios.nombre}}</h6>
+                        <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{dato.nombre}}</p>
+                      </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}

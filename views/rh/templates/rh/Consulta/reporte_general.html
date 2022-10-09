@@ -1,0 +1,170 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}RH - Reporte General{% endblock %}
+{% block Rh %}active{% endblock %}
+{% block Rh_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Club</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">R.H - Reporte General</h6>
+      </nav>
+    </div>
+    <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+      <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+        <button class="btn btn-sm bg-gradient-warning" onclick="exportData()">Exportar</button>
+        <script>
+          function exportData(){
+            /* Get the HTML data using Element by Id */
+            var table = document.getElementById("Datos_tabla");
+            /* Declaring array variable */
+            var rows =[];
+              //iterate through rows of table
+            for(var i=0,row; row = table.rows[i];i++){
+                //rows would be accessed using the "row" variable assigned in the for loop
+                //Get each cell value/column from the row
+                column1 = row.cells[0].innerText;
+                column2 = row.cells[1].innerText;
+                column3 = row.cells[2].innerText;
+                column4 = row.cells[3].innerText;
+                column5 = row.cells[4].innerText;
+                column6 = row.cells[5].innerText;
+                column7 = row.cells[6].innerText;
+                column8 = row.cells[7].innerText;
+                column9 = row.cells[8].innerText;
+            /* add a new records in the array */
+                rows.push(
+                    [
+                        column1,
+                        column2,
+                        column3,
+                        column4,
+                        column5,
+                        column6,
+                        column7,
+                        column8,
+                        column9
+                    ]
+                );
+                }
+                csvContent = "data:text/csv;charset=utf-8,";
+                /* add the column delimiter as comma(,) and each row splitted by new line character (\n) */
+                rows.forEach(function(rowArray){
+                    row = rowArray.join(",");
+                    csvContent += row + "\r\n";
+                });
+                /* create a hidden <a> DOM node and set its download attribute */
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "Reporte_Vacaciones.csv");
+                document.body.appendChild(link);
+                /* download the data file named "Stock_Price_Report.csv" */
+                link.click();
+        }
+        </script>
+        <a class="btn btn-sm bg-gradient-primary" href="javascript: history.go(-1)">Regresar</a>
+      </div>
+    </div>
+  </nav>
+  <!-- TITULO -->
+  <h4 align="center">Reporte General de Vacaciones del <small class="text-club">{{inicio}}</small> a <small class="text-club">{{fin}}</small></h4>
+  <!-- BUSQUEDA -->
+  <div class="container">
+    <div class="card card-body blur shadow-blur overflow-hidden">
+      <input type="text" class="form-control" placeholder="Buscar por Nombre de Empleado" id="myInput" onkeyup="myFunction()">
+      <script>
+        function myFunction() {
+          // Declare variables
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("Datos_tabla");
+          tr = table.getElementsByTagName("tr");
+        
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+          }
+        }
+      </script>
+    </div>
+  </div>
+  <!-- VISTA DE LA CONSULTA -->
+  <div class="container-fluid py-4">
+    <div class="card">
+      <div class="table-responsive">
+        <table class="table align-items-center mb-0" id="Datos_tabla">
+          <thead align="center">
+            <tr>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nombre del Empleado</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Folio</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fecha Solicitud</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ID Empleado</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Clave</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Club</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Días Solicitados</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fecha Inico</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fecha Fin</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ver</th>
+            </tr>
+          </thead>
+          <tbody align="center">
+            {% for dato in rh_reporte %}
+              <tr align="center">
+                <td>
+                  <h6 class="mb-0 text-xs text-left">{{dato.empleado}}</h6>
+                </td>
+                <td>
+                  <h6 class="mb-0 text-xs text-left">{{dato.numero_solicitud}}</h6>
+                </td>
+                <td>
+                  <h6 class="mb-0 text-xs text-left">{{dato.fecha_solicitud}}</h6>
+                </td>
+                <td>
+                  <h6 class="mb-0 text-xs">{{dato.id_empleado}}</h6>
+                </td>
+                {% if dato.clave_externa == None %}
+                <td>
+                  <h6 class="mb-0 text-xs"><span class="badge bg-gradient-warning">{{dato.clave_externa}}</span></h6>
+                </td>
+                {% else %}  
+                <td>
+                  <h6 class="mb-0 text-xs">{{dato.clave_externa}}</h6>
+                </td>
+                {% endif %}
+                <td>
+                  <h6 class="mb-0 text-xs">{{dato.club}}</h6>
+                </td>
+                <td>
+                  <h6 class="mb-0 text-xs">{{dato.dias_solicitados}}</h6>
+                </td>
+                <td>
+                  <h6 class="mb-0 text-xs">{{dato.fechainicio}}</h6>
+                </td>
+                <td>
+                  <h6 class="mb-0 text-xs">{{dato.fechafin}}</h6>
+                </td>
+                <td>
+                  <a href="{{url_for('rh.rh_consulta_empleado',id=dato.id_empleado)}}" class="badge btn-club bg-gradient-club">Ver</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

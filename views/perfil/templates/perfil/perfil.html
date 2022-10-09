@@ -1,0 +1,143 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Tu - Perfil{% endblock %}
+{% block Perfil %}active{% endblock %}
+{% block Perfil_boton %}white{% endblock %} 
+{% block contenido %}
+  <div class="container-fluid">
+    <div class="page-header min-height-100 border-radius-xl mt-4">
+      <span class="mask bg-gradient-dark opacity-2"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="row gx-4">
+        <div class="col-auto">
+          <div class="avatar avatar-xl position-relative">
+            <img src="{{ url_for('static', filename='login_css/img/perfil.png') }}">
+          </div>
+        </div>
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              {{current_user.nombre}}
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              {% if current_user.is_alpha_2() %}
+              Club Alpha 2
+              {% elif current_user.is_alpha_3() %}
+              Club Alpha 3
+              {% elif current_user.is_cimera() %}
+              Cimera
+              {% elif current_user.is_alpha_4() %}
+              Sports Plaza
+              {% else %}
+              Club Alpha
+              {% endif %}
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="nav-wrapper position-relative end-0" hidden>
+            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active " data-bs-toggle="tab" href="#!">
+                  <span class="ms-1">Información</span>
+                </a>
+              </li>
+              <li class="nav-item" hidden>
+                <a class="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="#!" role="tab">
+                  <span class="ms-1">App</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12 col-xl-6">
+        <div class="card h-100">
+          <div class="card-header pb-0 p-3">
+            <h6 class="font-weight-bolder text-club text-gradient mb-0">Configuración de Cuenta</h6>
+          </div>
+          <div class="card-body p-3">
+            <h6 class="text-uppercase text-body text-xs font-weight-bolder">Perfil</h6>
+            <ul class="list-group">
+              {% if current_user.username == 'admin' or current_user.username == 'ricardo.montiel' %}
+              <li class="list-group-item border-0 px-0">
+                <div class="form-check form-switch ps-0">
+                  <a href="/perfil/perfil/changepassword/{{current_user.username}}">
+                    <button type="button" class="btn btn-outline-club w-100">Cambiar Contraseña</button>
+                </a>
+                </div>
+              </li>  
+              {% endif %}
+              <li class="list-group-item border-0 px-0">
+                <div class="form-check form-switch ps-0">
+                  <input class="form-check-input ms-auto" type="checkbox" checked disabled>
+                  <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0">Modificar Salas</label>
+                </div>
+              </li>
+              <li class="list-group-item border-0 px-0">
+                <div class="form-check form-switch ps-0">
+                  <input class="form-check-input ms-auto" type="checkbox" checked disabled>
+                  <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0">Cambiar Contraseña</label>
+                </div>
+              </li>
+              <li class="list-group-item border-0 px-0">
+                <div class="form-check form-switch ps-0">
+                  <input class="form-check-input ms-auto" type="checkbox" checked disabled>
+                  <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0">Agendar Citas</label>
+                </div>
+              </li>
+              <li class="list-group-item border-0 px-0 pb-0">
+                <div class="form-check form-switch ps-0">
+                  <input class="form-check-input ms-auto" type="checkbox" checked disabled>
+                  <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0">Modificar Canchas</label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-xl-6">
+        <div class="card h-100">
+          <div class="card-header pb-0 p-3">
+            <div class="row">
+              <div class="col-md-8 d-flex align-items-center">
+              <h6 class="font-weight-bolder text-club text-gradient mb-0">Información de la plataforma</h6>
+              </div>
+              <div class="col-md-4 text-end">
+                  <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Perfil"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-body p-3">
+            <p class="text-sm" align="center">
+              Plataforma para agendar reservaciones dentro de los diferentes clubs. 
+            </p>
+            <hr class="horizontal gray-light my-4">
+            <ul class="list-group" align="center">
+              <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Usuario:</strong> &nbsp; {{current_user.username}}</li>
+              <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Nombre:</strong> &nbsp; {{current_user.nombre}}</li>
+              <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Correo:</strong> &nbsp; {{current_user.email}}</li>
+              <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Club:</strong> &nbsp; 
+                {% if current_user.is_alpha_2() %}
+                Club Alpha 2
+                {% elif current_user.is_alpha_3() %}
+                Club Alpha 3
+                {% elif current_user.is_cimera() %}
+                Cimera
+                {% elif current_user.is_alpha_4() %}
+                Sports Plaza
+                {% else %}
+                Club Alpha
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

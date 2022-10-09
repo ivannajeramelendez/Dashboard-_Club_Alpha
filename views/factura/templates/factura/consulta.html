@@ -1,0 +1,85 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Factura - Consulta{% endblock %}
+{% block Factura %}active{% endblock %}
+{% block Factura_boton %}white{% endblock %} 
+{% block contenido %}
+{% if current_user.is_user_facturas() %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Factura</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Fundación Club Alpha</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- RECIBO GLOBAL -->
+  <div class="card card-frame mb-3">
+    <div class="card-body">
+      <h4 class="text-gradient text-dark mb-3" align="center"><b>Consultar Factura Global</b></h4>
+      <form action="{{url_for('factura.factura_consulta')}}" method="post">
+        <div class="form-group mb-3">
+          <input type="text" name="tipo" value="global" hidden>
+          <label>Solicita:</label>
+          <input class="form-control" type="text" name="solicita" value="{{current_user.nombre}}" readonly>
+          <br>
+          <button class="btn btn-sm btn-club mb-0 w-100" type="submit">Consultar</button>  
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- RECIBO UNICO -->
+  <div class="card card-frame mb-3" hidden>
+    <div class="card-body">
+      <h4 class="text-gradient text-dark mb-3" align="center"><b>Consultar Factura</b></h4>
+      <form action="{{url_for('factura.factura_consulta')}}" method="post">
+        <div class="form-group mb-3">
+          <input type="text" name="tipo" value="consulta" hidden>
+          <label>Recibo:</label>
+          <input type="text" class="form-control" placeholder="AD 157378" name="recibo" required>
+          <label>ID Cliente:</label>
+          <input type="number" maxlength="5" class="form-control" placeholder="ID CLIENTE" name="id_cliente" required>
+        </div>
+        <button class="btn btn-sm btn-club mb-0 w-100" type="submit">Consultar</button>
+      </form>
+    </div>
+  </div>
+
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="card" align="center">
+        <div class="card-body pt-2">
+          <a href="javascript:;" class="card-title h5 d-block text-darker">
+            Sistema:
+          </a>
+          <p>{{ message.msj }}</p>
+          <p>{{ message.msg }}</p>
+          {% for dato in message.productosFallidos %}
+          <div align="center">
+            <label>Folio: {{dato.folio}}, </label>
+            <label>ID: {{dato.idProducto}}, </label>
+            <label>Producto: {{dato.producto}}</label>
+          </div>
+          {% endfor %}
+          <p>{{ message.Message }}</p>
+          <div hidden>
+            {% for dato in message.ModelState %}
+              {{dato}}
+            {% endfor %}
+          </div>
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+{% endif %}
+{% endblock %}

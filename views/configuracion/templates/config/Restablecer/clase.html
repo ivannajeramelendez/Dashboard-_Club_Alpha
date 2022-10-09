@@ -1,0 +1,253 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Configuracion - Restablecer{% endblock %}
+{% block Configuracion %}active{% endblock %}
+{% block Configuracion_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Calendario</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Administrar Horario</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="input-group">
+            <a class="btn btn-sm bg-gradient-primary w-100" href="javascript: history.go(-1)">Volver atrás</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- FIN NAVBAR -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+          {% for category, message in messages %}
+          <div class="col-md-auto">
+            <div class="{{category}}" role="alert">
+              <strong>Sistema: </strong> {{ message }}
+            </div>
+          </div>
+          {% endfor %}
+      {% endif %}
+  {% endwith %}
+
+  <!-- HORARIO -->
+  <div class="row justify-content-md-center">
+    <div class="col-md-11">
+      <div class="card card-frame">
+        <h3 align="center">Restablecer Clases - <small class="text-club">{{club}}</small></h3>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table id="myTable" style="width:100%">
+              <tr align="center">
+                <td><span class="badge bg-secondary">LUNES<br>{{lunes_day}}</span></td>
+                <td><span class="badge bg-secondary">MARTES<br>{{martes_day}}</span></td>
+                <td><span class="badge bg-secondary">MIERCOLES<br>{{miercoles_day}}</span></td>
+                <td><span class="badge bg-secondary">JUEVES<br>{{jueves_day}}</span></td>
+                <td><span class="badge bg-secondary">VIERNES<br>{{viernes_day}}</span></td>
+                <td><span class="badge bg-secondary">SABADO<br>{{sabado_day}}</span></td>
+                <td><span class="badge bg-secondary">DOMINGO<br>{{domingo_day}}</span></td>
+              </tr>
+              <tr align="center">
+                <td style="vertical-align:top">
+                  {% for dato in lunes_api %}
+                  <div class="px-1 py-1">
+                    <div class="card" style="width: 12rem;">
+                      <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                      <div class="row" align="left">
+                        <div class="col-sm-6">
+                          <label style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.nombre}}</label>
+                        </div>
+                        <div class="col-sm-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Aforo">
+                          <label style="color: #{{dato.color}}; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.lugar}}</label>
+                        </div>
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: gray;"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <form action="{{url_for('configuracion.configuracion_restablecer_sala')}}" method="post">
+                        <div class="row" align="center">
+                          <div class="col-md-12">
+                            <input type="text" name="sala_apartado" value="{{dato.id}}" hidden>
+                            <input type="text" name="dia_apartado" value="{{dato.dia}}" hidden>
+                            <button class="btn btn-sm btn-club">Restablecer</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </td>
+                <td style="vertical-align:top">
+                  {% for dato in martes_api %}
+                  <div class="px-1 py-1">
+                    <div class="card" style="width: 12rem;">
+                      <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                      <div class="row" align="left">
+                        <div class="col-sm-6">
+                          <label style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.nombre}}</label>
+                        </div>
+                        <div class="col-sm-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Aforo">
+                          <label style="color: #{{dato.color}}; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.lugar}}</label>
+                        </div>
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: gray;"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <form action="{{url_for('configuracion.configuracion_restablecer_sala')}}" method="post">
+                        <div class="row" align="center">
+                          <div class="col-md-12">
+                            <input type="text" name="sala_apartado" value="{{dato.id}}" hidden>
+                            <input type="text" name="dia_apartado" value="{{dato.dia}}" hidden>
+                            <button class="btn btn-sm btn-club">Restablecer</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </td>
+                <td style="vertical-align:top">
+                  {% for dato in miercoles_api %}
+                  <div class="px-1 py-1">
+                    <div class="card" style="width: 12rem;">
+                      <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                      <div class="row" align="left">
+                        <div class="col-sm-6">
+                          <label style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.nombre}}</label>
+                        </div>
+                        <div class="col-sm-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Aforo">
+                          <label style="color: #{{dato.color}}; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.lugar}}</label>
+                        </div>
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: gray;"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <form action="{{url_for('configuracion.configuracion_restablecer_sala')}}" method="post">
+                        <div class="row" align="center">
+                          <div class="col-md-12">
+                            <input type="text" name="sala_apartado" value="{{dato.id}}" hidden>
+                            <input type="text" name="dia_apartado" value="{{dato.dia}}" hidden>
+                            <button class="btn btn-sm btn-club">Restablecer</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </td>
+                <td style="vertical-align:top">
+                  {% for dato in jueves_api %}
+                  <div class="px-1 py-1">
+                    <div class="card" style="width: 12rem;">
+                      <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                      <div class="row" align="left">
+                        <div class="col-sm-6">
+                          <label style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.nombre}}</label>
+                        </div>
+                        <div class="col-sm-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Aforo">
+                          <label style="color: #{{dato.color}}; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.lugar}}</label>
+                        </div>
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: gray;"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <form action="{{url_for('configuracion.configuracion_restablecer_sala')}}" method="post">
+                        <div class="row" align="center">
+                          <div class="col-md-12">
+                            <input type="text" name="sala_apartado" value="{{dato.id}}" hidden>
+                            <input type="text" name="dia_apartado" value="{{dato.dia}}" hidden>
+                            <button class="btn btn-sm btn-club">Restablecer</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </td>
+                <td style="vertical-align:top">
+                  {% for dato in viernes_api %}
+                  <div class="px-1 py-1">
+                    <div class="card" style="width: 12rem;">
+                      <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                      <div class="row" align="left">
+                        <div class="col-sm-6">
+                          <label style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.nombre}}</label>
+                        </div>
+                        <div class="col-sm-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Aforo">
+                          <label style="color: #{{dato.color}}; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.lugar}}</label>
+                        </div>
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: gray;"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <form action="{{url_for('configuracion.configuracion_restablecer_sala')}}" method="post">
+                        <div class="row" align="center">
+                          <div class="col-md-12">
+                            <input type="text" name="sala_apartado" value="{{dato.id}}" hidden>
+                            <input type="text" name="dia_apartado" value="{{dato.dia}}" hidden>
+                            <button class="btn btn-sm btn-club">Restablecer</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </td>
+                <td style="vertical-align:top">
+                  {% for dato in sabado_api %}
+                  <div class="px-1 py-1">
+                    <div class="card" style="width: 12rem;">
+                      <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                      <div class="row" align="left">
+                        <div class="col-sm-6">
+                          <label style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.nombre}}</label>
+                        </div>
+                        <div class="col-sm-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Aforo">
+                          <label style="color: #{{dato.color}}; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.lugar}}</label>
+                        </div>
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: gray;"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <form action="{{url_for('configuracion.configuracion_restablecer_sala')}}" method="post">
+                        <div class="row" align="center">
+                          <div class="col-md-12">
+                            <input type="text" name="sala_apartado" value="{{dato.id}}" hidden>
+                            <input type="text" name="dia_apartado" value="{{dato.dia}}" hidden>
+                            <button class="btn btn-sm btn-club">Restablecer</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </td>
+                <td style="vertical-align:top">
+                  {% for dato in domingo_api %}
+                  <div class="px-1 py-1">
+                    <div class="card" style="width: 12rem;">
+                      <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                      <div class="row" align="left">
+                        <div class="col-sm-6">
+                          <label style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.nombre}}</label>
+                        </div>
+                        <div class="col-sm-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Aforo">
+                          <label style="color: #{{dato.color}}; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.lugar}}</label>
+                        </div>
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: gray;"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <form action="{{url_for('configuracion.configuracion_restablecer_sala')}}" method="post">
+                        <div class="row" align="center">
+                          <div class="col-md-12">
+                            <input type="text" name="sala_apartado" value="{{dato.id}}" hidden>
+                            <input type="text" name="dia_apartado" value="{{dato.dia}}" hidden>
+                            <button class="btn btn-sm btn-club">Restablecer</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+
+{% endblock %}

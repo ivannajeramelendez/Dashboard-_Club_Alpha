@@ -1,0 +1,152 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Cimera - Informes{% endblock %}
+{% block Apartados %}active{% endblock %}
+{% block Apartados_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Calendario</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Información de Sala - Aforo</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="input-group">
+            <button class="btn btn-sm btn-outline-club" data-bs-toggle="modal" data-bs-target="#edit{{ID_sala}}">Agendar usuario en esta Sala</button>
+            <a class="btn btn-sm btn-club" href="javascript: history.go(-1)">Volver atrás</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MENSAJE SIS -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="col-md-auto">
+        <div class="{{category}}" role="alert">
+          <strong>Sistema: </strong> {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- TITULOS -->
+  <figure>
+    <blockquote class="blockquote text-center">
+      <h4><label class="h4 font-weight-bolder text-club text-gradient">Actividad:</label> {{Nombre_sala}} <label class="h4 font-weight-bolder text-club text-gradient"> Horario:</label> {{Horario_sala}}</h4>
+      <h5 class="font-weight-bolder text-dark text-gradient"><label class="h5 font-weight-bolder text-club text-gradient">Día:</label> {{Dia_sala}}</h5>
+      <p class="ps-2">Usuarios que estan dentro de esta sala: </p>
+    </blockquote>
+  </figure>
+
+  <!-- TABLA DE HORARIO -->
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Correo</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Validado</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Imagen</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID Cliente</th>
+            <th class="text-center text-uppercase text-danger text-xxs font-weight-bolder opacity-7"><i class="fas fa-trash"></i></th>
+            <th class="text-center text-uppercase text-club text-xxs font-weight-bolder opacity-7"><i class="fas fa-check-double"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for resp in resp %}
+          <tr>
+            <td>
+              <div class="d-flex px-2 py-1">
+                <div class="d-flex flex-column justify-content-center">
+                  <h6 class="mb-0 text-xs">{{resp.nombre}}</h6>
+                </div>
+              </div>
+            </td>
+            <td>
+              <h6 class="mb-0 text-xs">{{resp.email}}</h6>
+            </td>
+            <td>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" {{resp.check}}>
+              </div>
+            </td>
+            <td class="align-middle text-center text-sm">
+              <img src="data:image/png;base64, {{resp.imagen}}" class="avatar avatar-sm me-3" alt="Red dot">
+            </td>
+            <td class="align-middle text-center">
+              <h6 class="mb-0 text-xs">{{resp.idCliente}}</h6>
+            </td> 
+            <td class="align-middle text-center">
+              <form action="{{url_for('aforo.aforo_inicio_cimera_informacion_sala')}}" method="post">
+                <h6 class="mb-0 text-xs">
+                  <input type="text" value="{{ID_sala}}" name="actividad" hidden>
+                  <input type="text" value="cancelar" name="validacion" hidden>
+                  <input type="text" value="{{Dia_sala}}" name="dia_apartado" hidden>
+                  <input type="text" value="{{Nombre_sala}}" name="nombre_apartado" hidden>
+                  <input type="text" value="{{Horario_sala}}" name="horario_apartado" hidden>
+                  <input type="text" name="id_cliente_apartado" value="{{resp.idCliente}}" hidden>
+                  <input type="text" name="clase_apartado" value="{{sala}}" hidden>
+                  <button class="btn btn-sm btn-outline-danger">Cancelar</button>
+                </h6>
+              </form>
+            </td>
+            <td class="align-middle text-center">
+              <form action="{{url_for('aforo.aforo_inicio_cimera_informacion_sala')}}" method="post">
+                <h6 class="mb-0 text-xs">
+                  <input type="text" value="{{ID_sala}}" name="actividad" hidden>
+                  <input type="text" value="validacion" name="validacion" hidden>
+                  <input type="text" value="{{Dia_sala}}" name="dia_apartado" hidden>
+                  <input type="text" value="{{Nombre_sala}}" name="nombre_apartado" hidden>
+                  <input type="text" value="{{Horario_sala}}" name="horario_apartado" hidden>
+                  <input type="text" name="id_cliente_apartado" value="{{resp.idCliente}}" hidden>
+                  <input type="text" name="clase_apartado" value="{{sala}}" hidden>
+                  <button class="btn btn-sm btn-outline-club">Validar</button>
+                </h6>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- MODAR AGENDAR CITAS LUNES -->
+  <div class="modal fade" id="edit{{ID_sala}}" tabindex="-1" role="dialog" aria-labelledby="{{ID_sala}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+              <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('aforo.aforo_inicio_cimera_informacion_sala')}}" method="post">
+                <input type="text" value="{{Nombre_sala}}" name="nombre_apartado" hidden>
+                <input type="text" value="{{Horario_sala}}" name="horario_apartado" hidden>
+                <input type="text" value="{{ID_sala}}" name="actividad" hidden>
+                <input type="text" value="apartado" name="envio_sala_apartado" hidden>
+                <input type="text" value="{{Dia_sala}}" name="dia_apartado" hidden>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="ID Cliente" name="id">
+                  <input type="text" name="clase_apartado" value="{{sala}}" hidden>
+                  <button class="btn btn-outline-club mb-0">Agendar Cita</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

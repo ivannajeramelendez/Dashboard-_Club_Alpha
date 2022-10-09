@@ -1,0 +1,336 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Parking - Corte de Ingresos{% endblock %}
+{% block Parking %}active{% endblock %}
+{% block Parking_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- MAS INFORMACION -->
+  <div class="collapse fade" id="corte_caja">
+    <!-- BOTONES INICIO -->
+    <div class="container-fluid mb-4">
+      <div class="page-header min-height-100 border-radius-xl mt-4">
+        <span class="mask bg-gradient-dark opacity-2"></span>
+      </div>
+      <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+        <div class="row gx-4">
+          <div class="col-auto my-auto">
+            <div class="h-100">
+              <h5 class="mb-1">
+                Hola, {{current_user.nombre}} 
+              </h5>
+              <p class="mb-0 font-weight-bold text-sm">
+                Excelente Dia!
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+            <div class="nav-wrapper position-relative end-0">
+              <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                <li class="nav-item">
+                  <button class="btn btn-sm bg-gradient-warning w-100" onclick="ExportToExcel('xlsx')">Exportar Excel</button>
+                  <!-- SCRIPT PARA EXPORTAR -->
+                  <script>
+                    function ExportToExcel(type, fn, dl) {
+                          var elt = document.getElementById('Datos_tabla');
+                          var wb = XLSX.utils.table_to_book(elt, { sheet: "Datos_2021-11-09" });
+                          return dl ?
+                              XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                              XLSX.writeFile(wb, fn || ('Datos_Completos.' + (type || 'xlsx')));
+                      }
+                  </script>
+                  <!-- EXPORT CSV -->
+                  <!-- <button class="btn btn-sm bg-gradient-primary w-100" id="download-button">Imprimir Corte</button>  -->
+                  <script>
+                    function htmlToCSV(html, filename) {
+                      var data = [];
+                      var rows = document.querySelectorAll("table tr");
+                      for (var i = 0; i < rows.length; i++) {
+                        var row = [], cols = rows[i].querySelectorAll("td, th");
+                        for (var j = 0; j < cols.length; j++) {
+                                row.push(cols[j].innerText);
+                            }
+                        data.push(row.join(",")); 		
+                      }
+                      downloadCSVFile(data.join("\n"), filename);
+                    }
+                    function downloadCSVFile(csv, filename) {
+                      var csv_file, download_link;
+                      csv_file = new Blob([csv], {type: "text/csv"});
+                      download_link = document.createElement("a");
+                      download_link.download = filename;
+                      download_link.href = window.URL.createObjectURL(csv_file);
+                      download_link.style.display = "none";
+                      document.body.appendChild(download_link);
+                      download_link.click();
+                    }
+                    document.getElementById("download-button").addEventListener("click", function () {
+                      var html = document.querySelector("table").outerHTML;
+                      htmlToCSV(html, "Datos_completo.csv");
+                    });
+                  </script>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- INFOMACION DE DATOS -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body p-3">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="numbers">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Importe Total</p>
+                        <h5 class="font-weight-bolder mb-0">
+                          {{ dato_3_eventos | sum(attribute='costo_total') }} MXN
+                        </h5>
+                      </div>
+                    </div>
+                    <div class="col-4 text-end">
+                      <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                        <i class="fas fa-dollar-sign text-lg opacity-10"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body p-3">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="numbers">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Turno</p>
+                        <h5 class="font-weight-bolder mb-0">
+                          {{turno}}
+                          <!-- {{ dato_3 | map(attribute='turno')|unique|list }} -->
+                        </h5>
+                      </div>
+                    </div>
+                    <div class="col-4 text-end">
+                      <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                        <i class="fas fa-exchange-alt text-lg opacity-10"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body p-3">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="numbers">
+                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Fecha de Corte</p>
+                        <h5 class="font-weight-bolder mb-0">
+                          {{fecha_inicio}} a {{fecha_fin}}
+                        </h5>
+                      </div>
+                    </div>
+                    <div class="col-4 text-end">
+                      <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                        <i class="fas fa-cut text-lg opacity-10"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <br>
+              <div class="card">
+                <div class="table-responsive">
+                  <table class="table align-items-center mb-0" id="Datos_tabla">
+                    <thead align="center">
+                      <tr>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Recibo</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Club</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Costo</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Entrada</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Turno</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Pagado</th>
+                      </tr>
+                    </thead>
+                    {% for dato in dato_3_eventos %}
+                    <tbody align="center">
+                      <tr>
+                        <td>
+                          <h6 class="mb-0 text-xs">{{dato.id_registro}}</h6>
+                        </td>
+                        {% if dato.club == 'A3' %}
+                        <td>
+                          <h6 class="mb-0 text-xs">Club Alpha 3</h6>
+                        </td>
+                        {% else %}
+                        <td>
+                        </td>
+                        {% endif %}
+                        <td>
+                          <h6 class="mb-0 text-xs">{{dato.costo_total}} MXN</h6>
+                        </td>
+                        <td>
+                          <h6 class="mb-0 text-xs">{{dato.hora_entrada}}</h6>
+                        </td>
+                        <td>
+                          <h6 class="mb-0 text-xs">{{dato.turno}}</h6>
+                        </td>
+                        {% if dato.costo_total == 15 %}
+                        <td>
+                          <span class="badge bg-gradient-success">Si Pagado</span>
+                        </td>
+                        {% else %}
+                        <td>
+                          <span class="badge bg-gradient-danger">Perdida de QR</span>
+                        </td>
+                        {% endif %}
+                      </tr>
+                    </tbody>
+                    {% endfor %}
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- CORTE INFORMACION -->
+  <div class="container-fluid" id="boundary">
+    <div class="row">
+      <div class="col-md-8 col-sm-10 mx-auto">
+        <div class="card my-sm-5">
+          <div class="card-header text-center">
+            <div class="row justify-content-between">
+              <div class="col-md-4 text-start">
+                <h6>
+                  Fundacion Club Alpha de Puebla
+                </h6>
+                <p class="d-block text-secondary">{{fecha_title}}</p>
+              </div>
+              <div class="col-lg-3 col-md-7 text-md-end text-start">
+                <h6 class="d-block mt-2 mb-0">Club Alpha 3</h6>
+                <p class="text-secondary">Corte de Caja - Caseta<br>{{turno}}</p>
+              </div>
+            </div>
+            <div class="row justify-content-md-between">
+              <div class="col-md-4 mt-auto">
+                <h6 class="mb-0 text-start text-secondary">
+                  ID Corte N°
+                </h6>
+                <h6 class="text-start mb-0">
+                  <a class="" data-bs-toggle="collapse" href="#corte_caja">
+                    #{{invoice}}
+                  </a>
+                </h6>
+              </div>
+              <div class="col-lg-5 col-md-7 mt-auto">
+                <div class="row mt-md-5 mt-4 text-md-end text-start">
+                  <div class="col-md-6">
+                    <h6 class="text-secondary mb-0">Corte Inicio:</h6>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="text-dark mb-0">{{fecha_inicio}}</h6>
+                  </div>
+                </div>
+                <div class="row text-md-end text-start">
+                  <div class="col-md-6">
+                    <h6 class="text-secondary mb-0">Corte Fin:</h6>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="text-dark mb-0">{{fecha_fin}}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="table-responsive">
+                  <table class="table text-right">
+                    <thead class="bg-default">
+                      <tr>
+                        <th class="pe-2 text-start ps-2">Tipo</th>
+                        <th class="pe-2">Cantidad</th>
+                        <th class="pe-2" colspan="2">Costo</th>
+                        <th class="pe-2">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-start">Caseta - Chip QR</td>
+                        <td class="ps-4">{{ dato_3_perdida | selectattr('id_registro') | list | length }}</td>
+                        <td class="ps-4" colspan="2">$ 15.00</td>
+                        <td class="ps-4">$ {{ dato_3_perdida | sum(attribute='costo_total') }}</td>
+                      </tr>
+                      <tr>
+                        <td class="text-start">Caseta - Pérdida de QR</td>
+                        <td class="ps-4">{{ dato_3 | selectattr('id_registro') | list | length }}</td>
+                        <td class="ps-4" colspan="2">$ 100.00</td>
+                        <td class="ps-4">$ {{ dato_3 | sum(attribute='costo_total') }}</td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th></th>
+                        <th></th>
+                        <th class="h5 ps-4" colspan="2">Total</th>
+                        <th class="text-right h5 ps-4">$ {% for dato in dato_3_suma %}{{dato.costo_total|int}}{% endfor %} MXN</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer mt-md-0 mt-0">
+            <div class="row">
+              <div class="col-lg-5 text-left">
+                <h5>Corte de Turno!</h5>
+                <p class="text-secondary text-sm">Cantidad total de registros en el sistema.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- BOTON DESCARGAR -->
+  <div class="input-group justify-content-center">
+    <button class="btn btn-lg btn-sm btn-primary" onclick="window.print()">Corte de Caja</button>
+  </div>
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>  
+  <script type="text/javascript">
+    document.getElementById("download").addEventListener("click", function() {
+      html2canvas(document.querySelector('#boundary')).then(function(canvas) {
+        console.log(canvas);
+        saveAs(canvas.toDataURL(), 'Corte.png');
+      });
+    });
+
+    function saveAs(uri, filename) {
+    var link = document.createElement('a');
+    if (typeof link.download === 'string') {
+        link.href = uri;
+        link.download = filename;
+        //Firefox requiere que el enlace esté en el cuerpo
+        document.body.appendChild(link);
+        //simular clic
+        link.click();
+        //eliminar el enlace cuando haya terminado
+        document.body.removeChild(link);
+    } else {
+        window.open(uri);
+    }
+    }
+  </script>
+{% endblock %}

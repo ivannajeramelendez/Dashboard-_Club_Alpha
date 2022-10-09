@@ -1,0 +1,795 @@
+{% extends "mainpages/page-layout.html" %} 
+{% block titulo %}Agenda - Consulta{% endblock %} 
+{% block Rutinas %}active{% endblock %} 
+{% block Rutinas_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Rutinas</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Agendar Citas - Vista Asesor</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="input-group mb-3">
+            <a class="btn btn-sm bg-gradient-alpha text-white" data-bs-toggle="modal" data-bs-target="#modal_crear_rutina">
+              CREAR RUTINA
+            </a>
+            <a class="btn btn-sm btn-club" data-bs-toggle="modal" data-bs-target="#modal_consultar_rutina">
+              CONSULTAR RUTINA
+            </a>
+            <a class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#modal_pesaje">
+              PESAJE
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- MENSAJE FLASH -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="col-md-auto">
+        <div class="{{category}}" role="alert">
+          <strong>Sistema: </strong> {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- TABLA DE HORARIOS -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card widget-calendar">
+          <div class="card-header p-3 pb-0">
+            {% if current_user.alpha_2 == 1 %}
+            <h6 class="text-club"><b><i>Club Alpha 2</i></b></h6>
+            {% elif current_user.alpha_3 == 1 %}
+            <h6 class="text-club"><b><i>Club Alpha 3</i></b></h6>
+            {% elif current_user.cimera == 1 %}
+            <h6 class="text-club"><b><i>Cimera</i></b></h6>
+            {% endif %}
+            <h6 class="mb-0">Agenda - Semana Vigente</h6>
+            <div class="d-flex">
+              <div class="p text-sm font-weight-bold mb-0 widget-calendar-day">{{fecha_title}}</div>
+            </div>
+            <hr class="horizontal dark mb-0">
+          </div>
+          <div class="card-body p-3">
+            <div class="table-responsive">
+              <table id="Datos_tabla" style="width:100%">
+                <tr align="center">
+                  <td><span class="badge bg-secondary">LUNES<br>{{lunes}}</span></td>
+                  <td><span class="badge bg-secondary">MARTES<br>{{martes}}</span></td>
+                  <td><span class="badge bg-secondary">MIERCOLES<br>{{miercoles}}</span></td>
+                  <td><span class="badge bg-secondary">JUEVES<br>{{jueves}}</span></td>
+                  <td><span class="badge bg-secondary">VIERNES<br>{{viernes}}</span></td>
+                  <td><span class="badge bg-secondary">SABADO<br>{{sabado}}</span></td>
+                </tr>
+                <tr align="center">
+                  <td style="vertical-align:top">
+                    {% for lun in lun_dash %}
+                    <a href="#{{lun.id}}" data-bs-toggle="modal" data-bs-target="#edit{{lun.id}}">
+                      <div class="px-1 py-1">
+                        <div class="card" style="width: 11rem;">
+                          {% if lun.cupo_actual == 1 %}
+                          <span style="background-color: #08A2F9; color:#08A2F9; font-size: 25%;">.</span>
+                          {% else %}
+                          <span style="background-color: #E3E0E4; color:#E3E0E4; font-size: 25%;">.</span>
+                          {% endif %}
+                          <div class="row" align="left">
+                            <div class="col-sm-6">
+                              {% if lun.cupo_actual == 1 %}
+                              <label style="color: #08A2F9; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{lun.club}}</label>
+                              {% else %}
+                              <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{lun.club}}</label>
+                              {% endif %}
+                            </div>
+                            <div class="col-sm-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Aforo">
+                              {% if lun.cupo_actual == 1 %}
+                              <label style="background-color: #ECECEA; border-radius: 35%; color: #08A2F9; padding-left: 5%; padding-right: 5%;">{{lun.cupo_actual}} / {{lun.cupo_maximo}}</label>
+                              {% else %}
+                              <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{lun.cupo_actual}} / {{lun.cupo_maximo}}</label>
+                              {% endif %}
+                            </div>
+                            {% if lun.cupo_actual == 1 %}
+                            <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: #08A2F9;"><b><i>{{lun.rango}}</i></b></h5></div>
+                            {% else %}
+                            <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: gray;"><b><i>{{lun.rango}}</i></b></h5></div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    {% endfor %}
+                  </td>
+                  <td style="vertical-align:top">
+                    {% for lun in mar_dash %}
+                    <a href="#{{lun.id}}" data-bs-toggle="modal" data-bs-target="#edit{{lun.id}}">
+                      <div class="px-1 py-1">
+                        <div class="card" style="width: 11rem;">
+                          {% if lun.cupo_actual == 1 %}
+                          <span style="background-color: #08A2F9; color:#08A2F9; font-size: 25%;">.</span>
+                          {% else %}
+                          <span style="background-color: #E3E0E4; color:#E3E0E4; font-size: 25%;">.</span>
+                          {% endif %}
+                          <div class="row" align="left">
+                            <div class="col-sm-6">
+                              {% if lun.cupo_actual == 1 %}
+                              <label style="color: #08A2F9; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{lun.club}}</label>
+                              {% else %}
+                              <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{lun.club}}</label>
+                              {% endif %}
+                            </div>
+                            <div class="col-sm-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Aforo">
+                              {% if lun.cupo_actual == 1 %}
+                              <label style="background-color: #ECECEA; border-radius: 35%; color: #08A2F9; padding-left: 5%; padding-right: 5%;">{{lun.cupo_actual}} / {{lun.cupo_maximo}}</label>
+                              {% else %}
+                              <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{lun.cupo_actual}} / {{lun.cupo_maximo}}</label>
+                              {% endif %}
+                            </div>
+                            {% if lun.cupo_actual == 1 %}
+                            <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: #08A2F9;"><b><i>{{lun.rango}}</i></b></h5></div>
+                            {% else %}
+                            <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: gray;"><b><i>{{lun.rango}}</i></b></h5></div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    {% endfor %}
+                  </td>
+                  <td style="vertical-align:top">
+                    {% for lun in mie_dash %}
+                    <a href="#{{lun.id}}" data-bs-toggle="modal" data-bs-target="#edit{{lun.id}}">
+                      <div class="px-1 py-1">
+                        <div class="card" style="width: 11rem;">
+                          {% if lun.cupo_actual == 1 %}
+                          <span style="background-color: #08A2F9; color:#08A2F9; font-size: 25%;">.</span>
+                          {% else %}
+                          <span style="background-color: #E3E0E4; color:#E3E0E4; font-size: 25%;">.</span>
+                          {% endif %}
+                          <div class="row" align="left">
+                            <div class="col-sm-6">
+                              {% if lun.cupo_actual == 1 %}
+                              <label style="color: #08A2F9; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{lun.club}}</label>
+                              {% else %}
+                              <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{lun.club}}</label>
+                              {% endif %}
+                            </div>
+                            <div class="col-sm-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Aforo">
+                              {% if lun.cupo_actual == 1 %}
+                              <label style="background-color: #ECECEA; border-radius: 35%; color: #08A2F9; padding-left: 5%; padding-right: 5%;">{{lun.cupo_actual}} / {{lun.cupo_maximo}}</label>
+                              {% else %}
+                              <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{lun.cupo_actual}} / {{lun.cupo_maximo}}</label>
+                              {% endif %}
+                            </div>
+                            {% if lun.cupo_actual == 1 %}
+                            <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: #08A2F9;"><b><i>{{lun.rango}}</i></b></h5></div>
+                            {% else %}
+                            <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: gray;"><b><i>{{lun.rango}}</i></b></h5></div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    {% endfor %}
+                  </td>
+                  <td style="vertical-align:top">
+                    {% for lun in jue_dash %}
+                    <a href="#{{lun.id}}" data-bs-toggle="modal" data-bs-target="#edit{{lun.id}}">
+                      <div class="px-1 py-1">
+                        <div class="card" style="width: 11rem;">
+                          {% if lun.cupo_actual == 1 %}
+                          <span style="background-color: #08A2F9; color:#08A2F9; font-size: 25%;">.</span>
+                          {% else %}
+                          <span style="background-color: #E3E0E4; color:#E3E0E4; font-size: 25%;">.</span>
+                          {% endif %}
+                          <div class="row" align="left">
+                            <div class="col-sm-6">
+                              {% if lun.cupo_actual == 1 %}
+                              <label style="color: #08A2F9; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{lun.club}}</label>
+                              {% else %}
+                              <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{lun.club}}</label>
+                              {% endif %}
+                            </div>
+                            <div class="col-sm-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Aforo">
+                              {% if lun.cupo_actual == 1 %}
+                              <label style="background-color: #ECECEA; border-radius: 35%; color: #08A2F9; padding-left: 5%; padding-right: 5%;">{{lun.cupo_actual}} / {{lun.cupo_maximo}}</label>
+                              {% else %}
+                              <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{lun.cupo_actual}} / {{lun.cupo_maximo}}</label>
+                              {% endif %}
+                            </div>
+                            {% if lun.cupo_actual == 1 %}
+                            <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: #08A2F9;"><b><i>{{lun.rango}}</i></b></h5></div>
+                            {% else %}
+                            <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: gray;"><b><i>{{lun.rango}}</i></b></h5></div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    {% endfor %}
+                  </td>
+                  <td style="vertical-align:top">
+                    {% for lun in vie_dash %}
+                    <a href="#{{lun.id}}" data-bs-toggle="modal" data-bs-target="#edit{{lun.id}}">
+                      <div class="px-1 py-1">
+                        <div class="card" style="width: 11rem;">
+                          {% if lun.cupo_actual == 1 %}
+                          <span style="background-color: #08A2F9; color:#08A2F9; font-size: 25%;">.</span>
+                          {% else %}
+                          <span style="background-color: #E3E0E4; color:#E3E0E4; font-size: 25%;">.</span>
+                          {% endif %}
+                          <div class="row" align="left">
+                            <div class="col-sm-6">
+                              {% if lun.cupo_actual == 1 %}
+                              <label style="color: #08A2F9; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{lun.club}}</label>
+                              {% else %}
+                              <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{lun.club}}</label>
+                              {% endif %}
+                            </div>
+                            <div class="col-sm-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Aforo">
+                              {% if lun.cupo_actual == 1 %}
+                              <label style="background-color: #ECECEA; border-radius: 35%; color: #08A2F9; padding-left: 5%; padding-right: 5%;">{{lun.cupo_actual}} / {{lun.cupo_maximo}}</label>
+                              {% else %}
+                              <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{lun.cupo_actual}} / {{lun.cupo_maximo}}</label>
+                              {% endif %}
+                            </div>
+                            {% if lun.cupo_actual == 1 %}
+                            <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: #08A2F9;"><b><i>{{lun.rango}}</i></b></h5></div>
+                            {% else %}
+                            <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: gray;"><b><i>{{lun.rango}}</i></b></h5></div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    {% endfor %}
+                  </td>
+                  <td style="vertical-align:top">
+                    {% for lun in sab_dash %}
+                    <a href="#{{lun.id}}" data-bs-toggle="modal" data-bs-target="#edit{{lun.id}}">
+                      <div class="px-1 py-1">
+                        <div class="card" style="width: 11rem;">
+                          {% if lun.cupo_actual == 1 %}
+                          <span style="background-color: #08A2F9; color:#08A2F9; font-size: 25%;">.</span>
+                          {% else %}
+                          <span style="background-color: #E3E0E4; color:#E3E0E4; font-size: 25%;">.</span>
+                          {% endif %}
+                          <div class="row" align="left">
+                            <div class="col-sm-6">
+                              {% if lun.cupo_actual == 1 %}
+                              <label style="color: #08A2F9; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{lun.club}}</label>
+                              {% else %}
+                              <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{lun.club}}</label>
+                              {% endif %}
+                            </div>
+                            <div class="col-sm-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Aforo">
+                              {% if lun.cupo_actual == 1 %}
+                              <label style="background-color: #ECECEA; border-radius: 35%; color: #08A2F9; padding-left: 5%; padding-right: 5%;">{{lun.cupo_actual}} / {{lun.cupo_maximo}}</label>
+                              {% else %}
+                              <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{lun.cupo_actual}} / {{lun.cupo_maximo}}</label>
+                              {% endif %}
+                            </div>
+                            {% if lun.cupo_actual == 1 %}
+                            <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: #08A2F9;"><b><i>{{lun.rango}}</i></b></h5></div>
+                            {% else %}
+                            <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 style="color: gray;"><b><i>{{lun.rango}}</i></b></h5></div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    {% endfor %}
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL CREAR RUTINA -->
+  <div class="modal fade" id="modal_crear_rutina" tabindex="-1" role="dialog" aria-labelledby="modal_crear_rutina" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+                <h3 class="font-weight-bolder text-club text-gradient">Crea una Rutina</h3>
+                <p class="mb-0">Ejercicios Especificos para cada usuario</p>
+            </div>
+            <div class="card-body pb-3">
+              <form method="post" action="{{url_for('rutinas.rutinas_creacion_rutinas')}}"> 
+                <div class="form-group mb-3">
+                  <label>ID del Cliente:</label>
+                  <input class="form-control" type="number" name="ID_Cliente" maxlength="5" placeholder="ID del Cliente" required>
+                  <input type="text" name="crear_rutina" value="crear_rutina" hidden>
+                </div>
+                <button class="btn btn-sm btn-club btn-lg w-100">Crear Rutina</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PESAJE -->
+  <div class="modal fade" id="modal_pesaje" tabindex="-1" role="dialog" aria-labelledby="modal_pesaje" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+              <h3 class="font-weight-bolder text-club text-gradient">Pesaje</h3>
+              <p class="mb-0">Consulta de Pesaje</p>
+            </div>
+            <div class="card-body pb-3">
+              <form method="post" action="{{url_for('rutinas.rutinas_pesaje')}}">
+                <div class="form-group mb-3">
+                  <label>ID del Cliente:</label>
+                  <input class="form-control" type="number" name="ID_Cliente" maxlength="5" placeholder="ID DEL CLIENTE" required>
+                  <input type="text" name="tipo" value="envio_cliente" hidden>
+                </div>
+                <button class="btn btn-sm btn-club btn-lg w-100">Consulta</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL ASIGNAR RUTINA -->
+  <div class="modal fade" id="modal_asignar_rutina" tabindex="-1" role="dialog" aria-labelledby="modal_asignar_rutina" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+                <h3 class="font-weight-bolder text-club text-gradient">Asigna una Rutina</h3>
+                <p class="mb-0">Ejercicios Establecidos para usuarios</p>
+            </div>
+            <div class="card-body pb-3">
+              <form method="post" action="#!"> 
+                <div class="form-group mb-3">
+                  <label>ID del Cliente:</label>
+                  <input class="form-control" type="number" name="ID_Cliente"  maxlength="5" placeholder="ID del Cliente" required>
+                </div>
+                <button class="btn btn-sm btn-club btn-lg w-100">Crear Rutina</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL CONSULTAR RUTINA -->
+  <div class="modal fade" id="modal_consultar_rutina" tabindex="-1" role="dialog" aria-labelledby="modal_consultar_rutina" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+                <h3 class="font-weight-bolder text-club text-gradient">Consultar una Rutina</h3>
+                <p class="mb-0">Consulta de Ejercicios Establecidos para usuarios</p>
+            </div>
+            <div class="card-body pb-3">
+              <form method="post" action="{{url_for('rutinas.rutinas_consulta_rutina')}}">
+                <div class="form-group mb-3">
+                  <label>ID del Cliente:</label>
+                  <input type="text" value="consultar" name="consultar" hidden>
+                  <input class="form-control" type="number" name="ID_Cliente"  maxlength="5" placeholder="ID del Cliente" required>
+                </div>
+                <button class="btn btn-sm btn-club btn-lg w-100">Consultar Rutina</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAR AGENDAR CITAS LUNES -->
+  {% for lun in lun_dash %}
+  <div class="modal fade" id="edit{{lun.id}}" tabindex="-1" role="dialog" aria-labelledby="{{lun.id}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{lun.club}} - <label class="h3 font-weight-bolder text-info text-gradient">{{lun.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              {% if lun.cupo_actual == 0 %}
+              <form action="{{url_for('rutinas.rutinas_agenda')}}" method="post">
+                <input type="text" value="{{lun.id}}" name="sala" hidden>
+                <input type="text" value="agendar" name="tipo" hidden>
+                <input type="text" value="{{lun.dia}}" name="asesor" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              {% endif %}
+              {% if lun.cupo_actual == 1 %}
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group" align="center">
+                    <label>ID CLIENTE:</label>
+                    <p>{{lun.idcliente}}</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group" align="center">
+                    <label>NOMBRE:</label>
+                    <p>{{lun.nombre_completo}}</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <form action="{{url_for('rutinas.rutinas_agenda')}}" method="post" class="p-3">
+                      <input type="text" value="{{lun.id}}" name="sala" hidden>
+                      <input type="text" value="cancelar" name="tipo" hidden>
+                      <input type="text" value="{{lun.idcliente}}" name="id" hidden>
+                      <button class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="right" title="Cancelar">Cancelar Cita</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- MODAR AGENDAR CITAS MARTES -->
+  {% for lun in mar_dash %}
+  <div class="modal fade" id="edit{{lun.id}}" tabindex="-1" role="dialog" aria-labelledby="{{lun.id}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{lun.club}} - <label class="h3 font-weight-bolder text-info text-gradient">{{lun.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              {% if lun.cupo_actual == 0 %}
+              <form action="{{url_for('rutinas.rutinas_agenda')}}" method="post">
+                <input type="text" value="{{lun.id}}" name="sala" hidden>
+                <input type="text" value="agendar" name="tipo" hidden>
+                <input type="text" value="{{lun.dia}}" name="asesor" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              {% endif %}
+              {% if lun.cupo_actual == 1 %}
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group" align="center">
+                    <label>ID CLIENTE:</label>
+                    <p>{{lun.idcliente}}</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group" align="center">
+                    <label>NOMBRE:</label>
+                    <p>{{lun.nombre_completo}}</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <form action="{{url_for('rutinas.rutinas_agenda')}}" method="post" class="p-3">
+                      <input type="text" value="{{lun.id}}" name="sala" hidden>
+                      <input type="text" value="cancelar" name="tipo" hidden>
+                      <input type="text" value="{{lun.idcliente}}" name="id" hidden>
+                      <button class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="right" title="Cancelar">Cancelar Cita</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- MODAR AGENDAR CITAS MIERCOLES -->
+  {% for lun in mie_dash %}
+  <div class="modal fade" id="edit{{lun.id}}" tabindex="-1" role="dialog" aria-labelledby="{{lun.id}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{lun.club}} - <label class="h3 font-weight-bolder text-info text-gradient">{{lun.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              {% if lun.cupo_actual == 0 %}
+              <form action="{{url_for('rutinas.rutinas_agenda')}}" method="post">
+                <input type="text" value="{{lun.id}}" name="sala" hidden>
+                <input type="text" value="agendar" name="tipo" hidden>
+                <input type="text" value="{{lun.dia}}" name="asesor" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              {% endif %}
+              {% if lun.cupo_actual == 1 %}
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group" align="center">
+                    <label>ID CLIENTE:</label>
+                    <p>{{lun.idcliente}}</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group" align="center">
+                    <label>NOMBRE:</label>
+                    <p>{{lun.nombre_completo}}</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <form action="{{url_for('rutinas.rutinas_agenda')}}" method="post" class="p-3">
+                      <input type="text" value="{{lun.id}}" name="sala" hidden>
+                      <input type="text" value="cancelar" name="tipo" hidden>
+                      <input type="text" value="{{lun.idcliente}}" name="id" hidden>
+                      <button class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="right" title="Cancelar">Cancelar Cita</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- MODAR AGENDAR CITAS JUEVES -->
+  {% for lun in jue_dash %}
+  <div class="modal fade" id="edit{{lun.id}}" tabindex="-1" role="dialog" aria-labelledby="{{lun.id}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{lun.club}} - <label class="h3 font-weight-bolder text-info text-gradient">{{lun.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              {% if lun.cupo_actual == 0 %}
+              <form action="{{url_for('rutinas.rutinas_agenda')}}" method="post">
+                <input type="text" value="{{lun.id}}" name="sala" hidden>
+                <input type="text" value="agendar" name="tipo" hidden>
+                <input type="text" value="{{lun.dia}}" name="asesor" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              {% endif %}
+              {% if lun.cupo_actual == 1 %}
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group" align="center">
+                    <label>ID CLIENTE:</label>
+                    <p>{{lun.idcliente}}</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group" align="center">
+                    <label>NOMBRE:</label>
+                    <p>{{lun.nombre_completo}}</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <form action="{{url_for('rutinas.rutinas_agenda')}}" method="post" class="p-3">
+                      <input type="text" value="{{lun.id}}" name="sala" hidden>
+                      <input type="text" value="cancelar" name="tipo" hidden>
+                      <input type="text" value="{{lun.idcliente}}" name="id" hidden>
+                      <button class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="right" title="Cancelar">Cancelar Cita</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- MODAR AGENDAR CITAS VIERNES -->
+  {% for lun in vie_dash %}
+  <div class="modal fade" id="edit{{lun.id}}" tabindex="-1" role="dialog" aria-labelledby="{{lun.id}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{lun.club}} - <label class="h3 font-weight-bolder text-info text-gradient">{{lun.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              {% if lun.cupo_actual == 0 %}
+              <form action="{{url_for('rutinas.rutinas_agenda')}}" method="post">
+                <input type="text" value="{{lun.id}}" name="sala" hidden>
+                <input type="text" value="agendar" name="tipo" hidden>
+                <input type="text" value="{{lun.dia}}" name="asesor" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              {% endif %}
+              {% if lun.cupo_actual == 1 %}
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group" align="center">
+                    <label>ID CLIENTE:</label>
+                    <p>{{lun.idcliente}}</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group" align="center">
+                    <label>NOMBRE:</label>
+                    <p>{{lun.nombre_completo}}</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <form action="{{url_for('rutinas.rutinas_agenda')}}" method="post" class="p-3">
+                      <input type="text" value="{{lun.id}}" name="sala" hidden>
+                      <input type="text" value="cancelar" name="tipo" hidden>
+                      <input type="text" value="{{lun.idcliente}}" name="id" hidden>
+                      <button class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="right" title="Cancelar">Cancelar Cita</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- MODAR AGENDAR CITAS SABADO -->
+  {% for lun in sab_dash %}
+  <div class="modal fade" id="edit{{lun.id}}" tabindex="-1" role="dialog" aria-labelledby="{{lun.id}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{lun.club}} - <label class="h3 font-weight-bolder text-info text-gradient">{{lun.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              {% if lun.cupo_actual == 0 %}
+              <form action="{{url_for('rutinas.rutinas_agenda')}}" method="post">
+                <input type="text" value="{{lun.id}}" name="sala" hidden>
+                <input type="text" value="agendar" name="tipo" hidden>
+                <input type="text" value="{{lun.dia}}" name="asesor" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              {% endif %}
+              {% if lun.cupo_actual == 1 %}
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group" align="center">
+                    <label>ID CLIENTE:</label>
+                    <p>{{lun.idcliente}}</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group" align="center">
+                    <label>NOMBRE:</label>
+                    <p>{{lun.nombre_completo}}</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <form action="{{url_for('rutinas.rutinas_agenda')}}" method="post" class="p-3">
+                      <input type="text" value="{{lun.id}}" name="sala" hidden>
+                      <input type="text" value="cancelar" name="tipo" hidden>
+                      <input type="text" value="{{lun.idcliente}}" name="id" hidden>
+                      <button class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-placement="right" title="Cancelar">Cancelar Cita</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+{% endblock %}

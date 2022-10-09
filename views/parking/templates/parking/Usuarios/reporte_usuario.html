@@ -1,0 +1,212 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Parking - Reporte Usuario{% endblock %}
+{% block Parking %}active{% endblock %}
+{% block Parking_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Parking</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Reporte Parking Usuario</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid" hidden>
+    <div class="page-header min-height-100 border-radius-xl mt-4">
+      <span class="mask bg-gradient-dark opacity-2"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="row gx-4">
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              Hola, {{current_user.nombre}} 
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              Excelente Dia!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active " data-bs-toggle="tab" href="#!">
+                  <span class="ms-1">Reporte de Usuario</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMULARIO -->
+  <form action="{{url_for('parking.parking_reporte_usuario')}}" method="POST">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12 col-xl-12">
+          <div class="card h-100">
+            <div class="card-header pb-0 p-3">
+              <h6 class="font-weight-bolder text-club text-gradient mb-0">Reporte de Usuario</h6>
+            </div>
+            <div class="card-body p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 px-0">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="input-group mb-3">
+                        <input class="form-control" name="id" placeholder="Buscar reporte por ID de Cliente" type="number" required>
+                        <button class="btn btn-outline-club mb-0" id="form-submit">Consultar</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <!-- INFORMACION DE INCIDENCIAS -->
+  {% if request.method == 'POST' %}
+  <!-- BOTON DE HISTORICO -->
+  <div class="input-group d-flex justify-content-center" id="accordion">
+    <a class="btn btn-sm btn-club" data-bs-toggle="collapse" href="#accesos">
+      Historico de Accesos
+    </a>
+  </div>
+  {% endif %}
+  {% if request.method == 'POST' %}
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header pb-0">
+            <h6 class="text-club">Historico de Incidencias</h6>
+          </div>
+          <div class="card-body p-3">
+            <div class="timeline timeline-one-side" data-timeline-axis-style="dotted">
+              {% for dato in dato_inc %}
+              <div class="timeline-block mb-3">
+                <span class="timeline-step">
+                  {% if dato.incidencia == 'Primera Incidencia' %}
+                    <i class="ni ni-bell-55 text-info text-gradient"></i>
+                  {% elif dato.incidencia == 'Segunda Incidencia' %}
+                    <i class="ni ni-bell-55 text-warning text-gradient"></i>
+                  {% elif dato.incidencia == 'Tercera Incidencia' %}
+                    <i class="ni ni-bell-55 text-warning text-gradient"></i>
+                  {% elif dato.incidencia == 'Cuarta Incidencia' %}
+                    <i class="ni ni-bell-55 text-danger text-gradient"></i>
+                  {% endif %}
+                </span>
+                <div class="timeline-content">
+                  <h6 class="text-dark text-sm font-weight-bold mb-0">{{dato.incidencia}}</h6>
+                  <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">Entrada: {{dato.horaEntrada}} - Salida: {{dato.horaSalida}}</p>
+                  <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">ID Cliente: {{dato.idCliente}} - Membresia: {{dato.membresia}}</p>
+                  <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">ID Chip: {{dato.idChip}}</p>
+                  <p class="text-sm mt-3 mb-1">{{dato.texto}}</p>
+                  <span class="badge badge-sm bg-gradient-success">Proceso Completado</span>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card collapse show fade" id="accesos">
+          <div class="row">
+            <div class="col-lg-12" align="right">
+              <button class="btn btn-sm bg-gradient-warning" onclick="exportData()">Exportar</button>
+              <script>
+                function exportData(){
+                  /* Get the HTML data using Element by Id */
+                  var table = document.getElementById("Datos_tabla");
+                  /* Declaring array variable */
+                  var rows =[];
+                    //iterate through rows of table
+                  for(var i=0,row; row = table.rows[i];i++){
+                      //rows would be accessed using the "row" variable assigned in the for loop
+                      //Get each cell value/column from the row
+                      column1 = row.cells[0].innerText;
+                      column2 = row.cells[1].innerText;
+                      column3 = row.cells[2].innerText;
+                      column4 = row.cells[3].innerText;
+                      /* add a new records in the array */
+                      rows.push(
+                          [
+                              column1,
+                              column2,
+                              column3,
+                              column4,
+                          ]
+                      );
+                      }
+                      csvContent = "data:text/csv;charset=utf-8,";
+                      /* add the column delimiter as comma(,) and each row splitted by new line character (\n) */
+                      rows.forEach(function(rowArray){
+                          row = rowArray.join(",");
+                          csvContent += row + "\r\n";
+                      });
+                      /* create a hidden <a> DOM node and set its download attribute */
+                      var encodedUri = encodeURI(csvContent);
+                      var link = document.createElement("a");
+                      link.setAttribute("href", encodedUri);
+                      link.setAttribute("download", "Reporte_Usuario.csv");
+                      document.body.appendChild(link);
+                      /* download the data file named "Stock_Price_Report.csv" */
+                      link.click();
+              }
+              </script>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center mb-0" id="Datos_tabla">
+              <thead align="center">
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Hora de Evento</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tipo de Evento</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ID Chip Tag</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tipo de Acceso</th>
+                </tr>
+              </thead>
+              <tbody align="center">
+                {% for dato in dato_acc %}
+                <tr align="center">
+                  <td>
+                    <h6 class="mb-0 text-xs text-left">{{dato.horaEvento}}</h6>
+                  </td>
+                  <td>
+                    <h6 class="mb-0 text-xs">{{dato.sentido}}</h6>
+                  </td>
+                  <td>
+                    <h6 class="mb-0 text-xs">{{dato.idChip}}</h6>
+                  </td>
+                  <td>
+                    <h6 class="mb-0 text-xs">{{dato.tipoAcceso}}</h6>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  
+{% endblock %}

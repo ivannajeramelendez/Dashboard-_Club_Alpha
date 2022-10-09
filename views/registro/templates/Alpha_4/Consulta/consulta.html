@@ -1,0 +1,241 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Registro - Consulta{% endblock %}
+{% block Registro %}active{% endblock %}
+{% block Registro_boton %}white{% endblock %} 
+{% block contenido %}
+  <div class="container-fluid">
+    <div class="page-header min-height-100 border-radius-xl mt-4">
+      <span class="mask bg-gradient-dark opacity-2"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="row gx-4">
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              Hola, {{current_user.nombre}} 
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              Excelente Dia!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+              <li class="nav-item">
+                <!-- <button class="btn btn-sm bg-gradient-warning w-100" onclick="tableToExcel('xlsx')">Exportar</button> -->
+                <div class="input-group d-flex justify-content-center" id="accordion">
+                  <button class="btn btn-sm bg-warning text-white w-50" onclick="tableToExcel('xlsx')">Exportar</button>
+                  <button class="btn btn-sm bg-success text-white w-50" data-bs-toggle="modal" data-bs-target="#incidencias">
+                    Registrar Usuario
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+          {% for category, message in messages %}
+          <div class="col-md-auto">
+            <div class="{{category}}" role="alert">
+              <strong>Sistema: </strong> {{ message }}
+            </div>
+          </div>
+          {% endfor %}
+      {% endif %}
+  {% endwith %}
+  <!-- BUSQUEDA POR NOMBRE -->
+  <div class="container">
+    <div class="card card-body blur shadow-blur overflow-hidden">
+      <input type="text" class="form-control" placeholder="Buscar por Nombre de usuario" id="myInput" onkeyup="myFunction()">
+      <script>
+        function myFunction() {
+          // Declare variables
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("Datos_tabla");
+          tr = table.getElementsByTagName("tr");
+        
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+          }
+        }
+      </script>
+    </div>
+  </div>
+  <!-- VISTA DE LA CONSULTA -->
+  <div class="container-fluid py-4">
+    <div class="card">
+      <div class="table-responsive">
+        <table class="table align-items-center mb-0" id="Datos_tabla">
+          <thead align="center">
+            <tr>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nombre del Titular</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Club</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Sexo</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Telefono</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tipo</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Registro</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Titular</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ver</th>
+            </tr>
+          </thead>
+          <tbody align="center">
+            <!-- ALPHA 2 -->
+            {% for dato in dato %}
+              <tr align="center">
+                <td>
+                  <h6 class="mb-0 text-xs">{{dato.nombreCompleto}}</h6>
+                </td>
+                <td>
+                  <h6 class="mb-0 text-xs">{{dato.club}}</h6>
+                </td>
+                <td>
+                  <h6 class="mb-0 text-xs">{{dato.sexo}}</h6>
+                </td>
+                <td>
+                  <h6 class="mb-0 text-xs">{{dato.telefono}}</h6>
+                </td>
+                <td>
+                  <h6 class="mb-0 text-xs">{{dato.correoElectronico}}</h6>
+                </td>
+                <td>
+                  <h6 class="mb-0 text-xs">{{dato.tipo}}</h6>
+                </td>
+                <td>
+                  <h6 class="mb-0 text-xs">{{dato.fechaRegistro}}</h6>
+                </td>
+                {% if dato.titular == True %}
+                <td>
+                  <h6 class="mb-0 text-xs">Si</h6>
+                </td>
+                {% endif %}
+                <td>
+                  <a href="{{url_for('registro.registro_consulta_usuario',id=dato.id)}}" class="badge btn-club">Ver</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- SCRIPT PARA EXPORTAR -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+  <script>
+    function tableToExcel() {
+    $("#Datos_tabla").table2excel({
+      name: "Vacaciones",
+      filename: "Datos_Completos.xls"
+    });
+  }
+  </script>
+  <!-- <script>
+    function ExportToExcel(type, fn, dl) {
+          var elt = document.getElementById('Datos_tabla');
+          var wb = XLSX.utils.table_to_book(elt, { sheet: "Datos" });
+          return dl ?
+              XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+              XLSX.writeFile(wb, fn || ('Datos_Completos.' + (type || 'xlsx')));
+      }
+  </script> -->
+  <!-- MODAL REGISTRO DE USUARIO -->
+  <div class="modal fade" id="incidencias" tabindex="-1" role="dialog" aria-labelledby="exampleModalSignTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+                <h3 class="font-weight-bolder text-club text-gradient">Ingresa los datos del Usuario</h3>
+                <p class="mb-0">Registro de Usuarios Parking</p>
+            </div>
+            <div class="card-body pb-3">
+              <div class="d-flex justify-content-center">
+                <form method="post">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input class="form-control datepicker" type="text" name="Nombre" placeholder="Nombre Completo" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Club</label>
+                        <select name="Club" class="form-control" readonly>
+                          <option value="Sports Plaza" selected>Sports Plaza</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Sexo</label>
+                        <select name="Sexo" class="form-control" required>
+                          <option value="" selected>Selecciona</option>
+                          <option value="Masculino">Masculino</option>
+                          <option value="Femenino">Femenino</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Telefono</label>
+                        <input class="form-control datepicker" type="number" name="Telefono" placeholder="222-222-2222" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Correo</label>
+                        <input class="form-control datepicker" type="email" name="Correo" placeholder="ejemplo@ejemplo.com" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Tipo</label>
+                        <select name="Tipo" class="form-control" readonly>
+                          <option value="Parking" selected>Parking</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Registro</label>
+                        <input class="form-control datepicker" type="date" name="Registro" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Titular</label>
+                        <select name="Titular" class="form-control" readonly>
+                          <option value="Si" selected>Si</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-sm btn-club btn-lg w-100">Registrar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

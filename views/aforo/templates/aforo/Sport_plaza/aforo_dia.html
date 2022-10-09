@@ -1,0 +1,762 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Sports Plaza - Aforo{% endblock %}
+{% block Apartados %}active{% endblock %}
+{% block Apartados_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Horario</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Agendar Citas - Aforo Completo</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <!-- CITAS -->
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ver Historico de Citas por usuario">
+          <a class="btn btn-sm btn-outline-dark" data-bs-toggle="modal" data-bs-target="#citas_usuario">
+            Citas por Usuario
+          </a>
+        </div>
+        <!-- SALAS MISMO DIA -->
+        <form method="post" action="{{url_for('aforo.aforo_inicio_sport_plaza_dia_sala')}}"> 
+          <input class="form-control" type="text" name="dia_salas" value="dia" hidden>
+          <input class="form-control" type="date" name="Fecha_Inicio" value="{{dia}}" hidden>
+          <button class="btn btn-sm bg-gradient-primary text-white">Salas</button>
+        </form>
+        <!-- CANCHAS MISMO DIA -->
+        <form method="post" action="{{url_for('aforo.aforo_inicio_sport_plaza_dia_sala')}}"> 
+          <input class="form-control" type="text" name="dia_salas" value="dia_canchas" hidden>
+          <input class="form-control" type="date" name="Fecha_Inicio" value="{{dia}}" hidden>
+          <button class="btn btn-sm bg-gradient-success text-white">Canchas</button>
+        </form>
+        <div class="collapse show">
+          <button class="btn btn-sm bg-gradient-alpha text-white" data-bs-toggle="modal" data-bs-target="#modal_dia">
+            BUSCAR OTRO DÍA
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- MENSAJES SIS -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="col-md-auto">
+        <div class="{{category}}" role="alert">
+          <strong>Sistema: </strong> {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- FECHA -->
+  <div align="center">
+    <h4 class="card-title text-club text-gradient" style="padding-bottom: 1%;"><b><i>La fecha Actual es {{fecha_title}}</i></b></h4>
+  </div>
+
+  <!-- CAJA BOTONES -->
+  <div class="card bg-gradient-default mb-2" hidden>
+    <div class="card-body" align="center">
+      <h5 class="card-title text-club text-gradient"> La fecha Actual es {{fecha_title}}</h5>
+    </div>
+    <div align="center" >
+      <button class="btn btn-sm bg-gradient-alpha text-white" data-bs-toggle="modal" data-bs-target="#modal_dia">
+        BUSQUEDA POR DÍA
+      </button>
+      <a class="btn btn-sm bg-primary text-white" href="{{url_for('aforo.aforo_inicio_sport_plaza')}}">
+        BUSQUEDA POR SEMANA
+      </a>
+    </div>
+  </div>
+
+  <!-- TABLA DE HORARIOS -->
+  <div class="table-responsive">
+    <table style="width:100%">
+      <thead>
+        <tr align="center">
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md py-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <i class="fas fa-clock"></i>
+            </div>
+          </td>
+          <td colspan="100%">
+            <div class="border-dashed border-1 border-secondary border-radius-md py-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario Seleccionado">
+              <b><i>Aforo del Día - {{dia}}</i></b>
+            </div>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">06:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '06:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">07:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '07:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">08:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '08:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">09:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '09:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">10:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '10:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">11:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '11:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">12:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '12:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">13:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '13:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">14:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '14:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">15:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '15:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">16:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '16:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">17:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '17:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">18:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '18:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">19:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '19:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">20:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '20:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        <tr>
+          <td>
+            <div class="border-dashed border-1 border-secondary border-radius-md" data-bs-toggle="tooltip" data-bs-placement="top" title="Horario">
+              <h5 class="text-club text-uppercase text-mb font-weight-bold">21:00</h5>
+            </div>
+          </td>
+          {% for dato in aforo  %}
+            {% if dato.hora == '21:00' %}
+            <td>
+              <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+                <div class="px-1 py-1">
+                  <div class="card" style="width: 11rem;">
+                    <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                    <div class="row">
+                      <div class="col-sm-6" align="center">
+                        <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                      </div>
+                      <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                        <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                      </div>
+                      <div class="col-sm-12" align="center">
+                        <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                      </div>
+                      <div class="col-sm-12" align="left">
+                        <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                        <label style="color: silver; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BUSQUEDA MODAL -->
+  <div class="modal fade" id="citas_usuario" tabindex="-1" role="dialog" aria-labelledby="citas_usuario" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Busqueda de Citas por Usuario</h3>
+                </div>
+              </div>
+              <div class="col-md-3">
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('aforo.aforo_inicio_citas_por_usuario')}}" method="post">
+                <div class="row">
+                  <div class="input-group mb-3">
+                    <input type="number" class="form-control" placeholder="ID Cliente" name="id">
+                    <button class="btn btn-outline-club mb-0">Buscar Citas</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DIA -->
+  <div class="modal fade" id="modal_dia" tabindex="-1" role="dialog" aria-labelledby="modal_dia" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+                <h3 class="font-weight-bolder text-club text-gradient">Selecciona el día</h3>
+                <p class="mb-0">Visualiza los horarios por día</p>
+            </div>
+            <div class="card-body pb-3">
+              <form method="post" action="{{url_for('aforo.aforo_inicio_sport_plaza_dia_sala')}}"> 
+                <div class="form-group">
+                  <label>Fecha: </label>
+                  <input class="form-control datepicker" type="text" name="dia_salas" value="dia" hidden>
+                  <input class="form-control datepicker" type="date" name="Fecha_Inicio" required>
+                </div>
+                <button class="btn btn-sm btn-club btn-lg w-100">Consultar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAR AGENDAR CITAS -->
+  {% for dato in aforo %}
+  <div class="modal fade" id="edit{{dato.id_apartados}}" tabindex="-1" role="dialog" aria-labelledby="{{dato.id_apartados}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{dato.nombre}} - <label class="h3 font-weight-bolder text-info text-gradient">{{dato.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza_dia_sala')}}" method="post">
+                <input type="text" value="{{dato.id}}" name="actividad" hidden>
+                <input type="text" value="dia_apartado" name="apartado_dia" hidden>
+                <input type="text" value="{{dato.dia}}" name="dia_apartado" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID del Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario en esta Sala">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza_informacion_sala')}}" method="post">
+                <input type="text" name="ver_apartado" value="vista" hidden>
+                <input type="text" name="dia_apartado" value="{{dia}}" hidden>
+                <input type="text" name="id_apartado" value="{{dato.id}}" hidden>
+                <input type="text" name="nombre_apartado" value="{{dato.nombre}}" hidden>
+                <input type="text" name="horario_apartado" value="{{dato.rango}}" hidden>
+                <input type="text" name="sala_apartado" value="{{dato.id_apartados}}" hidden>
+                <button class="btn btn-sm btn-secondary" align="right" data-bs-toggle="tooltip" data-bs-placement="right" title="Ver Usuarios en esta Sala">Ver Sala</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+{% endblock %}

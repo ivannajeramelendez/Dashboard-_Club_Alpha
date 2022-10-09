@@ -1,0 +1,2224 @@
+{% extends "mainpages/page-layout.html" %} 
+{% block titulo %}Rutinas - Configuración{% endblock %} 
+{% block Rutinas %}active{% endblock %} 
+{% block Rutinas_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl mb-2" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Rutinas</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Rutinas - Configuración</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <a class="btn btn-sm text-white btn-club w-100" href="javascript: history.go(-1)">Volver atrás</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- INICIO EJERCICIOS -->
+  <div class="card bg-gradient-default mb-3">
+    <form method="post" action="{{url_for('rutinas.rutinas_creacion_rutinas')}}">
+      <div class="card card-body blur shadow-blur mx-7 mt-n3 overflow-hidden mb-3">
+        <div class="row">
+          <div class="col-sm-8" align="center"><h5 class="h5 card-title text-club text-gradient">CONFIGURACIÓN DE RUTINA - EJERCICIOS</h5></div>
+          <div class="col-sm-4" align="right">
+            {% if cliente.estatusCobranza == 'Activo - Al Corriente' %}
+              <button class="btn btn-sm btn-club bg-gradient-club">Continuar Rutina</button>
+            {% else %}
+              <a class="btn btn-sm bg-gradient-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="El usuario debe pagar el adeudo para continuar">Usuario con adeudo</a>
+            {% endif %}
+          </div>
+        </div>
+        <div class="row gx-4">
+          <div class="col-auto">
+            <div class="avatar avatar-xl position-relative">
+              <img src="data:image/png;base64,{{cliente.imagen}}" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+            </div>
+          </div>
+          <div class="col-auto my-auto">
+            <div class="h-100">
+              <h5 class="mb-1"> {{cliente.nombre}}</h5>
+              <p class="mb-0 font-weight-bold text-sm">{{cliente.idCliente}} / {{cliente.estatusCobranza}}</p>
+              <input type="text" name="ID_Cliente" value="{{cliente.idCliente}}" hidden>
+              <input type="text" name="enviar_rutina" value="enviar_rutina" hidden>
+            </div>
+          </div>
+          <div class="card-body pb-3">
+            <div class="row">
+              <div class="col-sm-6">
+                <label>Nombre de la Rutina: </label>
+                <input class="form-control form-control-sm" type="text" name="nombre_rutina" placeholder="Nombre de la Rutina" required>
+              </div>
+              <div class="col-sm-6">
+                <label>Objetivo: </label>
+                <input class="form-control form-control-sm" type="text" name="objetivo_rutina" placeholder="Nombre del Objetivo" required>
+              </div>
+              <div class="col-sm-12">
+                <label>Semanas: </label>
+                <select class="form-control form-control-sm" name="dia_inicio" required>
+                  <option value="">Selecciona las Semanas</option>
+                  <option value="1">1 Semana</option>
+                  <option value="2">2 Semana</option>
+                  <option value="3">3 Semana</option>
+                  <option value="4">4 Semana</option>
+                  <option value="5">5 Semana</option>
+                  <option value="6">6 Semana</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body pb-3">
+        <div class="row">
+          <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#PECTORAL" type="button">Pectoral</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#ESPALDA" type="button">Espalda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#HOMBRO" type="button">Hombro</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#TRICEPS" type="button">Tríceps</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#BICEPS" type="button">Bíceps</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#TRAPECIO" type="button">Trapecio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#ANTEBRAZO" type="button">Antebrazo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#CUADRICEPS" type="button">Cuádriceps</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#ISQUIOTIBIALES" type="button">Isquiotibiales</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="PECTORAL">
+                <div class="table-responsive">
+                  <table style="width:100%">
+                    <thead>
+                      <tr align="center">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 1</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 2</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 3</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 4</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 5</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 6</th>
+                      </tr>
+                    </thead>
+                    <tboy>
+                      {% for dato in ejercicios %}
+                        <tr>
+                        {% if dato.grupo_muscular == 'PECTORAL' %}
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},1">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},2">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},3">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},4">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},5">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},6">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        {% endif %}
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade show" id="ESPALDA">
+                <div class="table-responsive">
+                  <table style="width:100%">
+                    <thead>
+                      <tr align="center">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 1</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 2</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 3</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 4</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 5</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 6</th>
+                      </tr>
+                    </thead>
+                    <tboy>
+                      {% for dato in ejercicios %}
+                        <tr>
+                        {% if dato.grupo_muscular == 'ESPALDA' %}
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},1">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},2">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},3">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},4">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},5">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},6">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        {% endif %}
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade show" id="HOMBRO">
+                <div class="table-responsive">
+                  <table style="width:100%">
+                    <thead>
+                      <tr align="center">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 1</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 2</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 3</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 4</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 5</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 6</th>
+                      </tr>
+                    </thead>
+                    <tboy>
+                      {% for dato in ejercicios %}
+                        <tr>
+                        {% if dato.grupo_muscular == 'HOMBRO' %}
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},1">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},2">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},3">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},4">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},5">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},6">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        {% endif %}
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade show" id="TRICEPS">
+                <div class="table-responsive">
+                  <table style="width:100%">
+                    <thead>
+                      <tr align="center">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 1</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 2</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 3</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 4</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 5</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 6</th>
+                      </tr>
+                    </thead>
+                    <tboy>
+                      {% for dato in ejercicios %}
+                        <tr>
+                        {% if dato.grupo_muscular == 'TRICEPS' %}
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},1">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},2">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},3">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},4">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},5">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},6">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        {% endif %}
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade show" id="BICEPS">
+                <div class="table-responsive">
+                  <table style="width:100%">
+                    <thead>
+                      <tr align="center">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 1</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 2</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 3</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 4</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 5</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 6</th>
+                      </tr>
+                    </thead>
+                    <tboy>
+                      {% for dato in ejercicios %}
+                        <tr>
+                        {% if dato.grupo_muscular == 'BICEPS' %}
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},1">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},2">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},3">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},4">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},5">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},6">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        {% endif %}
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade show" id="TRAPECIO">
+                <div class="table-responsive">
+                  <table style="width:100%">
+                    <thead>
+                      <tr align="center">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 1</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 2</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 3</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 4</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 5</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 6</th>
+                      </tr>
+                    </thead>
+                    <tboy>
+                      {% for dato in ejercicios %}
+                        <tr>
+                        {% if dato.grupo_muscular == 'TRAPECIO' %}
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},1">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},2">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},3">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},4">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},5">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},6">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        {% endif %}
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade show" id="ANTEBRAZO">
+                <div class="table-responsive">
+                  <table style="width:100%">
+                    <thead>
+                      <tr align="center">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 1</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 2</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 3</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 4</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 5</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 6</th>
+                      </tr>
+                    </thead>
+                    <tboy>
+                      {% for dato in ejercicios %}
+                        <tr>
+                        {% if dato.grupo_muscular == 'ANTEBRAZO' %}
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},1">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},2">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},3">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},4">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},5">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},6">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        {% endif %}
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade show" id="CUADRICEPS">
+                <div class="table-responsive">
+                  <table style="width:100%">
+                    <thead>
+                      <tr align="center">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 1</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 2</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 3</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 4</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 5</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 6</th>
+                      </tr>
+                    </thead>
+                    <tboy>
+                      {% for dato in ejercicios %}
+                        <tr>
+                        {% if dato.grupo_muscular == 'CUADRICEPS' %}
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},1">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},2">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},3">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},4">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},5">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},6">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        {% endif %}
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade show" id="ISQUIOTIBIALES">
+                <div class="table-responsive">
+                  <table style="width:100%">
+                    <thead>
+                      <tr align="center">
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 1</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 2</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 3</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 4</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 5</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Día 6</th>
+                      </tr>
+                    </thead>
+                    <tboy>
+                      {% for dato in ejercicios %}
+                        <tr>
+                        {% if dato.grupo_muscular == 'ISQUIOTIBIALES' %}
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},1">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},2">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},3">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},4">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},5">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td align="center">
+                            <div class="px-1 py-1">
+                              <div class="card" style="width: 10rem;">
+                                <span style="background-color: #256892; color:#256892; font-size: 25%;" class="mb-1">.</span>
+                                <input type="text" name="grupo_rutina" value="{{dato.grupo_muscular}}" hidden>
+                                <div>
+                                  <div>
+                                    <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupo_muscular}}/{{dato.ruta}}.gif" target="blank" class="text-club">
+                                     <i class="fas fa-eye"></i>
+                                    </a>
+                                  </div>
+                                  <div class="text-gradient text-dark" style="margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Nombre">
+                                    <small><b><i>{{dato.nombre}}</i></b></small>
+                                  </div>
+                                  <div style="padding-left: 45%; padding-bottom: 3%;"> 
+                                    <div class="form-check" data-bs-toggle="tooltip" data-bs-placement="right" title="Seleccionar">
+                                      <input class="form-check-input" type="checkbox" name="ejercicio" value="{{dato.id}},6">
+                                    </div>
+                                  </div>
+                                  <div class="input-group" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">R:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="repeticiones" value="0">
+                                    <span class="input-group-text">S:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="series" value="0">
+                                  </div>
+                                  <div class="input-group mb-1" style="padding-left: 5%;" hidden>
+                                    <span class="input-group-text">O:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="orden" value="0">
+                                    <span class="input-group-text">F:</span>
+                                    <input type="number"  style="max-width: 24%; max-height: 10%;" class="form-control form-control-sm" name="0">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        {% endif %}
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+      
+{% endblock %}

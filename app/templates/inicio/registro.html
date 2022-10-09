@@ -1,0 +1,181 @@
+{% extends "mainpages/login-layout.html" %}
+{% block contenido %}
+{% if current_user.is_admin()%}
+  <main class="main-content  mt-0">
+    <section>
+      <div class="page-header min-vh-75">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+              <div class="card card-plain mt-8">
+                <div class="card-header pb-0 text-left bg-transparent">
+                  <h3 class="font-weight-bolder text-club text-gradient">¡Registro!</h3>
+                  <p class="mb-0">Ingresa la información para tener acceso.</p>
+                </div>
+                {% for field, errors in form.errors.items() %}
+                  <div class="alert alert-danger">
+                  {{ form[field].label }}: {{ ', '.join(errors) }}
+                  </div>
+                {% endfor %}
+                <div class="card-body">
+                  <form method="post" class="the-form">
+                    {{ form.csrf_token }}
+                    <label for="password">Información</label>
+                    <div class="form-group">
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Nombre</span>
+                        {{form.nombre(class="form-control", placeholder="Nombre Completo")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Correo</span>
+                        {{form.email(class="form-control", placeholder="Correo")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Usuario</span>
+                        {{form.username(class="form-control", placeholder="Usuario")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Contraseña</span>
+                        {{form.password(class="form-control", placeholder="Contraseña")}}
+                      </div>
+                    </div>
+                    <label for="password">Club</label>
+                    <div class="form-group">
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Club Alpha 2</span>
+                        {{form.alpha_2(class="form-control", placeholder="Alpha 2")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Club Alpha 3</span>
+                        {{form.alpha_3(class="form-control", placeholder="Alpha 3")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Club Alpha 4</span>
+                        {{form.alpha_4(class="form-control", placeholder="Alpha 4")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Club Cimera</span>
+                        {{form.cimera(class="form-control", placeholder="Cimera")}}
+                      </div>
+                    </div>
+                    <label>Modulos</label>
+                    <div class="form-group">
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Caseta</span>
+                        {{form.user_caseta(class="form-control", placeholder="Caseta")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Pagos</span>
+                        {{form.user_pagos(class="form-control", placeholder="Pagos")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">RH</span>
+                        {{form.user_rh(class="form-control", placeholder="RH Lider")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Reportes</span>
+                        {{form.user_reportes(class="form-control", placeholder="Reportes")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Parking</span>
+                        {{form.user_parking(class="form-control", placeholder="Parking")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Domiciliación</span>
+                        {{form.user_domiciliacion(class="form-control", placeholder="Domiciliación")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Apartados</span>
+                        {{form.user_apartados(class="form-control", placeholder="Apartados")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Qr Pases</span>
+                        {{form.user_qr_pases(class="form-control", placeholder="Qr Pases")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Registro Usuarios</span>
+                        {{form.user_registro(class="form-control", placeholder="Registro Usuarios")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Logs</span>
+                        {{form.user_logs(class="form-control", placeholder="Registro Logs")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Rutinas</span>
+                        {{form.user_rutinas(class="form-control", placeholder="Rutinas")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Factura</span>
+                        {{form.user_facturas(class="form-control", placeholder="Facturas")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Configuracion Clases</span>
+                        {{form.user_configuracion(class="form-control", placeholder="Configuracion Clases")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Usuarios Dash</span>
+                        {{form.leader_fi(class="form-control", placeholder="Usuarios")}}
+                      </div>
+                    </div>
+                    <label>Permisos Especiales</label>
+                    <div class="form-group">
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Gerente</span>
+                        {{form.user_gerente(class="form-control", placeholder="Gerente")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Subgerente</span>
+                        {{form.user_subgerente(class="form-control", placeholder="Subgerente")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Auxiliar</span>
+                        {{form.user_aux(class="form-control", placeholder="Auxiliar")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Caseta Cimera</span>
+                        {{form.user_caseta_cim(class="form-control", placeholder="Caseta Cim")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Deportes</span>
+                        {{form.user_deportes(class="form-control", placeholder="Deportes")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">RH Consulta</span>
+                        {{form.user_rh_consulta(class="form-control", placeholder="RH Consulta")}}
+                      </div>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Auditor</span>
+                        {{form.user_auditor(class="form-control", placeholder="Auditor")}}
+                      </div>
+                    </div>
+                    <label for="password">Admin</label>
+                    <div class="form-group">
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-text">Administrador</span>
+                        {{form.admin(class="form-control", placeholder="Admin")}}
+                      </div>
+                    </div>
+                    <p hidden>
+                      {{form.user_fi(class="form-control", placeholder="Fi", readonly=readonly)}}
+                      {{form.user_am(class="form-control", placeholder="Am", readonly=readonly)}}
+                    </p>
+                    <div class="text-center">
+                      {{form.submit(class="btn btn-club w-100 mt-4 mb-0", placeholder="Ingresar")}}
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" 
+                style="background-image: url({{url_for('static', filename='login_css/img/curved-images/curved6.jpg')}})"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endif %}
+{% endblock %}

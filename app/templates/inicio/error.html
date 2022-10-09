@@ -1,0 +1,47 @@
+{% extends "mainpages/login-layout.html" %}
+{% block titulo %}Error - 404{% endblock %}
+{% block contenido %}
+  <main class="main-content  mt-0">
+    <section>
+      <div class="page-header min-vh-75">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+              <div class="card card-plain mt-8">
+                <div class="card-body">
+                  <div class="jumbotron">
+                    <h1 >Pagina no encontrada!</h1>
+                    <p class="h6">La pagina que intentas acceder no existe.</p>
+                    <a href="{{url_for('aforo.aforo_club')}}" class="btn btn-club btn-lg w-100">Regresar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" 
+                style="background-image: url({{url_for('static', filename='login_css/img/curved-images/curved14.jpg') }})"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+  <footer class="footer py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-8 mx-auto text-center mt-1">
+          <p class="mb-0 text-secondary">
+            Copyright © 
+            <script>
+              document.write(new Date().getFullYear())
+            </script> Club Alpha. By I.N.M
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+{% endblock %}

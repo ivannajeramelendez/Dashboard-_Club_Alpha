@@ -1,0 +1,184 @@
+{% extends "mainpages/page-layout.html" %} 
+{% block titulo %}Asignar - Rutinas{% endblock %} 
+{% block Rutinas_boton %}white{% endblock %} 
+{% block Rutinas %}active{% endblock %} {% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Asesor</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Pesaje</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Regresar">
+          <a class="btn btn-sm text-white bg-gradient-primary" href="javascript: history.go(-1)">Volver atrás</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- MENSAJE DE ERROR -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="col-md-auto">
+        <div class="{{category}}" role="alert">
+          <strong>Sistema: </strong> {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <!-- ENVIO DE DATOS -->
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <div class="card">
+          <div class="card-header p-3 pb-0">
+          <h6 class="mb-1"><b><i>CALCULO DE MASA CORPORAL</i></b></h6>
+          <p class="text-sm mb-0">Medición de Grasa, Musculo, etc.</p>
+          </div>
+          <div class="card-body p-3">
+            {% if request.method == 'POST' and tipo == 'primero' %}
+            <form method="post" action="{{url_for('rutinas.rutinas_pesaje')}}">
+              <div class="row gx-4">
+                <div class="card-body pb-3">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <label>Edad:</label>
+                      <input class="form-control form-control-sm" type="number" name="Edad" value="{{dato.Edad}}" required>
+                      <input type="text" name="tipo" value="envio_bascula" hidden>
+                      <input type="text" name="IDCliente" value="{{IDCliente}}" hidden>
+                    </div>
+                    <div class="col-sm-4">
+                      <label>Genero:</label>
+                      <select class="form-control form-control-sm" name="Sexo" required>
+                        <option value="">Selecciona</option>
+                        <option value="1">Masculino</option>
+                        <option value="0">Femenino</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-4">
+                      <label>Atleta:</label>
+                      <select class="form-control form-control-sm" name="Atleta" required>
+                        <option value="{{dato.Atleta}}">{% if dato.Atleta == true %}Si{% else %}No{% endif %}</option>
+                        <option value="true">Si</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-6">
+                      <label>Altura:</label>
+                      <input class="form-control form-control-sm" type="text" name="Altura" value="{{dato.Altura}}" required>
+                    </div>
+                    <div class="col-sm-6">
+                      <label>Nivel de Actividad:</label>
+                      <select class="form-control form-control-sm" name="Actividad" required>
+                        <option value="{{dato.NivelActividad}}">{% if dato.NivelActividad == '1' %}Sedentario{% elif dato.NivelActividad == '2' %}Recurrente {% elif dato.NivelActividad == '3' %}Fuerte{% endif %}</option>
+                        <option value="1">Sedentario</option>
+                        <option value="2">Recurrente</option>
+                        <option value="3">Fuerte</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-12" align="right">
+                      <br>
+                      <button class="btn btn-sm btn-club">Continuar Pesaje</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            {% endif %}
+            {% if request.method == 'POST' and tipo == 'segundo' %}
+            <form method="post" action="{{url_for('rutinas.rutinas_pesaje')}}">
+              <div class="card-body pb-3">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label>Sexo:</label>
+                    <input class="form-control form-control-sm" type="text" name="Sexo" value="{{resp_api.sexo}}" readonly>
+                  </div>
+                  <div class="col-sm-3">
+                    <label>Edad:</label>
+                    <input class="form-control form-control-sm" type="text" name="Edad" value="{{resp_api.edad}}" readonly>
+                  </div>
+                  <div class="col-sm-3">
+                    <label>Atleta:</label>
+                    <input class="form-control form-control-sm" type="text" name="Atleta" value="{{resp_api.atleta}}" readonly>
+                  </div>
+                  <div class="col-sm-3">
+                    <label>Altura:</label>
+                    <input class="form-control form-control-sm" type="text" name="Altura" value="{{resp_api.altura}}" readonly>
+                  </div>
+                  <div class="col-sm-3">
+                    <label>Peso:</label>
+                    <input class="form-control form-control-sm" type="number" name="Peso" value="{{resp_api.peso}}">
+                    <input type="text" name="tipo" value="envio_fin" hidden>
+                  </div>
+                  <div class="col-sm-3">
+                    <label>MasaOsea:</label>
+                    <input class="form-control form-control-sm" type="number" name="MasaOsea" value="{{resp_api.masaOsea}}">
+                  </div>
+                  <div class="col-sm-3">
+                    <label>IMC:</label>
+                    <input class="form-control form-control-sm" type="number" name="IMC" value="{{resp_api.imc}}">
+                  </div>
+                  <div class="col-sm-3">
+                    <label>EdadMetabolica:</label>
+                    <input class="form-control form-control-sm" type="text" name="EdadMetabolica" value="{{resp_api.edadMetabolica}}">
+                  </div>
+                  <div class="col-sm-3">
+                    <label>MasaGrasa:</label>
+                    <input class="form-control form-control-sm" type="text" name="MasaGrasa" value="{{resp_api.masaGrasa}}">
+                  </div>
+                  <div class="col-sm-3">
+                    <label>Agua:</label>
+                    <input class="form-control form-control-sm" type="text" name="Agua" value="{{resp_api.agua}}">
+                  </div>
+                  <div class="col-sm-3">
+                    <label>CaloriasDiarias:</label>
+                    <input class="form-control form-control-sm" type="text" name="CaloriasDiarias" value="{{resp_api.caloriasDiarias}}">
+                  </div>
+                  <div class="col-sm-3">
+                    <label>MasaMagra:</label>
+                    <input class="form-control form-control-sm" type="text" name="MasaMagra" value="{{resp_api.masaMagra}}">
+                  </div>
+                  <div class="col-sm-3">
+                    <label>Adiposidad:</label>
+                    <input class="form-control form-control-sm" type="text" name="Adiposidad" value="{{resp_api.adiposidad}}">
+                  </div>
+                  <div class="col-sm-3">
+                    <label>ValoracionFisica:</label>
+                    <input class="form-control form-control-sm" type="text" name="ValoracionFisica" value="{{resp_api.valoracionFisica}}">
+                  </div>
+                  <div class="col-sm-3">
+                    <label>TMB:</label>
+                    <input class="form-control form-control-sm" type="text" name="TMB" value="{{resp_api.tmb}}">
+                  </div>
+                  <div class="col-sm-3">
+                    <label>ID Usuario:</label>
+                    <input class="form-control form-control-sm" type="text" name="IDUsuario" value="{{IDCliente}}" readonly>
+                  </div>
+                  <div class="col-sm-3">
+                    <label>Asesor:</label>
+                    <select class="form-control form-control-sm" name="IDTerminal" required>
+                      <option value="">Selecciona</option>
+                      <option value="1">Asesor Alpha 2</option>
+                      <option value="2">Asesor Alpha 3</option>
+                      <option value="3">Asesor Cimera</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12" align="right">
+                    <br>
+                    <button class="btn btn-sm btn-club ">Guardar Pesaje</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

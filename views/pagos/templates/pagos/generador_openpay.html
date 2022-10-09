@@ -1,0 +1,187 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Pagos - Generador OpenPay{% endblock %}
+{% block Pagos %}active{% endblock %}
+{% block Pagos_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Pagos</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Generar Referencia OpenPay</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid" hidden>
+    <div class="page-header min-height-100 border-radius-xl mt-4">
+      <span class="mask bg-gradient-dark opacity-2"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="row gx-4">
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              Hola, {{current_user.nombre}} 
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              Excelente Dia!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active " data-bs-toggle="tab" href="#!">
+                  <i class="fas fa-money-bill-wave"></i>
+                  <span class="ms-1">Pagos OpenPay</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+          {% for category, message in messages %}
+          <div class="col-md-auto">
+            <div class="{{category}}" role="alert">
+              <strong>Sistema: </strong> {{ message }}
+            </div>
+          </div>
+          {% endfor %}
+      {% endif %}
+  {% endwith %}
+  <!-- FORMULARIO -->
+  <form action="{{url_for('pagos.pagos_busqueda_openpay')}}" method="POST">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12 col-xl-12">
+          <div class="card h-100">
+            <div class="card-header pb-0 p-3">
+              <h5 class="font-weight-bolder text-club text-gradient mb-0">Generar pago OpenPay</h5>
+            </div>
+            <div class="card-body p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 px-0">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="input-group mb-3">
+                          {{form.id(class="form-control", placeholder="D de Cliente", type="number")}}
+                          {{form.submit(class="btn btn-outline-club mb-0", id="form-submit")}}
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  {% if request.method == 'POST' %}
+  <!-- LLAMADO DE DATOS -->
+  <div class="container-fluid py-4">
+    <form action="{{url_for('pagos.pagos_aplicar_openpay')}}" method="POST">
+    <div class="row">
+      <div class="col-12 col-xl-12">
+        <div class="card h-100">
+          <div class="card-header pb-0 p-3">
+            <div class="row">
+              <div class="col-md-8 d-flex align-items-center">
+                <h6 class="font-weight-bolder text-club text-gradient mb-0">Información del Cliente para pago</h6>
+              </div>
+            </div>
+          </div>
+          <div class="card-body p-3">
+            <table class="table ">
+              <tr align="center">
+                <th><strong class="text-dark">Nombre de Cliente:</strong></th>
+                <td> {{nombre_cliente}}<input name="nombre_cliente" value="{{nombre_cliente}}" hidden><input name="nombre_cliente" value="{{nombre_cliente}}" hidden></td>
+              </tr><tr align="center">
+                <th><strong class="text-dark">Membresia:</strong></th>
+                <td> {{membresia}}<input name="membresia" value="{{membresia}}" hidden><input name="membresia" value="{{membresia}}" hidden></td>
+              </tr>
+              <tr align="center">
+                <th><strong class="text-dark">N° de Pedido:</strong></th>
+                <td> {{NoPedido}}<input name="NoPedido" value="{{NoPedido}}" hidden><input name="IDCliente" value="{{IDCliente}}" hidden></td>
+              </tr>
+              <tr align="center">
+                <th><strong class="text-dark">Importe:</strong></th>
+                <td> ${{importe}}<input name="importe" value="{{importe}}" hidden></td>
+              </tr>
+              <tr align="center">
+                <th><strong class="text-dark">Correo del Cliente:</strong></th>
+                <td>{{correo_cliente}}<input name="correo_cliente" value="{{correo_cliente}}" hidden></td>
+              </tr>
+              <!-- <tr align="center">
+                <th><strong class="text-dark">Dias para pagar:</strong></th>
+                <td> {{dias.dias_para_pago(class="form-control")}}</td>
+              </tr> -->
+            </table>
+            <button class="btn btn-sm">Generar</button>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-12 col-xl-3">
+        <div class="card h-100">
+          <div class="card-header pb-0 p-3" align="center">
+            <h6 class="mb-0">Información del Cliente para pago</h6>
+          </div>
+          <div class="card-body p-3">
+            <ul class="list-group">
+              <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                <div class="d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="mb-0 text-sm">N° de Pedido:</h6>
+                  <p class="mb-0 text-xs">{{cob}}</p>
+                </div>
+              </li>
+              <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                <div class="d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="mb-0 text-sm">Importe:</h6>
+                  <p class="mb-0 text-xs">{{acc}}</p>
+                </div>
+              </li>
+              <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                <div class="d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="mb-0 text-sm">Orden de Venta:</h6>
+                  <p class="mb-0 text-xs">{{mail}}</p>
+                </div>
+              </li>
+              <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                <div class="d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="mb-0 text-sm">Orden de Venta Detalle:</h6>
+                  <p class="mb-0 text-xs">{{mail}}</p>
+                </div>
+              </li>
+              <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                <div class="d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="mb-0 text-sm">Titular:</h6>
+                  <p class="mb-0 text-xs">{{fin}}</p>
+                </div>
+              </li>
+              <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                <div class="d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="mb-0 text-sm">Dias para pagar:</h6>
+                  <p class="mb-0 text-xs">{{nac}}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    </form>
+  </div>
+  {% endif %}
+{% endblock %}

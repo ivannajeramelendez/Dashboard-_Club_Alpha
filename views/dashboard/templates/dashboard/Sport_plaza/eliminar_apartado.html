@@ -1,0 +1,116 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Sport Plaza - Informes{% endblock %}
+{% block Apartados %}active{% endblock %}
+{% block Apartados_boton %}white{% endblock %} 
+{% block contenido %}
+{% if current_user.is_alpha_4() %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Calendario</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Administrar Horario</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="input-group">
+            <a href="{{url_for('dashboard.dashboard_inicio_sport_plaza')}}" class="btn btn-sm btn-primary" type="button">
+              Regresar
+            </a>
+          </div>
+        </div>
+        <div class="collapse show">
+          <button class="btn btn-sm btn-outline-danger" type="button" data-bs-toggle="collapse" data-bs-target="#!">
+            Cancelar Cita
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- FIN NAVBAR -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+          {% for category, message in messages %}
+          <div class="col-md-auto">
+            <div class="{{category}}" role="alert">
+              <strong>Exito!</strong> {{ message }}
+            </div>
+          </div>
+          {% endfor %}
+      {% endif %}
+  {% endwith %}
+  <figure>
+    <blockquote class="blockquote text-center">
+      <p class="ps-2">La sala es: {{fecha_title}} del dia </p>
+    </blockquote>
+  </figure>
+  <!-- MENU COLAPSABLES -->
+  <div class="collapse" id="buscar_sala">
+    <div class="row justify-content-md-center">
+      <div class="col-md-11">
+        <div class="card card-frame">
+          <div class="card-body">
+            <label class="form-control-label" for="basic-url">Buscar por Dia</label>
+            <div class="input-group">
+              <span class="input-group-text" id="basic-addon3">Nombre del Dia:</span>
+              <input type="text" class="form-control" id="busqueda_sala" placeholder="LUNES" onkeyup="busqueda_sala_dia()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <!-- FIN MENU COLAPSABLES -->
+  <!-- TABLA DE HORARIO -->
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Correo</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Imagen</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID Cliente</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"><i class="fas fa-trash"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for resp in resp %}
+          <tr>
+            <td>
+              <div class="d-flex px-2 py-1">
+                <div class="d-flex flex-column justify-content-center">
+                  <h6 class="mb-0 text-xs">{{resp.nombre}}</h6>
+                </div>
+              </div>
+            </td>
+            <td>
+              <h6 class="mb-0 text-xs">{{resp.correo}}</h6>
+            </td>
+            <td class="align-middle text-center text-sm">
+              <img src="data:image/png;base64, {{resp.imagen}}" class="avatar avatar-sm me-3" alt="Red dot">
+            </td>
+            <td class="align-middle text-center">
+              <h6 class="mb-0 text-xs">{{resp.idCliente}}</h6>
+            </td>
+            <td class="align-middle text-center">
+              <form method="post">
+                <h6 class="mb-0 text-xs">
+                  <input value="{{resp.idCliente}}">
+                  <input value="{{sala}}">
+                  <button class="badge bg-gradient-danger"><i class="far fa-trash-alt"></i></button>
+                </h6>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endif %}
+{% endblock %}

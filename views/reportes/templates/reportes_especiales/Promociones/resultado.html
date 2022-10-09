@@ -1,0 +1,93 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Reporte - Promociones{% endblock %}
+{% block Reportes %}active{% endblock %}
+{% block Reportes_boton %}white{% endblock %} 
+{% block contenido %}
+{% if current_user.is_user_reportes() %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Reporte</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Reporte Contra Promociones</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="input-group">
+            <button type="button" class="btn btn-sm bg-gradient-success" onclick="ExportToExcel('xlsx')">
+              Exportar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- FIN NAVBAR -->
+  <!-- DATOS -->
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table align-items-center mb-0" id="Datos_tabla">
+        <tr align="center">
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">IDPromocion</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Promocion</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Concepto</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">FechaInicio</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">FechaFin</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">IDCapturoFecha</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">SubImporte</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">IVA</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Recibo</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fecha Recibo</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">IDOrdenDeVenta</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Restante</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pagado</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Descripcion</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Club</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">IDCliente</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cliente</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Membresia</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Observaciones</td>
+        </tr>
+        {% for dato in resp %}
+        <tr align="center">
+          <td>{{dato.idPromocion}}</td>
+          <td>{{dato.promocion}}</td>
+          <td>{{dato.concepto}}</td>
+          <td>{{dato.fechaInicio}}</td>
+          <td>{{dato.fechaFin}}</td>
+          <td>{{dato.idCapturoFecha}}</td>
+          <td>{{dato.subImporte}}</td>
+          <td>{{dato.iva}}</td>
+          <td>{{dato.recibo}}</td>
+          <td>{{dato.reciboFecha}}</td>
+          <td>{{dato.idOrdenDeVenta}}</td>
+          <td>{{dato.total}}</td>
+          <td>{{dato.restante}}</td>
+          <td>{{dato.pagado}}</td>
+          <td>{{dato.descripcion}}</td>
+          <td>{{dato.club}}</td>
+          <td>{{dato.idCliente}}</td>
+          <td>{{dato.cliente}}</td>
+          <td>{{dato.membresia}}</td>
+          <td>{{dato.observaciones}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <!-- SCRIPT PARA EXPORTAR -->
+  <script>
+    function ExportToExcel(type, fn, dl) {
+          var elt = document.getElementById('Datos_tabla');
+          var wb = XLSX.utils.table_to_book(elt, { sheet: "Datos_2021-11-09" });
+          return dl ?
+              XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+              XLSX.writeFile(wb, fn || ('Datos_Completos.' + (type || 'xlsx')));
+      }
+  </script>
+{% endif %}
+{% endblock %}

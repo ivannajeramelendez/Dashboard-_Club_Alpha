@@ -1,0 +1,184 @@
+{% extends "mainpages/page-layout.html" %} 
+{% block titulo %}Rutinas - Ejercicios{% endblock %} 
+{% block Rutinas_boton %}white{% endblock %} 
+{% block Rutinas %}active{% endblock %} {% block contenido %}
+<form action="{{url_for('rutinas.rutinas_asignar_rutina')}}" method="post">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl mb-3" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Rutinas</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Rutinas - Editar Plantilla</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="input-group mb-3">
+          <div class="ms-md-auto pe-md-3 " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Terminar Rutina">
+            <a class="btn btn-sm text-white bg-gradient-primary" href="javascript: history.go(-1)">Volver atrás</a>
+            <button class="btn btn-sm btn-club text-white" type="submit">
+              Guardar Plantilla
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CABECERA -->
+  <div class="card card-body blur shadow-blur mx-7 mt-n3 overflow-hidden mb-3">
+    <div class="row gx-4">
+      <div class="card-body pb-3">
+        <div class="row">
+          <div class="col-sm-6">
+            <input type="text" name="tipo" value="editar_envio" hidden>
+            <input type="text" name="id_rutina" value="{{datos.idPlantilla}}" hidden>
+            <label>Nombre de la Rutina: </label>
+            <input class="form-control form-control-sm" type="text" name="nombre_rutina" value="{{datos.nombreRutina}}">
+          </div>
+          <div class="col-sm-6">
+            <label>Objetivo: </label>
+            <input class="form-control form-control-sm" type="text" name="objetivo_rutina" value="{{datos.nombreObjetivo}}">
+          </div>
+          <div class="col-sm-6">
+            <label>Semanas: </label>
+            <select class="form-control form-control-sm" name="semanas" required>
+              <option value="{{datos.semanas}}">{{datos.semanas}} Semanas</option>
+              <option value="1">1 Semana</option>
+              <option value="2">2 Semanas</option>
+              <option value="3">3 Semanas</option>
+              <option value="4">4 Semanas</option>
+              <option value="5">5 Semanas</option>
+              <option value="6">6 Semanas</option>
+            </select>
+          </div>
+          <div class="col-sm-6">
+            <label>Tipo Plantilla: </label>
+            <select class="form-control form-control-sm" name="segmento">
+              <option value="{{datos.tipoPlantilla}}">{{datos.tipoPlantilla}}</option>
+              <option value="{{current_user.nombre}}">Asesor - {{current_user.nombre}}</option>
+              <option value="General">General</option>
+            </select>
+          </div>
+          <div class="col-sm-12">
+            <label style="padding-top: 1%;">Comentarios: </label>
+            <textarea class="form-control form-control-sm" name="comentarios" id="editar"
+            placeholder="Ingresa las indicaciones de la rutina..." maxlength="2500" required>
+              {{datos.comentarios}}
+            </textarea>
+
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='textarea/js/froala_editor.min.js') }}"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='textarea/js/plugins/align.min.js') }}"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='textarea/js/plugins/line_breaker.min.js') }}"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='textarea/js/plugins/link.min.js') }}"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='textarea/js/plugins/lists.min.js') }}"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='textarea/js/plugins/inline_style.min.js') }}"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='textarea/js/plugins/char_counter.min.js') }}"></script>
+            <script>
+              (function () {
+                new FroalaEditor("#editar", {
+                  keepFormatOnDelete: true,
+                  charCounterMax: 2500
+                })
+              })()
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLA DE EJERCICIOS -->
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table table-sm align-items-center mb-0" id="Datos_tabla">
+        <thead>
+          <tr align="center">
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Dia Ejercicio</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre Ejercicio</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Imagen</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Grupo Muscular</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Repeticiones</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Series</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Orden</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for dato in datos.ejercicios %}
+          <tr align="center">
+            <td data-bs-toggle="tooltip" data-bs-placement="top" title="Nombre del Ejercicio">
+              <p class="text-dark text-xs mb-0"><b>{{dato.dia}}</b></p>
+            </td>
+            <td data-bs-toggle="tooltip" data-bs-placement="top" title="Nombre del Ejercicio">
+              <p class="text-dark text-xs mb-0"><b>{{dato.nombre}}</b></p>
+            </td>
+            <td data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Ejercicio">
+              <a href="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupoMuscular}}/{{dato.rutaImagen}}.gif" target="blank" class="text-club">
+                <i class="fas fa-eye"></i>
+              </a>
+              <!-- <div data-bs-toggle="modal" data-bs-target="#img_ejercicio{{dato.idEjercicio}}">
+                <img src="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupoMuscular}}/{{dato.rutaImagen}}.gif" width="35" height="35">
+              </div> -->
+            </td>
+            <td data-bs-toggle="tooltip" data-bs-placement="right" title="Grupo">
+              <span class="text-dark text-xs"><b>{{dato.grupoMuscular}}</b></span>
+            </td>
+            <td data-bs-toggle="tooltip" data-bs-placement="right" title="Repeticiones">
+              <input type="number" class="form-control form-control-sm" style="width: 30%;" name="repeticiones" value="{{dato.repeticiones}}">
+            </td>
+            <td data-bs-toggle="tooltip" data-bs-placement="right" title="Series">
+              <input type="number" class="form-control form-control-sm" style="width: 30%;" name="series" value="{{dato.series}}">
+            </td>
+            <td data-bs-toggle="tooltip" data-bs-placement="left" title="Orden">
+              <input type="number" class="form-control form-control-sm" style="width: 30%;" name="orden" value="{{dato.orden}}">
+            </td>
+            <td hidden>
+              <input type="checkbox" value="{{dato.idEjercicio}},{{dato.dia}}" name="ejercicio" checked>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</form>
+
+<!-- MODAL IMG -->
+<!-- {% for dato in datos.ejercicios %}
+<div class="modal fade" id="img_ejercicio{{dato.idEjercicio}}" tabindex="-1" role="dialog" aria-labelledby="img_ejercicio{{dato.idEjercicio}}" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <div class="card card-plain">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="card-header pb-0 text-left">
+                <h3 class="font-weight-bolder text-club text-gradient">Demo Ejercicio</h3>
+              </div>
+            </div>
+            <div class="col-md-3" hidden>
+              <div class="card-header pb-0 text-end">
+                <button type="button" class="btn btn-sm bg-gradient-danger" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row mb-3">
+              <div class="col-sm-12" align="center">
+                <img src="https://trainingh.mx/wp-content/uploads/ejercicios/{{dato.grupoMuscular}}/{{dato.rutaImagen}}.gif"  width="650" height="450">
+                <br>
+                <label>{{dato.nombre}} - {{dato.grupoMuscular}}</label> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %} -->
+
+{% endblock %}

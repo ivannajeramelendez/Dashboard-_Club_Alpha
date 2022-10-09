@@ -1,0 +1,200 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Parking - Consulta Chips{% endblock %}
+{% block Parking %}active{% endblock %}
+{% block Parking_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Parking</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Corte de Ingresos por QR</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid" hidden>
+    <div class="page-header min-height-100 border-radius-xl mt-4">
+      <span class="mask bg-gradient-dark opacity-2"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="row gx-4">
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              Hola, {{current_user.nombre}} 
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              Excelente Dia!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+              <li class="nav-item">
+                <!-- <button class="btn btn-sm bg-gradient-warning w-100" onclick="ExportToExcel('xlsx')">
+                  Exportar
+                </button> -->
+                <!-- <button class="btn btn-sm bg-gradient-warning w-100">
+                  Reporte de Ingresos por QR
+                </button> -->
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ERRORES -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="col-md-auto">
+        <div class="{{category}}" role="alert">
+          <strong>Sistema: </strong> {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  
+  <!-- CONSULTAR POR FECHA -->
+  <form method="post" action="{{url_for('caseta.caseta_consulta_corte_ingresos')}}">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12 col-xl-12">
+          <div class="card h-100">
+            <div class="card-body p-3">
+              <h4 class="font-weight-bolder text-club text-gradient mt-4">Consulta Corte de Caja:</h4>
+              <ul class="list-group">
+                <li class="list-group-item border-0 px-0">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Fecha Inicio</label>
+                        <input class="form-control datepicker" type="date" name="Fecha_Inicio" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Fecha Fin</label>
+                        <input class="form-control datepicker" type="date" name="Fecha_Fin" required>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Club</label>
+                        <select name="Club" class="form-control" required>
+                          <option value="" selected>Selecciona</option>
+                          {% if current_user.is_alpha_2() %}
+                          <option value="A2">Club Alpha 2</option>
+                          {% endif %}
+                          {% if current_user.is_alpha_3() %}
+                          <option value="A3">Club Alpha 3</option>
+                          {% endif %}
+                          {% if current_user.is_cimera() %}
+                          <option value="CIM">Cimera</option>
+                          {% endif %}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-sm btn-club btn-lg w-100">Consultar</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- BOTON CORTE DE CAJA -->
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12 col-xl-12">
+        <div class="card h-100">
+          <div class="card-body p-3">
+            <h4 class="font-weight-bolder text-club text-gradient mt-4">Realizar Corte de Caja:</h4>
+            <ul class="list-group">
+              <!-- ALPHA 2 -->
+              {% if current_user.is_alpha_2() %}
+                {% if current_user.is_user_gerente() or current_user.is_user_subgerente() %}
+                <li class="list-group-item border-0 px-0">
+                  <form method="post" action="{{url_for('caseta.caseta_corte_de_caja')}}">
+                    <input name="club" value="A2" hidden>
+                    <button class="btn btn-sm btn-club btn-lg w-100">A2 - Corte de Caja - Caseta</button>
+                  </form>
+                </li>
+                {% endif %}
+                {% if current_user.is_alpha_2() or current_user.is_user_gerente() or current_user.is_user_subgerente()%}
+                <li class="list-group-item border-0 px-0">
+                  <form method="post" action="{{url_for('caseta.caseta_corte_de_caja_caja')}}">
+                    <input name="club" value="A2" hidden>
+                    <button class="btn btn-sm btn-club btn-lg w-100">A2 - Corte de Caja - Caja General</button>
+                  </form>
+                </li>
+                {% endif %}
+              {% endif %}
+              <!-- ALPHA 3 -->
+              {% if current_user.is_alpha_3() %}
+                {% if current_user.is_user_gerente() or current_user.is_user_subgerente() %}
+                <li class="list-group-item border-0 px-0">
+                  <form method="post" action="{{url_for('caseta.caseta_corte_de_caja')}}">
+                    <input name="club" value="A3" hidden>
+                    <button class="btn btn-sm btn-club btn-lg w-100">A3 - Corte de Caja - Caseta</button>
+                  </form>
+                </li>
+                {% endif %}
+                {% if current_user.is_alpha_3() or current_user.is_user_gerente() or current_user.is_user_subgerente()%}
+                <li class="list-group-item border-0 px-0">
+                  <form method="post" action="{{url_for('caseta.caseta_corte_de_caja_caja')}}">
+                    <input name="club" value="A3" hidden>
+                    <button class="btn btn-sm btn-club btn-lg w-100">A3 - Corte de Caja - Caja General</button>
+                  </form>
+                </li>
+                {% endif %}
+              {% endif %}
+              <!-- CIMERA -->
+              {% if current_user.is_cimera() %}
+                {% if current_user.is_user_gerente() or current_user.is_user_subgerente()%}
+                <li class="list-group-item border-0 px-0">
+                  <form method="post" action="{{url_for('caseta.caseta_corte_de_caja')}}">
+                    <input name="club" value="CIM" hidden>
+                    <button class="btn btn-sm btn-club btn-lg w-100">CIM - Corte de Caja - Caseta</button>
+                  </form>
+                </li>
+                {% endif %}
+                {% if current_user.is_user_gerente() or current_user.is_user_subgerente()%}
+                <li class="list-group-item border-0 px-0">
+                  <form method="post" action="{{url_for('caseta.caseta_corte_de_caja_caja')}}">
+                    <input name="club" value="CIM" hidden>
+                    <button class="btn btn-sm btn-club btn-lg w-100">CIM - Corte de Caja - Caja General</button>
+                  </form>
+                </li>
+                {% endif %}
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SCRIPT PARA EXPORTAR -->
+  <script>
+    function ExportToExcel(type, fn, dl) {
+          var elt = document.getElementById('Datos_tabla');
+          var wb = XLSX.utils.table_to_book(elt, { sheet: "Datos_2021-11-09" });
+          return dl ?
+              XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+              XLSX.writeFile(wb, fn || ('Datos_Completos.' + (type || 'xlsx')));
+      }
+  </script>
+{% endblock %}

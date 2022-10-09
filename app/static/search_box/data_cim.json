@@ -1,0 +1,8182 @@
+[
+  {
+    "id": "937",
+    "name": "JUDITH SOSA PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1050",
+    "name": "MINOU DEL CARMEN AREVALO RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1242",
+    "name": "BARBARA PEREZ COLIENTE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1547",
+    "name": "DEYANIRA HERNANDEZ MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1617",
+    "name": "MARTHA LORENA ZUÑIGA FIGUEROA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1048",
+    "name": "DANIEL CHRISTOPHER BEDOLLA EVANS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1152",
+    "name": "MARIA TRINIDAD MELLADO SANPEDRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "780",
+    "name": "CARMEN NIETO MERCADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "834",
+    "name": "MARIA DE LA SALUD GODOY TOVAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "982",
+    "name": "MANUEL MONTES Y GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "985",
+    "name": "LUIS EDUARDO MONTES Y MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1046",
+    "name": "KELLY EVANS BEDOLLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1548",
+    "name": "ALVARO HUMBERTO GONZALEZ HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1549",
+    "name": "PAULA VALERIA GONZALEZ HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1622",
+    "name": "CLAUDIA CITLALITL CAMARGO ACEVES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1623",
+    "name": "KARLA MENDEZ CAMARGO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1624",
+    "name": "KAREN MENDEZ CAMARGO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1078",
+    "name": "MARIA DE LA PAZ DOLORES FERNANDEZ AVILA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "21243",
+    "name": "GUADALUPE RAMOS BORTOLOTTI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "22239",
+    "name": "CAMILA CALDERON VALADEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "22240",
+    "name": "GAEL CALDERON VALADEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "25164",
+    "name": "MARIA JOSE GARCIA SANDOVAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "27626",
+    "name": "EMILIANO GRANADOS RUGERIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "36608",
+    "name": "LUCIA ISABEL MANJARREZ MORON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1891",
+    "name": "BEATRIZ FLORES BAEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "17571",
+    "name": "MARIA DE LOURDES MARTINEZ ROBERT",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68",
+    "name": "ROSA MARIA FORTIS Y MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "81",
+    "name": "MARCELO DAVID ITURBE CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "107",
+    "name": "MIGUEL ANGEL CABALLERO RAMOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "39082",
+    "name": "MARIO ARTURO DEL OLMO GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "26277",
+    "name": "LEONARDO DO MINGUEZ CASSABALL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20906",
+    "name": "MARTHA LILIA JIMENEZ ROMERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20520",
+    "name": "MAURICIO ORTEGA PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48055",
+    "name": "NANCY ELIZABETH BAUTISTA GALLARDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62209",
+    "name": "JENIFER OSORIO HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62731",
+    "name": "MATEO TREVIÑO VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65549",
+    "name": "NICOLAS HERNANDEZ SEVERINO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65883",
+    "name": "MERCEDES ESPINOSA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65982",
+    "name": "MARIA DEL RAYO GOMEZ HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66028",
+    "name": "SOFIA FERNANDEZ CUATLI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67581",
+    "name": "JOSE ALBERTO MONTERO LUNA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68127",
+    "name": "JOSE MANUEL PEREZ PLAXA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69318",
+    "name": "ISMAEL FERNANDEZ PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44338",
+    "name": "LUIS ALBERTO MONTOYA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20007",
+    "name": "JONATHAN JASON BEDOLLA EVANS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16669",
+    "name": "KARLA VANESSA BERNABE AVALOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16666",
+    "name": "MARIA LAURA AVALOS DE LA LUZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1049",
+    "name": "HANNAH SOFIA BEDOLLA EVANS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1052",
+    "name": "CARMEN MARIANA SANCHEZ AREVALO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69463",
+    "name": "SWAGGERS FEMENIL PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69554",
+    "name": "GANZOS SALVAJES FEMENIL PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69555",
+    "name": "AMAZONAS FEMENIL PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69556",
+    "name": "SAN DIEGO FEMENIL PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69557",
+    "name": "HELLAS FEMENIL PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69558",
+    "name": "TITANES FEMENIL PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69559",
+    "name": "CREWDITOS FEMENIL PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69560",
+    "name": "WOOKIES FEMENIL PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69561",
+    "name": "SWAGGERS VARONIL ELITE PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69562",
+    "name": "INMO GOLD VARONIL ELITE PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69563",
+    "name": "WILD FORCE VARONIL ELITE PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69564",
+    "name": "GUERR EROS VARONIL 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69565",
+    "name": "GANZOS SALVAJES VARONIL 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69566",
+    "name": "GANZOS SALVAJES RED VARONIL 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69567",
+    "name": "JABALIES VARONIL 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69568",
+    "name": "OWLERS VARONIL 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69569",
+    "name": "VIEJOS CACHONDOS VARONIL 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69570",
+    "name": "DKDAS VARONIL 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69571",
+    "name": "TITANES VARONIL 2 PRIMAVERFA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69572",
+    "name": "SAN DIEGO VARONIL 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69573",
+    "name": "LIONS MIXTO ELITE PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69574",
+    "name": "SWAGGERS MIXTO ELITE PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69575",
+    "name": "HIGH VOLTAGE MIXTO ELITE PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69576",
+    "name": "ROYALS MIXTO ELITE PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69577",
+    "name": "JUSTICE LEAGUE MIXTO ELITE PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69578",
+    "name": "WOOKIES MIXTO ELITE PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69579",
+    "name": "RAMPAGE MIXTO 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69580",
+    "name": "SOURCATCH MIXTO 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69582",
+    "name": "TITANES MIXTO 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69583",
+    "name": "SAN DIEGO MIXTO 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69584",
+    "name": "DANONINOS MIXTO 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69585",
+    "name": "GOSTHS MIXTO 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69586",
+    "name": "SAN LIONS MIXTO 2 PRIMAVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1183",
+    "name": "CESAR MELENDEZ RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "114",
+    "name": "JOSE CARLOS MORALES CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "217",
+    "name": "FELIPE . GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "865",
+    "name": "CLEMENTINA LOPEZ MORENO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34573",
+    "name": "GABRIEL CRUZ ALCOZER",
+    "club": "CIMERA"
+  },
+  {
+    "id": "31888",
+    "name": "MARLUM BAUTISTA GONZALEZ PEREIRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42953",
+    "name": "MARIA FE SALOME HERNANDEZ RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44306",
+    "name": "URI GONZALEZ DIAZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40619",
+    "name": "ELVIA LILIANA NIETO DOMINGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41231",
+    "name": "MARIA TERESA CRUZ SANTIAGO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "35584",
+    "name": "VIRGINIA SOTO RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "22238",
+    "name": "JUAN CARLOS GUTIERREZ VALADEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "24399",
+    "name": "JESÚS LUGO GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "862",
+    "name": "MAYRA ILIANA LABASTIDA CORTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1184",
+    "name": "LEONARDO MELENDEZ MEDINA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1185",
+    "name": "SEBASTIAN MELENDEZ MEDINA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1738",
+    "name": "CARLOS RAUL ALVARADO RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1564",
+    "name": "CLAUDIA RIVERA MUJICA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16583",
+    "name": "ANGELICA REYNAL COBOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16252",
+    "name": "ABRIL AZERET FLORES SALINAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "750",
+    "name": "MARIEL SERRANO RUIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "6371",
+    "name": "ANA MARIA AYON RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18111",
+    "name": "ADORACION HORTENCIA SANTIAGO MORENO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1684",
+    "name": "GUADALUPE RIVERA REYES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1301",
+    "name": "ADAN DARIO SALAS LAUREANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "864",
+    "name": "MARIA GUADALUPE SALAZAR ZARATE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "806",
+    "name": "LIDIA CARBAJAL AHUATL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "984",
+    "name": "RODRIGO MONTES Y MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "514",
+    "name": "ANTHELMA MUÑOZ RUIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "155",
+    "name": "LILIANA MORALES ZANATTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "250",
+    "name": "MARIA TERESA MEDINA FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "132",
+    "name": "CONCEPCION PARRA LUNA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "26",
+    "name": "MIGUEL ANGEL MARTINEZ ALONSO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "2127",
+    "name": "MARIA DEL SOCORRO ORTEGA ALVARADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "19431",
+    "name": "PEDRO FLORES TLALMIS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "31889",
+    "name": "VALERIA ARENAS GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41447",
+    "name": "ELISA IBARRA MATEOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34176",
+    "name": "ALEJANDRO MENDOZA UREÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34177",
+    "name": "ALEXIA GISELLE MENDOZA UREÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20565",
+    "name": "LAURA GABR IELA MANZUR ORTEGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41416",
+    "name": "MARIO ALBERTO ARVIZU TRUEBA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41012",
+    "name": "MIGUEL ANGEL ISRAEL ESPERON BONILLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49822",
+    "name": "DAVID VIDAL GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52346",
+    "name": "LUZ CABRERA CRUZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52347",
+    "name": "ALONSO MARTINEZ CABRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52749",
+    "name": "ALEJANDRO AMADOR ZAMORA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52750",
+    "name": "SEBASTIAN AMADOR LEON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49492",
+    "name": "MARIA GABRIELA MUNGUIA GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "24049",
+    "name": "LAURA NOHEMI CORDERO HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "33975",
+    "name": "SERGIO ROBERTO BARRERA PEÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34077",
+    "name": "AMANDO VIDAL ZAMORA GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66280",
+    "name": "ESTEBAN RODRIGUEZ SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65905",
+    "name": "MARIA TERESA GAYTAN MOLINA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "21245",
+    "name": "PAMELA MARTINEZ RAMOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "58966",
+    "name": "RAY WILLIAM RAMOS CAMACHO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40621",
+    "name": "HECTOR MANUEL GONZALEZ NIETO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41020",
+    "name": "GUADALUPE BARTOLO BARREDA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41021",
+    "name": "KAREN ARLETTE SEGURA BARTOLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41022",
+    "name": "AXEL GIOVANNI SEGURA BARTOLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42395",
+    "name": "MARIANA ARGÜELLES BUCIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42397",
+    "name": "MATEO RAMIREZ ARGÜELLES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42398",
+    "name": "SEBASTIAN RAMIREZ ARGÜELLES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42774",
+    "name": "OCIEL MOLINA CARMONA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42819",
+    "name": "MARGARITA JUANA SILVA ESCOBAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20955",
+    "name": "CONCEPCION MAYELA MURRIETA CONTRERAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1577",
+    "name": "MAURICIO MOLINA MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1578",
+    "name": "RODRIGO MOLINA MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1209",
+    "name": "BRUNO IVAN MENDOZA GARDUÑO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "13807",
+    "name": "IGNACIO GALVAN ZENTENO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "966",
+    "name": "MARIA EMILIA FERNANDA ARCIGA Y MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "897",
+    "name": "ALEXA LIZBETH GARCIA VELAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44051",
+    "name": "LUIS ALONSO VITAL LABASTIDA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "51816",
+    "name": "LUZ ALEJANDRA VARELA LIZOLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "50360",
+    "name": "MARIA DE LOURDES CASTILLO RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34531",
+    "name": "DIEGO RODRIGO BARRERA MANJARREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "58965",
+    "name": "EDGAR RAMOS BENITEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60579",
+    "name": "MARIA FERNANDA ALVAREZ MANJARREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44853",
+    "name": "CAROLINA DEL PILAR SILVA ROJAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "46993",
+    "name": "DIVANI ESTELA REID MENESES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44852",
+    "name": "LIBRADO PEREZ JUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41388",
+    "name": "ALVARO DANIEL ESCOBAR GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40250",
+    "name": "GLORIA ARROYO Y MIJAILIDIS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40311",
+    "name": "JUAN MANUEL QUIROZ SPESSIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "50040",
+    "name": "GERARDO MEJIA GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52962",
+    "name": "LUIS MANUEL ANDRADE UMBRAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52612",
+    "name": "MAURICIO VILLEGAS GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48888",
+    "name": "JUAN OSCAR GONZALEZ TENORIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49128",
+    "name": "JOSE TEOFILO TECUATL GACHUPIN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "47157",
+    "name": "ALMA DOMINGUEZ SORIANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "47793",
+    "name": "VERONICA ZAPOTECAS MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "47867",
+    "name": "JORGE ALBERTO MARTINEZ GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "47868",
+    "name": "JORGE ALBERTO MARTINEZ PEÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "47869",
+    "name": "MARIA ISABEL GONZALEZ FERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "47870",
+    "name": "ALINE ORDONEZ EISENRING",
+    "club": "CIMERA"
+  },
+  {
+    "id": "33976",
+    "name": "MARIA DEL CORAL MORENO RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "32638",
+    "name": "BAJA SERGIO ESTRADA FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "31887",
+    "name": "YOLANDA CAROLINA GOMEZ CORTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "38784",
+    "name": "MANUELA BREUSTEDT",
+    "club": "CIMERA"
+  },
+  {
+    "id": "38528",
+    "name": "SUSANA CRISTIANI VERDE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "39289",
+    "name": "GUILLERMO RODRIGUEZ CRISTIANI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "39603",
+    "name": "JOSE LUIS CORONA TORRES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40100",
+    "name": "FELIX EDMUNDO FERNANDEZ ALDECO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40212",
+    "name": "MERCEDES DEL SOCORRO AGUILAR MARTÍNEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40213",
+    "name": "MARIANA CASTAÑEDA AGUILAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20956",
+    "name": "MATEO RAMON MURRIETA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "21242",
+    "name": "SALOMON MARTINEZ BARRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20954",
+    "name": "FELIPE RAMON CERON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "22236",
+    "name": "OMAR CALDERON RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "22292",
+    "name": "MICHELLE MARTINEZ MARQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "946",
+    "name": "MARIA LIDIA GUZMAN REYES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "992",
+    "name": "ADRIANA GEORGINA ESPINOSA BRAWER",
+    "club": "CIMERA"
+  },
+  {
+    "id": "458",
+    "name": "GEORGINA MENDOZA ORTIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "473",
+    "name": "IRMA NICOLASA SANCHEZ MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "294",
+    "name": "CARLOS ROJAS LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "442",
+    "name": "ALVARO FELIPE GONZALEZ BERMUDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "761",
+    "name": "GUSTAVO RENE DE LA ROSA NATIVITAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "668",
+    "name": "JUSTO CRUZ VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20",
+    "name": "IGNACIO ALEJANDRO RAMIREZ DE ARELLANO Y AGUILAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70",
+    "name": "JAIME JUAN MARIA SUAREZ ANAYA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "33",
+    "name": "MARIO RENE PREZA GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "138",
+    "name": "ARMANDO ARMAS ZACARIAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "118",
+    "name": "ADRIANA GUADALUPE SALAYA MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "86",
+    "name": "MARTHA ANGELICA MALDONADO VARGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67",
+    "name": "HECTOR CUAZITL CUAUTLE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "80",
+    "name": "PABLO TOXQUI HERRADA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "205",
+    "name": "RAUL ARTURO MAYORGA RAPOZZO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "238",
+    "name": "JORGE ZECUA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "265",
+    "name": "ALFREDO MORALES GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "272",
+    "name": "MARIA ISABEL CASTILLO ARENAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "279",
+    "name": "ANTONIO TEUTLI CUAUTLE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "280",
+    "name": "GILBERTO CHICHIL CORDERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "304",
+    "n ame": "MARIA NELIDA ADRIANA CERON CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "305",
+    "name": "SABINA FLORES MENESES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "312",
+    "name": "CARLOS ENRIQUE CHAVEZ DONIS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "321",
+    "name": "ROMAN JOSAFAT TEJEDA ARROYO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "164",
+    "name": "GUILLERMO ALEJANDRO MARTINEZ MATA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "110",
+    "name": "VICTOR HUGO GARCIA Y GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "152",
+    "name": "PATRICIA ELIZABETH PARRA MALDONADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "188",
+    "name": "MIGUEL ANGEL SANCHEZ DURAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "171",
+    "name": "MARIA EVA RODRIGUEZ ORTIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16290",
+    "name": "LEONIDES SOLIS ARCE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16420",
+    "name": "ALEJANDRO CASTILLO JIMENEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "6647",
+    "name": "MARÍA FERNANDA SANCHEZ MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "4880",
+    "name": "DEASY LISSET DOMINGUEZ GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "17742",
+    "name": "JULIAN ZARATE SANTIAGO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1306",
+    "name": "SABINA AGUILAR FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1576",
+    "name": "MIGUEL EDUARDO MOLINA CABRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "3145",
+    "name": "JOSE DAVID JARAMILLO BAÑUELOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "3519",
+    "name": "MARCOS MENDEZ CAMACHO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1706",
+    "name": "LILIA CERON CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1844",
+    "name": "JOSE EDUARDO LOPEZ LOZANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60674",
+    "name": "EDITH CASTELAN RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60450",
+    "name": "ADRIAN GONZALEZ ESCOBAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61120",
+    "name": "CAROLINA LEON SORIANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61908",
+    "name": "JOSE MARIANO AMADOR CABRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62224",
+    "name": "JORGE LUIS MENDOZA RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62295",
+    "name": "SANTIAGO RAMON MURRIETA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54481",
+    "name": "ARMANDO ARMAS IXCOATL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59087",
+    "name": "ARACELI VAZQUEZ QUIJANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59446",
+    "name": "JORGE ENRIQUE ESPINOSA DEL VALLE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60437",
+    "name": "ALEJANDRO JOSE RAMIREZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63268",
+    "name": "MIGUEL FRANCISCO ARAGON ACEVES",
+    "club": "CIMERA "
+  },
+  {
+    "id": "63971",
+    "name": "BAJA JOSE GRUNSTEIN GARZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64200",
+    "name": "BAJA JOSE PEDRO RAMIREZ MONTIEL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64426",
+    "name": "SERGIO SAUL MIRON GUEVARA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65059",
+    "name": "THIAGO ANDRE CERVANTES JUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65167",
+    "name": "CARLOS PENSADO OSIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65412",
+    "name": "LUCAS DIAZ SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65424",
+    "name": "PEDRO EMILIO CAMACHO HUERTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65718",
+    "name": "ERIK NAVARRO VALLE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66476",
+    "name": "BAJA JUAN CARLOS ORTEGA CORTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66049",
+    "name": "NICOLAS MANNING FREYRE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66120",
+    "name": "HECTOR GAEL MILAN BAUTISTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66208",
+    "name": "MAURICIO DANIEL TREJO GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69658",
+    "name": "JOSEPH TRINIDAD HERNANDEZ SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68159",
+    "name": "MADAI MORA LARA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67695",
+    "name": "BAJA LUIS ARTURO ESQUIVEL CARRILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67795",
+    "name": "BAJA MARIA DE LOURDES LEON GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68254",
+    "name": "ANGELA MACARENA GARRIDO SUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69087",
+    "name": "JAVIER ESAU LOPEZ SALADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70339",
+    "name": "FERNANDA DANIELA LOPEZ SALADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1619",
+    "name": "LIZETH BETANZOS ZUÑIGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16584",
+    "name": "CARLO RUBEN TORAYA REYNAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16585",
+    "name": "KAROL VALERIA TORAYA REYNAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "6711",
+    "name": "SOFIA RAMIREZ RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "46924",
+    "name": "MOISES IVÁN QUIROZ TLAPA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "46925",
+    "name": "SERGIO QUIROZ TLAPA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63182",
+    "name": "LUIS FERNANDO RENDON FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "6372",
+    "name": "ANA PAOLA GOMEZ JARAMILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "3146",
+    "name": "MARIA ELENA JARAMILLO AYON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "172",
+    "name": "JOSE OCTAVIO GOMEZ SERNA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60439",
+    "name": "ANA ELENA RAMIREZ SERAFIN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60520",
+    "name": "ALBERTINA CABRERA A LVARADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61942",
+    "name": "SAMARA GARRIDO MINUTTI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61593",
+    "name": "DAVID GARCIA AZOTLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62471",
+    "name": "YAIKOL DOMINGUEZ SANTIAGO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62957",
+    "name": "NATALIA MONTIEL TOXQUI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62958",
+    "name": "IVANNA MONTIEL TOXQUI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62959",
+    "name": "VALENTINA MONTIEL TOXQUI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59786",
+    "name": "LUZ CORTAZAR MOYA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60202",
+    "name": "ARTURO MIGUEL VALENCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59275",
+    "name": "ELEAZAR OLVERA OLVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59744",
+    "name": "DAVID ROMERO JUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "58977",
+    "name": "MARIA ANTONIETA TRIPP GUAJARDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59089",
+    "name": "PEDRO QUITL VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59090",
+    "name": "LUIS QUITL VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54429",
+    "name": "EDNA DENISSE HUERTA ALCAIDE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54800",
+    "name": "ALEXANDRE ESPINOSA DIP",
+    "club": "CIMERA"
+  },
+  {
+    "id": "56080",
+    "name": "MARY ROSA ESPINOSA OCHOA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "56647",
+    "name": "SERGIO GARCIA GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63253",
+    "name": "ANA PAOLA RODRIGUEZ UGALDE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64022",
+    "name": "ESTHER MARTINEZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63919",
+    "name": "DIEGO GONZALEZ VILLALPANDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64427",
+    "name": "DANIEL ALEJANDRO RAMIREZ TLATELPA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64605",
+    "name": "PATRICIA ZORRILLA ACEVEDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64444",
+    "name": "RODRIGO GOMEZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64608",
+    "name": "EDUARDO YRIGOYEN ZORRILLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64659",
+    "name": "CHRISTOPHER AVILA ROJAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64687",
+    "name": "CARLOS ESTEBAN LOPEZ MEDRANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64731",
+    "name": "IKER SANTIAGO JIMENEZ MONTERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64741",
+    "name": "JORGE SANTIAGO GARCIA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64742",
+    "name": "CARLOS EMILIANO LOPEZ MUÑOZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64772",
+    "name": "EDUARDO IZCOA NAVARRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64130",
+    "name": "CARLOS CAMACHO ROBLES",
+    "club": "CIMERA"
+  },
+  {
+    "id": " 64131",
+    "name": "ARTURO CAMACHO ROBLES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65416",
+    "name": "GAEL CASTAÑEDA HUERTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65421",
+    "name": "OMAR CASTAÑEDA HUERTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65422",
+    "name": "ENZO SANDOVAL ZARAGOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65380",
+    "name": "LAURENS MATTHEO DE KOOL HAGOPIAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65402",
+    "name": "CARLOS ALBERTO ROLDAN CASAÑAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65209",
+    "name": "ALBERTO ARAUJO PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65175",
+    "name": "JOSE EMILIANO PASTRANA ARELLANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65262",
+    "name": "MARTHA MARIANA DE GUADALUPE CASTRO FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65263",
+    "name": "FRANCO PAOLO CIANGHEROTTI CASTRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65367",
+    "name": "ANA PAULINA ROLDAN CASAÑAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65368",
+    "name": "RICARDO LEZAMA GALLEGOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65369",
+    "name": "ARTURO SANCHEZ BARRAGAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65072",
+    "name": "DANIELA OJEDA RAZO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64691",
+    "name": "LUIS MARIO MENDOZA BRIONES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64692",
+    "name": "ANGEL RAMIREZ CANDIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64791",
+    "name": "BRUNO ALEJANDRO VANEGAS CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64793",
+    "name": "ERICK ANTOINE SANCHEZ ENRIQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64864",
+    "name": "JONATHAN CHAPUL MUÑOZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64995",
+    "name": "JORGE JUAREZ BAEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64996",
+    "name": "IKER PEREZ MARQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65007",
+    "name": "JORGE ALBERTO GUTIERREZ MARIN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65008",
+    "name": "JAIME GOMEZ VERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65037",
+    "name": "ISAAC ANTONIO CUEVAS SIERRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66191",
+    "name": "ANDREA SAN GERMAN MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66178",
+    "name": "ALICIA RAMOS FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66026",
+    "name": "FERNANDO FERNANDEZ CUATLI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66027",
+    "name": "ANGEL SANTIAGO FERNANDEZ CUATLI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66091",
+    "name": "BAJA NO MARCAR RAQUEL ROCHA E SILVA GONCALVES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66093",
+    "name": "MELISSA TOLEDO RENTE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66446",
+    "name": "ANUAR ANDRE HERNANDEZ MENA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66298",
+    "name": "ESTEBAN LEONEL CAREVIC POTEY",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66337",
+    "name": "EMILI SETZHANGARI BADILLO DOMINGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66223",
+    "name": "SANTIAGO VARGAS BELTRAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66243",
+    "name": "ROSARIO JUAREZ ALAVEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65657",
+    "name": "MARIA VICTORIA VILLALPANDO AGUILAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65674",
+    "name": "RUBEN ALEXIS SANCHEZ MURRIETA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65642",
+    "name": "MATEO SANCHEZ BARRAGAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65545",
+    "name": "FRANCISCO HERIBERTO GONZALEZ FABIAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65550",
+    "name": "ROBY DANIEL MORAN MARMOLEJO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65552",
+    "name": "JOSE PABLO MORENO VALLE MORENO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65448",
+    "name": "EMILIANO RIVERA QUINTERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65952",
+    "name": "AARON DE JESUS HERNANDEZ TENAHUA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65973",
+    "name": "JOSE MARIA UGALDE RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65754",
+    "name": "JUAN PABLO BUDIB PENICHE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65830",
+    "name": "SANDRA PAOLA REYES FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67611",
+    "name": "MIGUEL MENDOZA ESPINOZA DE LOS MONT",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67612",
+    "name": "NATHAN BRANDON VELEZ JIMENEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67431",
+    "name": "ITZEL ANGELICA ZAFRA CABRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67570",
+    "name": "JORGE RAMON FRANCIS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67575",
+    "name": "SANTINO RAMON FRANCIS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67171",
+    "name": "JOSE DE JESUS ROMANO NASTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67233",
+    "name": "CARLOS ELISEO ORTIZ VARGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67234",
+    "name": "MARIBEL ANGELES RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66517",
+    "name": "JESUS EMILIANO HERNANDEZ DOMINGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66547",
+    "name": "AGUSTIN JUAREZ JUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66662",
+    "name": "JOSUE ALEXIS DIEGO LEONOR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66695",
+    "name": "PATRICIA MANRIQUE ROJAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66948",
+    "name": "ADALBERTO BENITEZ ZAPATA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67047",
+    "name": "PAULINA MENDOZA FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "182",
+    "name": "JESUS ALAN TOXQUI GODOY",
+    "club": "CI MERA"
+  },
+  {
+    "id": "183",
+    "name": "ALEJANDRO PALMA CASTRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "187",
+    "name": "DAVID BEDOLLA GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "200",
+    "name": "FRANCISCO JAVIER SANCHEZ MEJIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "153",
+    "name": "JESUS ALVARO ALVARADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "149",
+    "name": "FRANCISCO REYES LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "161",
+    "name": "JOSE ARTURO CORDOVA SORIANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "242",
+    "name": "JOSE DE JESUS MANZANO JIMENEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "247",
+    "name": "MONICA GONZALEZ BERUMEN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "88",
+    "name": "MARIA MINERVA MUÑOZ TOTOTZINTLE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "134",
+    "name": "ANDRES PEREZ MAGAÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "39",
+    "name": "GUSTAVO ALFONSO OLIVERA NEGRETE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1",
+    "name": "JUANA CLAUDIA HERNANDEZ ALONSO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "11",
+    "name": "JOSE DAVID PEDRO SERRANO RUIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "56",
+    "name": "PABLO PALACIOS PALACIOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66",
+    "name": "JAVIER PAZOS ALARCON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "31",
+    "name": "ARACELI ARANA SOLIS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "566",
+    "name": "JOSE LUIS GARZON HERRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "585",
+    "name": "ANTONIO TOXQUI TORRES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "751",
+    "name": "MARIA TERESA ARISTA SOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "760",
+    "name": "MIRIAM NATIVITAS HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "730",
+    "name": "DANIELA HERNANDEZ HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "732",
+    "name": "EMILIO HERNANDEZ HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "446",
+    "name": "GUSTAVO RAMOS DOMINGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "527",
+    "name": "MARIA CONCEPCION GUADALUPE LOPEZ MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "490",
+    "name": "RICARDO BETANZOS JIMENEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "493",
+    "name": "EFREN ALEJANDRO GOMEZ GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "494",
+    "name": "LEONARDO MENDEZ MORENO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1022",
+    "name": "MARIA ALEJANDRA SABINO RAMOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1041",
+    "name": "ALICIA VERONICA RAMIREZ OLIVARES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "938",
+    "name": "SOFIA PEREZ SOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "939",
+    "name": "FRIDA GUADALUPE PEREZ SOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "983",
+    "name": "MANUEL MONTES Y MORALE S",
+    "club": "CIMERA"
+  },
+  {
+    "id": "896",
+    "name": "MARIA FERNANDA GARCIA VELAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "863",
+    "name": "ZARA RENEE VITAL LABASTIDA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "293",
+    "name": "JOSE ANTONIO REMIGIO DE OLARTE LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "773",
+    "name": "IRENE MARQUEZ ORDOÑEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "847",
+    "name": "JOSE HERIBERTO VAZQUEZ ARMENTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "850",
+    "name": "JAQUELINE VARGAS LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "851",
+    "name": "FABRIZIO RYAN ROJAS VARGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1733",
+    "name": "ALEXA GARZON PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1845",
+    "name": "LUIS EDUARDO LOPEZ MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1685",
+    "name": "ENRIQUE NORIEGA RIVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1686",
+    "name": "ESTEPHANIA NORIEGA RIVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1221",
+    "name": "MARIA DEL CARMEN ROLDAN FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1525",
+    "name": "LORENA CHAVEZ CHAVEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1526",
+    "name": "ANA LORENA GALICIA CHAVEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1527",
+    "name": "ARTURO RAFAEL GALICIA CHAVEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1303",
+    "name": "DANIELA SALAS CERON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1304",
+    "name": "JOSE AGUILAR FERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1186",
+    "name": "NATALIA MELENDEZ MEDINA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1154",
+    "name": "LESLIE ZECUA MELLADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1175",
+    "name": "MARIA ALEJANDRA ALCANTARA JIMENEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1070",
+    "name": "JOSE IGNACIO MUÑOZ GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1047",
+    "name": "DAVID TIMOTHY BEDOLLA EVANS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "6620",
+    "name": "JOSE ELIAS NAVA ALVARADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "5215",
+    "name": "NATANAEL MARTINEZ MARQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1929",
+    "name": "JOSE IGNACIO HERNANDEZ GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16577",
+    "name": "RAUL MENDOZA SANDOVAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16578",
+    "name": "MARIA LILIA ZUÑIGA MALAGÓN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16382",
+    "name": "JORGE GARCIA BRIONES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "8901",
+    "name": "MIGUEL ANGEL SANTANA VELAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "12558",
+    "name": "LUIS ANGEL SISNIEGA CABALLERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16668",
+    "name": "MELANIE BERNABE AVALOS",
+    "club": "CI MERA"
+  },
+  {
+    "id": "16670",
+    "name": "LEONEL BONILLA MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "17212",
+    "name": "VALENTIN ANTONIO OLMOS MENESES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "17570",
+    "name": "SERGIO TEJEDA CISNEROS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "17633",
+    "name": "OLGA LYDIA FRANCO RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18007",
+    "name": "RAUL EMMANUEL MENDOZA ZUÑIGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42773",
+    "name": "ELIZABETH RUGERIO GUERRERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44383",
+    "name": "ANDREA HERNANDEZ MANRIQUE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "43427",
+    "name": "NARCISO PEÑA PAEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44007",
+    "name": "SILVIA SANCHEZ YAÑEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42775",
+    "name": "OLIVER MOLINA RUGERIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42776",
+    "name": "ISADORA MOLINA RUGERIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "43253",
+    "name": "MA. DE LOURDES CYNTHIA EQUIHUA CORTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "43254",
+    "name": "PRISCILA CAMELA EQUIHUA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40618",
+    "name": "HECTOR MANUEL GONZALEZ RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40822",
+    "name": "IVAN JARET SANTIAGO HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41013",
+    "name": "GRISOL COROMOTO ALVAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40827",
+    "name": "LEONARDO OSORIO Y PEDRAZA GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41962",
+    "name": "MARIA DEL PILAR VICTORICA APORTELA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42396",
+    "name": "SANTIAGO RAMIREZ ARGÜELLES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42394",
+    "name": "OSWALDO RAMIREZ MUNDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48393",
+    "name": "CESAR MARTINEZ TORRES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48394",
+    "name": "NADIA ELIZABETH OLIVERA RENDON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48941",
+    "name": "EFRAIN RICARDO AMADOR RIOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48942",
+    "name": "SONIA REYES ZARATE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48054",
+    "name": "ERNESTO RAMIREZ CUAUTLE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49646",
+    "name": "CESAR JIMENEZ LORENZINI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "50058",
+    "name": "KELSEY ALEJANDRA RAMIREZ GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "50107",
+    "name": "DIEGO CRUZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49897",
+    "name": "ANDREA RUEDA CARRANCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49369",
+    "name": "ALAN ALEJANDRO BALDERAS COUTIÑO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "50559",
+    "name": "MAIA TERREZ LO PEZ TELLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "51135",
+    "name": "ANGEL ORTIZ VERGARA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "24400",
+    "name": "ALONDRA VANESSA LUGO GORDILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "25792",
+    "name": "DANIELA TOSCANO BARRANCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "26057",
+    "name": "EMILIANO MIGUEL LADINO MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "28188",
+    "name": "SANTIAGO JIMENEZ VERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "28189",
+    "name": "JOSE MARIA JIMENEZ VERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "28983",
+    "name": "MONICA ROMERO TEJEDA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "29129",
+    "name": "LUIS ENRIQUE DOMINGUEZ GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "22237",
+    "name": "JENNIFER VALADEZ GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "21886",
+    "name": "QIANA AMAIRANY GOMEZ CASTRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "21442",
+    "name": "LUIS ZEPEDA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "21244",
+    "name": "DIEGO MARTINEZ RAMOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20566",
+    "name": "YOTAN GABRIEL DE LA ROSA MANZUR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20647",
+    "name": "JORGE JANIX PUIG",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20898",
+    "name": "CELIA MAYORGA MERIDA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20902",
+    "name": "ELENA CITLALI MARTINEZ MAYORGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18595",
+    "name": "ADRIAN SANDOVAL CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "19073",
+    "name": "JOSE DEMETRIO SERRANO HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40248",
+    "name": "JUAN MANUEL QUIROZ ARROYO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40249",
+    "name": "PAULINA QUIROZ ARROYO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40189",
+    "name": "TANIA DUARTE MERCADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "39453",
+    "name": "ANNIA ISABELA GONZALEZ CARDOSO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "39257",
+    "name": "MONICA BENITEZ ZAPATA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "38252",
+    "name": "JESUS HERIBERTO VAZQUEZ LOYOLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "37298",
+    "name": "JOSE LUIS CALDERON GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "33177",
+    "name": "DILSIA GONZALEZ CANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "33581",
+    "name": "GUSTAVO EDMUNDO FLORES PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "31890",
+    "name": "RENATA GONZALEZ GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "31891",
+    "name": "XIMENA GONZALEZ GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "32626",
+    "name": "JOSE ENRIQUE GONZALEZ PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "32636",
+    "name": "ARTURO ESTRADA FLORES",
+    "club": "CIMERA "
+  },
+  {
+    "id": "31061",
+    "name": "MARIA FERNANDA REYES ARCIGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34006",
+    "name": "SERGIO KARLO BARRERA MANJARREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "33792",
+    "name": "ALEXIS SAN ROMAN TOLAMA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34180",
+    "name": "CARLOS MANUEL GIL UREÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34164",
+    "name": "JESUS ARTURO UREÑA REYES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34165",
+    "name": "MARIA DEL CARMEN AÑAS CRUZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70255",
+    "name": "THAIS MANCEBO DEL CASTILLO ROJAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70256",
+    "name": "MARIETTE MANCEBO DEL CASTILLO ROJAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70337",
+    "name": "JOSE ALBERTO DIAZ BAUTISTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70395",
+    "name": "LEONARDO URRUTIA MIRAMON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70764",
+    "name": "MANUEL ALEJANDRO HERNANDEZ PAEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69086",
+    "name": "EMILIO CASTRO RIOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68980",
+    "name": "MAURICIO ELIAS RODRIGUEZ ISLAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68441",
+    "name": "DAMIAN MARTINEZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68831",
+    "name": "CESAR ANDRES GONZALEZ RAYON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68933",
+    "name": "MARIA MARGARITA SILVIA TECPANECATL ROMERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68978",
+    "name": "RICARDO UVALLE TOBON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68416",
+    "name": "XIMENA DE LA GARZA OCHOA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68436",
+    "name": "CARLOS GALLEGOS CARRASCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68535",
+    "name": "NANCY VERONICA CASTAÑEDA CABRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68796",
+    "name": "JAIME NAVARRO MORA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67845",
+    "name": "NATALIA LOPEZ CALZADA MACHORRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67846",
+    "name": "DAVID GARCIA LOPEZ CALZADA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67847",
+    "name": "ISABELA GARCIA LOPEZ CALZADA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67788",
+    "name": "HUGO MARTINEZ MARQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68185",
+    "name": "GEOVANY ALEJANDREZ VELAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68187",
+    "name": "MATIAS AKIM SOSA HUMENRY",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68019",
+    "name": "ALEXA VERGARA DE LARA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68028",
+    "name": "GENARO IVAN VERGARA DURAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68081",
+    "name": "XAVIER PEÑALOSA SAMPERIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69553",
+    "na me": "ALONSO AQUINO AMADOR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69851",
+    "name": "GAEL DALI MORAN MARMOLEJO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69861",
+    "name": "MARTIN BRAVO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69538",
+    "name": "MARTIN EMILIANO ALBA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70003",
+    "name": "NICOLAS ESPINOSA ALVAREZ TOSTADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70078",
+    "name": "TADEO VAZQUEZ BERISTAIN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70079",
+    "name": "PATRICIO ESCAMILLA LEDESMA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70082",
+    "name": "HECTOR ALFONSO ROCHA MELENDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70083",
+    "name": "SANTIAGO ROCHA MELENDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69478",
+    "name": "ROMINA BERRIOS AVENDAÑO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69359",
+    "name": "CONSTANZA RAMON NAVA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69319",
+    "name": "FERNANDO ECHEAGARAY MARROQUIN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69352",
+    "name": "JORGE ANTONIO RAMON TORRES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69355",
+    "name": "ARMANDO VIAL VILLARREAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69181",
+    "name": "RODRIGO CARDOSO GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69209",
+    "name": "LENNOX DE LA FUENTE GUAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68018",
+    "name": "BAJA ALEJANDRO VERGARA BERRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52149",
+    "name": "LUIS ALFONSO DELOYA FUENTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16419",
+    "name": "MARIA ELENA ALEJANDRA LEON SANTOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1618",
+    "name": "ANDRE BETANZOS ZUÑIGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "569",
+    "name": "ANA LAURA MOLINA CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41",
+    "name": "ALBANY LORENA BATALLA GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66235",
+    "name": "BAJA RAFAEL CANSECO CASTELLANOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61529",
+    "name": "BAJA VICTOR MANUEL CARRAL CORTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61361",
+    "name": "MARIA DE LOS ANGELES GOMEZ OCHOA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "17713",
+    "name": "MYRNA NATIVIDAD GONZALEZ CARRILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48884",
+    "name": "MARIA JOSE GONZALEZ GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49898",
+    "name": "EDUARDO RUEDA CARRANCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40620",
+    "name": "IVANNA GONZALEZ NIETO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49180",
+    "name": "SETH ROQUE GOIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20904",
+    "name": "PAMELA SOFIA ROSAS VALDERRABANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "19622",
+    "name": "MARICELA ORTIZ BECERRIL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20903",
+    "name": "CELENE VALDERRABANO HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "26273",
+    "name": "KARELIA CASSABALL NUÑEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "26252",
+    "name": "LIDIA BENAVIDES SALMORAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "38716",
+    "name": "ARTURO IRVING RODRIGUEZ JIMENEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "46991",
+    "name": "MARIA REFUGIO EMILIA HERNANDEZ ROJAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48882",
+    "name": "ADRIANA GONZALEZ ONG",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49895",
+    "name": "JORGE EDUARDO RUEDA SUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49896",
+    "name": "MARIA TERESA CARRANCO TEJEDA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "50662",
+    "name": "TOMAS DARIO PEREZ VEGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16485",
+    "name": "EVA NAJERA PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1739",
+    "name": "CARLOS ALVARADO MOLINA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1181",
+    "name": "JOSE LUIS BARCLAY ARCE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "17",
+    "name": "RENE DE LA ROSA PAREDES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "346",
+    "name": "MARIA LEONOR VELAZQUEZ ORDAZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61819",
+    "name": "JOSE LUIS DE LA TORRE NEMENZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60389",
+    "name": "JUAN PABLO HUITZIL BONILLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60919",
+    "name": "MARIELY GARCIA CASTELLANOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "56649",
+    "name": "MARIA ELOINA MENDEZ Y CARPINTEYRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "55073",
+    "name": "PAULINA MORENO HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54709",
+    "name": "FRANCISCO RIANDE VARELA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60438",
+    "name": "MARIA TERESA SERAFIN OCHOA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64856",
+    "name": "BAJA MARIANA GUADALUPE CISNEROS FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64857",
+    "name": "JUAN CARLOS RODRIGUEZ CHAVEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64707",
+    "name": "CARLO SANTIAGO PEREZ CALVA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64965",
+    "name": "MAXIMILIANO LOZANO ORTEGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65120",
+    "name": "RICARDO LORANCA Y CAMPOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65168",
+    "name": "LEOBARDO RODOLFO TOXTLE ZUÑIGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65170",
+    "name": "JUAN PABLO HERNANDEZ SOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65410",
+    "name": "MICHEL BAHREN PANDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65362",
+    "name": "ALAN DANIEL RAMIREZ CRUZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64415",
+    "name": "MODESTA CECILIA GONZALEZ LOBATO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63943",
+    "name": "MANUEL URCID CORDOVA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63779",
+    "name": "MARIO ALBERTO LOPEZ PELAEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66285",
+    "name": "IRIDIA SALGADO ZAYAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66264",
+    "name": "MIGUEL ALFONSO GARCIA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66267",
+    "name": "MIRSHALL AIRY GARCIA MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66115",
+    "name": "ZAID SANTIAGO HERNANDEZ GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65972",
+    "name": "MARIA JOSEFINA TORRES SUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65458",
+    "name": "ANDRES GAYTAN MUÑOZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65493",
+    "name": "BAJA DANY GODINEZ REVELES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66817",
+    "name": "LUIS ALBERTO BRAVO ROLDAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66723",
+    "name": "BAJA ISAAC GERMAN FLORES AVILA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67257",
+    "name": "ALDO GUTIERREZ PEÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67311",
+    "name": "MARIA ISABEL CARDENAS VALDES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67456",
+    "name": "BAJA RAFAEL ZOLA SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68994",
+    "name": "NIKOLE MEZA DOMINGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68083",
+    "name": "JOSE ROGELIO SOTOMAYOR ORTEGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68263",
+    "name": "BAJA ZEFERINO GARRIDO DURAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69108",
+    "name": "FELIX PEDRAZA RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69161",
+    "name": "BAJA EDITH ULLOA CUEVAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69945",
+    "name": "JOSE EDUARDO RAMIREZ SALAZAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69541",
+    "name": "PATRYCK VENTURA BLASCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69501",
+    "name": "JOSE ANTONIO MORENO VALLE HIJAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69502",
+    "name": "ERNESTO SCHWARZBECK ALVAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69675",
+    "name": "LUIS DANIEL GUEVARA VARGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69537",
+    "name": "LENA VALENTINA HERNANDEZ ABURTO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70517",
+    "name": "MIGUEL VAZQUEZ HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70518",
+    "name": "DYLAN JAHIR VAZQUEZ HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70242",
+    "name": "BENJAMIN GONZALEZ GUEVARA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70168",
+    "name": "LORENA DALAHI FIGUEREDO SIMON",
+    "cl ub": "CIMERA"
+  },
+  {
+    "id": "70169",
+    "name": "DIEGO ARRILLAGA SIMON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65517",
+    "name": "BLANCA IVETTE CABRAL OLIVER",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65518",
+    "name": "RICARDO ELEUTERIO GUEVARA OROZCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65519",
+    "name": "RICARDO JESUS GUEVARA CABRAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65520",
+    "name": "JUAN PABLO GUEVARA CABRAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65475",
+    "name": "RODRIGO CUELLAR ALONSO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65885",
+    "name": "JOSE DANIEL GONZALEZ ESPINOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65890",
+    "name": "MARIA DEL PILAR TRINIDAD DE LA VEGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65828",
+    "name": "OLIVER FERNANDO ABURTO RIOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65863",
+    "name": "MIRIAM SANCHEZ VARGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65882",
+    "name": "DANIEL GONZALEZ NAJERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66121",
+    "name": "JOSE DE JESUS ESPINOSA TLACHI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66122",
+    "name": "MARIA TERESA HERNANDEZ ROMERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66099",
+    "name": "REGINA SARAY PEREGRINA ZAPOTECAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65996",
+    "name": "MIGUEL HAKIM ESTRADA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66024",
+    "name": "FERNANDO ADOLFO FERNANDEZ PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66025",
+    "name": "DIANA CRISTINA CUATLI TOME",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66468",
+    "name": "EDUARDO ORTEGA MELENDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64203",
+    "name": "ARTURO CONDE MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64367",
+    "name": "BRUNO ALEJANDRO VANEGAS CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64443",
+    "name": "CRHISTIAN GOMEZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65391",
+    "name": "FLOR VARGAS BARRON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65392",
+    "name": "RODRIGO HERNANDEZ CORTEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65413",
+    "name": "CLAUDIA ELIZET LOPEZ IBARRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65414",
+    "name": "ANGEL URIEL PEREZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65290",
+    "name": "JORGE ALBERTO DEL RIO CARRIZOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65292",
+    "name": "LUZ MARIA RICARDEZ VILLALOBOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65185",
+    "name": "RAZIEL NIÑO GORDILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65258",
+    "name": "JOSE DEMETRIO SERRANO ARMENTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65217",
+    "name": "CARLOS CESAR MENDOZA AMADOR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65 218",
+    "name": "LORENA ALBA CEPEDA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65119",
+    "name": "OLIN DAMIAN TOLEDO PRADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65155",
+    "name": "SOFIA ZAMORA VILLALVA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65115",
+    "name": "JUAN PABLO FLORES TRUJILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62428",
+    "name": "GUSTAVO ANTONIO AYALA CERVANTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62429",
+    "name": "BEATRIZ GALLARDO TELLEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "852",
+    "name": "MAXIMO FABIO ROJAS VARGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "89",
+    "name": "ADRIAN FERMIN ROJAS GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "7237",
+    "name": "BRUNO GAMEZ AVILA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "6084",
+    "name": "DANIELA CRUZ FOSADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "50371",
+    "name": "JULIO CESAR TENAHUA BAEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "24401",
+    "name": "EMILIANO LUGO GORDILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "24398",
+    "name": "ERICKA GORDILLO NAVARRETE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "26505",
+    "name": "JULIO VANEGAS SHIMOMOTO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20293",
+    "name": "MARIA DE LA CONCEPCION ARMENTA ROSAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "21646",
+    "name": "SEBASTIAN RODRIGO COLIN TRINIDAD",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20297",
+    "name": "SHANADOU ANGELICA SERRANO ARMENTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "24866",
+    "name": "MISAEL ELIHU ORDUÑA CUAUTLE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "26254",
+    "name": "DAMIAN MARTINEZ BENAVIDES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "35035",
+    "name": "CESAR EFREN ARTEAGA MAGAÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "30870",
+    "name": "MARIA SALOME MAYORAL RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "30875",
+    "name": "KATIA ARENAS MAYORAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "50201",
+    "name": "VIRIDIANA ORTIZ MINO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49154",
+    "name": "JESUS SOSIMO QUITERIO PLATA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49630",
+    "name": "DOMINGO NAJERA PONCE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49668",
+    "name": "ANDREA SANTIBAÑEZ PIZAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42954",
+    "name": "MARIA JOSE FLORES HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42829",
+    "name": "JOSE DANIEL VARELA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44996",
+    "name": "ANALIA RIVAS HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44997",
+    "name": "ISABELLA RIVAS HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "6646",
+    "name": "GUADALUPE MARTINEZ ORTIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "8 251",
+    "name": "JOSE DANIEL CESAR HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16431",
+    "name": "YAOTL MAZATLE NAJERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18889",
+    "name": "ALEJANDRA SERRANO ARMENTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "95",
+    "name": "LIBRADO ARTURO SARMIENTO REYES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "248",
+    "name": "FRANCISCO DIEGO REYES ARCIGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1014",
+    "name": "MARGOT CABALLERO BROUSSET",
+    "club": "CIMERA"
+  },
+  {
+    "id": "634",
+    "name": "MARIA DEL CARMEN MARTINEZ PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "745",
+    "name": "JAQUELINE FLORES SAUCE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "746",
+    "name": "JOSE JAVIER VARELA FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62235",
+    "name": "BRUNO HUMBERTO FLORES VARGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62298",
+    "name": "SANTIAGO ADRIAN LAZOS OVALLE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61941",
+    "name": "MARIA DE LOS ANGELES VAZQUEZ RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62810",
+    "name": "JOSE ANTONIO CADENA ALVARADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62813",
+    "name": "ALAN JAFET SANTIAGO HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62826",
+    "name": "CARLOS ALBERTO RIVERA AGUIRRE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62890",
+    "name": "HELGA DIAZ CUAZITL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62544",
+    "name": "INGRID KIRSCHNING ALBERS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60691",
+    "name": "BARTOLOMIEJ KAZIMIERZ RADECKI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61530",
+    "name": "MICHELLE JEAN RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60301",
+    "name": "MATEO ACUÑA TITO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60329",
+    "name": "AMILCAR ACUÑA MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59187",
+    "name": "ITZEL ARRONTE PALACIOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60275",
+    "name": "SERGIO AMILCAR ACUÑA URBINA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59088",
+    "name": "JOSE LUIS QUITL PANTLE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59785",
+    "name": "EDGAR ALEJANDRO VILLAGRANA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59447",
+    "name": "MA DEL REFUGIO CABALLERO GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59461",
+    "name": "MAURICIO VILLEGAS TELLEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54793",
+    "name": "CARLOS GOMEZ ANZALDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54431",
+    "name": "REGINA AGUILAR HUERTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54477",
+    "name": "JAQUELINE ARMAS GUZMAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54478",
+    "name": "GUADALUPE IXCOATL MUÑOZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54479",
+    "name": "VALERIA MONTES ARMAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54480",
+    "name": "MELANIE MONTES ARMAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54482",
+    "name": "MARIA AHITANA ARMAS IXCOATL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "56158",
+    "name": "KARLA GEMMA ITZEL GONZALEZ CARRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "55907",
+    "name": "EDUARDO MARTINEZ LEON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "56016",
+    "name": "XIMENA SOLANO FERRER",
+    "club": "CIMERA"
+  },
+  {
+    "id": "56017",
+    "name": "PABLO BARRERA SOLANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "56018",
+    "name": "NICOLAS BARRERA SOLANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "57783",
+    "name": "GILBERTO CORTES OZUNA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "57963",
+    "name": "MARIA CARLOTA CISNEROS HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "58312",
+    "name": "JORGE ALBERTO BRETON GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "58313",
+    "name": "KARINA GUADALUPE MORALES CARRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "58453",
+    "name": "RENE BONILLA ORTIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "58593",
+    "name": "ROCIO FERNANDA LOPEZ Y PORRAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61961",
+    "name": "NOAH FLORES HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63202",
+    "name": "YAMIL SLIM VARGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63203",
+    "name": "ANA GUADALUPE VEGA CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63383",
+    "name": "SILVIA ROMERO ALCIBAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63384",
+    "name": "AMALIA ACEVES ALCIVAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "542",
+    "name": "ENRIQUE NORIEGA GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44337",
+    "name": "REBECA CAMPOS OROZCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40056",
+    "name": "ENRIQUE CASTAÑEDA VÁZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "33791",
+    "name": "DAGOBERTO SAN ROMAN GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "22846",
+    "name": "LYDIA ANDREA GARCIA PULIDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "27566",
+    "name": "SHANNON MAUREEN HICKEY",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18673",
+    "name": "ESTELA XICALE TELLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "43128",
+    "name": "RAUL MARTINEZ HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52075",
+    "name": "GUILLERMO MUÑOZ REYES RETANA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52076",
+    "name": "FIORE PAOLA DE LA BARREDA ANGON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63644",
+    "name": "IKER MILLA PAREDES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63251",
+    "name": "LIZBETH LIMA MONTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63440",
+    "name": "JOSE LUIS FELIPE ALVAREZ PARKMAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63441",
+    "name": "MARIA DEL CARMEN MANJARREZ MORON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63974",
+    "name": "ANA SOFIA GRUNSTEIN TOVAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64088",
+    "name": "VICTOR FLORES SANTOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64090",
+    "name": "VICTOR IVAN FLORES CORTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "55897",
+    "name": "MIGUEL GAVITO DIAZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61246",
+    "name": "ALBERTO CHAVEZ POLITO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61247",
+    "name": "ANA PAOLA CHAVEZ POLITO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "47180",
+    "name": "JOSE LUIS GARCIA MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18059",
+    "name": "MARIA CANDELARIA MARTINEZ TORRES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "53",
+    "name": "GRACIA PATRICIA CASTILLO CABRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1051",
+    "name": "FABIO ANGEL SANCHEZ AREVALO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60587",
+    "name": "ALBERTO CHAVEZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "895",
+    "name": "VIOLETA LIZBETH VELAZQUEZ FORTIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "169",
+    "name": "CARLOS ANTONIO SALINAS VIDAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "27624",
+    "name": "ISELA RUGERIO ALONSO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48059",
+    "name": "YARETZY RAMIREZ BAUTISTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48060",
+    "name": "ITZAMARA RAMIREZ BAUTISTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48775",
+    "name": "PABLO GARCIA RAMOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "50200",
+    "name": "JORGE ELVIS VAZQUEZ DEL ANGEL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48741",
+    "name": "OLGA NOVELO STEINMANN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "43280",
+    "name": "ISRAEL TOXQUI AYALA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44381",
+    "name": "GUSTAVO ALONSO HERNANDEZ GRANADOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41019",
+    "name": "GERARDO ORLANDO SEGURA MELGAREJO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "21735",
+    "name": "ERIKA PATRICIA JUSTO CONTRERAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "249",
+    "name": "ARTEMISA GUTIERREZ DOMINGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18131",
+    "name": "LUIS ENRIQUE RAMIREZ GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60887",
+    "name": "PASCUAL GUERRERO COLMENERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54794",
+    "name": "DANNA PAOLA GOMEZ ANZALDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63918",
+    "name": "VICTOR MANUEL BELLUS VILLALPANDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63437",
+    "name": "CRISTINA ANGELICA LOPEZ MONTEJO",
+    "c lub": "CIMERA"
+  },
+  {
+    "id": "63438",
+    "name": "MARTIN ALEJANDRO TUCUCH PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65354",
+    "name": "DAVID MALDONADO PACHECO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67133",
+    "name": "BAJA RICARDO ADRIAN VAZQUEZ CARMONA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66499",
+    "name": "MARIA ALEJANDRA JIMENEZ FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66501",
+    "name": "JUAN MICHAEL AVENDAÑO JIMENEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70174",
+    "name": "MARIA DEL ROSARIO BENITA ARRIOLA SERRANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70583",
+    "name": "MICHELLE ROMINA ALATRISTE LEON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69727",
+    "name": "EMMANUEL CARMONA GARIBO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70102",
+    "name": "KENIA VELAZQUEZ INFANTE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67865",
+    "name": "NORMA ANGELICA ORTEGA MUÑOZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67866",
+    "name": "JORGE ARTURO TAMAYO SOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67855",
+    "name": "CARLOS NAVA MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67787",
+    "name": "HERON MARTINEZ LEON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68225",
+    "name": "JOSE DE JESUS COLEXCUA OSORIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68227",
+    "name": "EMIL KALID COLEXCUA ROMERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68991",
+    "name": "RODRIGO UVALLE ITURRIBARRIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70100",
+    "name": "JOSE CARLOS GERMAN ROCHA ESPINOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69550",
+    "name": "RAUL DURAN ANSELMO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69139",
+    "name": "MARIA VERÓNICA HERNANDEZ CURRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70570",
+    "name": "SOFIA URRUTIA MIRAMON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70581",
+    "name": "JUAN EMILIO LOPEZ LEON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70582",
+    "name": "ITZAYANA REYES REYNOSO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70568",
+    "name": "MARLENE MIRAMON RONQUILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69944",
+    "name": "ADRIANA SALAZAR ARRIAGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70863",
+    "name": "YAIR AARON FALCON TELLEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70870",
+    "name": "DIANA MENDOZA ARENAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66610",
+    "name": "MONSERRAT VELAZQUEZ ALAVEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66611",
+    "name": "ARIANA PAOLA SANCHEZ VELAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66750",
+    "name": "HIRAM SANCHEZ AGUILAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66540",
+    "name": "PAOLO MALDONADO JIMENEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66892",
+    "na me": "ALLISON HERNANDEZ MORSE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66895",
+    "name": "BELEN ALBISUA RIVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67078",
+    "name": "DIANA VERONICA CORTES ESPINOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66661",
+    "name": "JAIR ABRAHAM DIEGO LEONOR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67237",
+    "name": "CRUZ ANGEL MARTINEZ MOLINA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67238",
+    "name": "ERMILO DARIO GOMEZ MONTERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66477",
+    "name": "MARIA CRISTINA CASTILLA SEGOVIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66465",
+    "name": "ISABEL CAROLINA NOVOA VEGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66098",
+    "name": "SAUL ZAPOTECAS MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66155",
+    "name": "JOSE LUIS CABRERA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66182",
+    "name": "GENOVEVA MACIAS JUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66183",
+    "name": "IVANNA DANIELLE CANO MACIAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65838",
+    "name": "ANDREA MERINO AVILA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65443",
+    "name": "SARAHI SALAZAR CARMONA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65046",
+    "name": "RAFAEL LUNA MALDONADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63777",
+    "name": "LEONARDO ANGULO RUEDA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64001",
+    "name": "SERGIO ALFONSO CARRILLO CARVAJAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54516",
+    "name": "LUIS MIGUEL CUEVAS GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60300",
+    "name": "SOPHIA ACUÑA TITO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62636",
+    "name": "BEATRIZ ADRIANA AGUILAR TAPIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61955",
+    "name": "YAZMIN ORTEGA GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "17983",
+    "name": "JOSE ALFREDO HERNANDEZ CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1907",
+    "name": "EMILIA SANTILLANA GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "46",
+    "name": "SANDRA BECERRA CABRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "27568",
+    "name": "ANA VICTORIA ALVAREZ HICKEY",
+    "club": "CIMERA"
+  },
+  {
+    "id": "27569",
+    "name": "AMELIA ALVAREZ HICKEY",
+    "club": "CIMERA"
+  },
+  {
+    "id": "32685",
+    "name": "LUIS EMMANUEL DE LA VARA ORTEGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "39771",
+    "name": "JOSE ARMANDO PEREZ RAMOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "36430",
+    "name": "EDWIN JAVIER TORRES ESPINOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "38676",
+    "name": "ENRIQUE SANCHEZ CARDENAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40828",
+    "name": "LUIS MATEO OSORIO Y PEDRAZA GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40825",
+    "name": "JOSE LUIS OSORIO Y PEDRAZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40826",
+    "name": "GABRIELA GONZALEZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "46922",
+    "name": "VICTOR IVÁN QUIROZ RIVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "46923",
+    "name": "MARIA ELENA TLAPA TECPANECATL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "47067",
+    "name": "BERENICE SERNAS MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41678",
+    "name": "ABIGAIL VALDERRAMA SOTO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48774",
+    "name": "VICTOR MANUEL VELAZQUEZ FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48127",
+    "name": "CESAR IVAN GARCIA FRANCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "47808",
+    "name": "ANA MARIA PANIAGUA PEREGRINA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "50146",
+    "name": "ROCIO HOYOS CORONA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52132",
+    "name": "LUZ MARIA DEL RAYO FUENTES ECHEVERRIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52454",
+    "name": "GIOVANNA DE LA BARRERA ANGON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "38868",
+    "name": "YOLANDA LOPEZ APARICIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "39255",
+    "name": "MONICA CECILIA ZAPATA MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "39256",
+    "name": "CARLOS ALBERTO PEREZ BONILLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "38054",
+    "name": "LUIS DAVID ALVAREZ ROMERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "39447",
+    "name": "YURIEL MAORI GONZALEZ PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40190",
+    "name": "EMMA DUARTE MERCADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40191",
+    "name": "XAVIER DUARTE MERCADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40187",
+    "name": "OSCAR DUARTE MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "40188",
+    "name": "MARIA CECILIA MERCADO VALTIERRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "33787",
+    "name": "SONIA TOLAMA ZACATELCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34181",
+    "name": "ARELY GIL UREÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34173",
+    "name": "SARA GISELA UREÑA AÑAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "26621",
+    "name": "VICTOR MANUEL HERNANDEZ MONTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "26463",
+    "name": "VERONICA EDITH PEREZ NARANJO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "26467",
+    "name": "MIRANDA EDDITH GUTIERREZ PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "25650",
+    "name": "JUAN CARLOS QUITL ARMENDIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "30546",
+    "name": "JUAN CARLOS RODRIGUEZ GUERRERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "30547",
+    "name": "SUSANA SARVELIA SANCHEZ HERRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "30548",
+    "name": "CARLOS MATEO RODRIGUEZ SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "22844",
+    "name": "RUBEN GARCIA GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "8",
+    "name": "JOSE VARELA GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "92",
+    "name": "SHARON VENTURA RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "93",
+    "name": "LUIS ENRIQUE VITAL ALEGRE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "108",
+    "name": "JOSE FERNANDO VIVEROS CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "245",
+    "name": "DAVID AGUILAR BORJA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "263",
+    "name": "YASMIT ARCELIA HIDALGO REYES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1001",
+    "name": "ARACELI IZQUIERDO TORRES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1004",
+    "name": "ARANTZA SUE LOPEZ IZQUIERDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "478",
+    "name": "FERNANDO ORTEGA ALVEAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "489",
+    "name": "EDUARDO TOXQUI RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "405",
+    "name": "SAUL CORRAL GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "747",
+    "name": "ULISES VARELA FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "744",
+    "name": "JOSE DE JESUS VARELA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1740",
+    "name": "MARIA FERNANDA ALVARADO MOLINA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1731",
+    "name": "ERIKA ALEJANDRA PEREZ ESCOBEDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1732",
+    "name": "ANDRE GARZON PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1631",
+    "name": "SAUL NORBERTO LORANCA CHAZARO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1182",
+    "name": "JORGE ALBERTO CABRERA GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1215",
+    "name": "EDUARDO JIMENEZ MINUTTI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1216",
+    "name": "ESTEFANIA JIMENEZ HIDALGO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1217",
+    "name": "LUIS EDUARDO JIMENEZ HIDALGO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1223",
+    "name": "CARLOS ALFREDO MORALES ROLDAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18184",
+    "name": "FERNANDO MARQUEZ CANTU",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18587",
+    "name": "HECTOR HERNANDEZ GRANADOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18588",
+    "name": "MAYRA MORENO GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16667",
+    "name": "DIANA LAURA BERNABE AVALOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16581",
+    "name": "CARLOS MARTIN TORAYA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "13599",
+    "name": "MARIA ALEJANDRA TLATELPA RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "14623",
+    "name": "GENARO FRANCISCO JAVIER RAMOS RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "14624",
+    "name": "JOSE ANGE L RAMOS TLATELPA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16244",
+    "name": "OGDEN ABEL FLORES TORIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16250",
+    "name": "MARIA TERESA SALINAS ARISTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16251",
+    "name": "OGDEN FLORES SALINAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "5221",
+    "name": "FERNANDO EMMANUEL MORALES GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "3966",
+    "name": "YARENI JAQUELINE AVILA LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "4684",
+    "name": "MARIA DEL ROSARIO LOPEZ VILLEGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61954",
+    "name": "CHRISTIAN GEOVANNI LEON DURAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62637",
+    "name": "LUIS ADRIAN ACOSTA AGUILAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62730",
+    "name": "EMILIANO TREVIÑO VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62604",
+    "name": "JOVANNY ZEMPOALTECA MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62955",
+    "name": "SALVADOR MONTIEL LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62956",
+    "name": "ILLEANA TOXQUI COYOTECATL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60631",
+    "name": "JUAN GUILLERMO HERRADA REYES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60586",
+    "name": "ANA LUISA POLITO BAUTISTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60451",
+    "name": "JOSUE BARRIOS REYNA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61467",
+    "name": "ANA MARIA RODRIGUEZ CARRIEDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61940",
+    "name": "RAUL TREVIÑO CUEVAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60296",
+    "name": "ANA LAURA MENDOZA CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59492",
+    "name": "BENJAMIN RESENDIZ RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59007",
+    "name": "LUIS ERNESTO ACOSTA GOÑI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "53225",
+    "name": "SONIA BEATRIZ CASTILLO OCEJO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54038",
+    "name": "LUIS ANTONIO PANTOJA PACHECO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54791",
+    "name": "HILDA ANZALDO GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54792",
+    "name": "EDUARDO GOMEZ PERCINO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "57958",
+    "name": "RENATA OREA GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64004",
+    "name": "EMILIA CHARGOY GUEVANA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64005",
+    "name": "EMILIO CHARGOY GUEVANA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63633",
+    "name": "JUAN ADRIAN MILLA GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63944",
+    "name": "JUAN JOSE URCID CORDOVA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63645",
+    "name": "IVANNA DAEL GARCIA GUILLEN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63694",
+    "name": " ITZEL MARTINEZ RUIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63183",
+    "name": "HEBERTO CLEMENTE TOVAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64100",
+    "name": "MARIA JESSICA FLORES CERON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64101",
+    "name": "ANDREAS PETER GOTTFRIED",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64196",
+    "name": "EMILIANO RAMIREZ AGUILAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64197",
+    "name": "AURORA RAMIREZ AGUILAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64585",
+    "name": "ISIDRO MORALES MORENO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64870",
+    "name": "ROCIO MENDOZA CASTAÑEDA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64871",
+    "name": "MARIA FERNANDA RUIZ MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64872",
+    "name": "EFREN RUIZ MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65259",
+    "name": "JUAN JOSE HURTADO GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65261",
+    "name": "ANDREA LEON LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65853",
+    "name": "VALERIA VAZQUEZ HERRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65829",
+    "name": "ALEJANDRA TINOCO MIRELES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65758",
+    "name": "LEONARDO ADRIAN ROMERO SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65805",
+    "name": "LEANDRO BELLIDO VERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65806",
+    "name": "MARIO CRUZ VERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65815",
+    "name": "XOCHITL RENATA FELIX HERRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65911",
+    "name": "RUBEN RENDON DIAZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65912",
+    "name": "ADRIANA HERNANDEZ BORRALLES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65962",
+    "name": "PAMELA OLIVEROS ARROLLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65963",
+    "name": "HECTOR ERNESTO CHAVEZ FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65861",
+    "name": "CARLOS ESTEBAN SAUCEDO JONAPA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65983",
+    "name": "EVANS JESHUA TORRES GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65653",
+    "name": "ROBERTO OLIVEROS ARROYO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65539",
+    "name": "ALFONSO FIGUEROA URIAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65540",
+    "name": "ARAMIS FIGUEROA CONDE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66185",
+    "name": "MIGUEL BUAUN AGUILAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66186",
+    "name": "MIGUEL BUAUN CANDIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66365",
+    "name": "JACOB JAVIER VASQUEZ SANJUAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66398",
+    "name": "ESTEBAN AZPILICUETA LEON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66400",
+    "name": "DULCE MARIA HERNANDEZ HUERTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66402",
+    "name": "SANTIAGO AZPILICUETA BONILLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66403",
+    "name": "LUNA AZPILICUETA BONILLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66436",
+    "name": "MARIA FERNANDA VERTIZ CHAVEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66437",
+    "name": "AMELIE TOXQUI VERTIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66335",
+    "name": "MARIA DEL RAYO NEGRETE VENEGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66236",
+    "name": "MARCELA CHACON MACIAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66251",
+    "name": "GERARDO MOCTEZUMA CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66252",
+    "name": "AITANA MOCTEZUMA RUIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67246",
+    "name": "ALDO ROBERTO VIVANCO FRANCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67206",
+    "name": "ADOLFO RUIZ ESPINOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67176",
+    "name": "MARIANGEL SAHIL ROJAS GELVEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67147",
+    "name": "ADRIAN OCHOA PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67148",
+    "name": "ANA LUZ PEREZ PALACIOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67046",
+    "name": "SERGIO HERRERA ESCOBAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67355",
+    "name": "YOLANDA FRANCO AGÜERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67392",
+    "name": "JACOBO AYMERICH BRINGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67395",
+    "name": "NORMA ANGELICA GARCIA SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67396",
+    "name": "YOHANGEL YOEL GARCIA GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67425",
+    "name": "FRANCISCO JAVIER MONROY GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67426",
+    "name": "MARIA JOSE MONROY GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67547",
+    "name": "MARGARITA ANGELICA LUNA ESPINOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67549",
+    "name": "MIGUEL LUNA ESPINOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67550",
+    "name": "ALFREDO NIÑO LUNA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67613",
+    "name": "ASHLEY LILY VELEZ JIMENEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67589",
+    "name": "PEDRO VARGAS VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67590",
+    "name": "JOSE ROBERTO LOPEZ BECERRIL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67622",
+    "name": "CARLO EZRA MARTINEZ RUIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67623",
+    "name": "MARIA ISABEL ZAMORA CORDOVA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67672",
+    "name": "JULIAN SOLIS AQUINO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67673",
+    "name": "PATRICIA MEZQUIDA ARRAMBIDE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67117",
+    "name": "KARLA MONICA PARRA VERNET",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66 966",
+    "name": "HECTOR ISRAEL CORTES GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66967",
+    "name": "ANDREA LUNA SANTOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66968",
+    "name": "ISRAEL CORTES LUNA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66969",
+    "name": "JOSE MARIA CORTES LUNA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66998",
+    "name": "FRANCISCO CRISTOBAL MORALES PINTO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66999",
+    "name": "IVAN OCAMPO CORA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66896",
+    "name": "SYLVIE MONTIEL BONILLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66917",
+    "name": "JORGE ANTONIO OLMOS PRIETO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66889",
+    "name": "ALEJANDRO AMADO HERNANDEZ RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66762",
+    "name": "RODRIGO URBINA MACIB",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66769",
+    "name": "MARCO TADEO MARQUEZ CORTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66819",
+    "name": "MARISOL TETETLA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66849",
+    "name": "PEDRO MAURER ORTIZ MONASTERIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66511",
+    "name": "JAVIER CARDOSO BERMUDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66659",
+    "name": "ISIDORO ABRAHAM DIEGO MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66759",
+    "name": "MARIO IVAN URBINA SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66760",
+    "name": "XIMENA MARCELA MACIP LANZAGORTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66749",
+    "name": "BERENICE RODRIGUEZ GALINDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66625",
+    "name": "CHRISTIAN EDUARDO SANTOS MONTAÑO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66536",
+    "name": "GUILLERMINA SANTOS GUZMAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66529",
+    "name": "ANDRES FLORES VALENCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66533",
+    "name": "ADRIANA CAROLINA GONZALEZ PIÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70871",
+    "name": "FRIDA ABIGAIL HERNANDEZ MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70867",
+    "name": "ALFREDO HERNANDEZ RINCON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70761",
+    "name": "TERESA ALEJANDRINA DE ALBA FAJARDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70762",
+    "name": "MARIA CARDOSO DE ALBA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70763",
+    "name": "IKER CARDOSO DE ALBA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70823",
+    "name": "MARITZA BERMUDEZ MUÑOZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70834",
+    "name": "ESTEFANIA TAPIA GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70835",
+    "name": "STEFAN WEBER",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70836",
+    "name": "REGINA CARDOSO DE LA FUENTE",
+    "club": "CIME RA"
+  },
+  {
+    "id": "70843",
+    "name": "OMAR MORENO VILLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70844",
+    "name": "ANA LAURA CAMPOS DIAZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70845",
+    "name": "DANIEL MORENO CAMPOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70846",
+    "name": "JUAN PABLO MORENO CAMPOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70851",
+    "name": "THANIA GABRIELA ARMENDIA ESPINOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70739",
+    "name": "OMAR RODRIGUEZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70703",
+    "name": "VICTOR DAVID LICEAGA SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70705",
+    "name": "CAROLINA CORTES LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70706",
+    "name": "URIEL DOMINGUEZ CORTEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70708",
+    "name": "RUBI GARCIA MUÑOZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70718",
+    "name": "EDGAR QUITERO MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70736",
+    "name": "NARCISO ARELLANO MEDINA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70878",
+    "name": "BELEN MARTINEZ GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70887",
+    "name": "LESLIE ADRIANA RODRIGUEZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70906",
+    "name": "CRISTIAN BARRIENTOS LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70907",
+    "name": "ILIANA ARACELI ONTIVEROS LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70908",
+    "name": "MARIA PAULA ONTIVEROS LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70909",
+    "name": "VALERIA CRISTIAN BARRIENTOS ONTIVEROS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70910",
+    "name": "CRISTIAN DANIEL BARRIENTOS ARENAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70911",
+    "name": "YANELI ROMERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70936",
+    "name": "MARIETA HERNANDEZ DIAZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70937",
+    "name": "AMPARO RAMIREZ ABUD",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70938",
+    "name": "DAMIAN FUENTES HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "71003",
+    "name": "SERGIO ARTURO MONTIEL HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "71004",
+    "name": "MARIA JOSE MONTIEL GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "71005",
+    "name": "LUIS ANGEL MONTIEL GARCIAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "71011",
+    "name": "ANABEL SANABRIA SOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "71012",
+    "name": "MARIO DEL RIO ARRIOLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "71013",
+    "name": "ESTEFANNY AZUL LOPEZ SANABRIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "71014",
+    "name": "MARCO YERIK BECERRIL SANABRIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "71015",
+    "name": "MARIO EMILIANO DEL RIO GOCHEZ",
+    "club": "CIMERA "
+  },
+  {
+    "id": "71016",
+    "name": "MARCELO DEL RIO GOCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "71017",
+    "name": "VICTORIA DEL RIO GOCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70382",
+    "name": "LUIS GABRIEL VELAZQUEZ ACOSTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70373",
+    "name": "EDUARDO MACIP OTERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70452",
+    "name": "IAN DANIEL RIOS GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70569",
+    "name": "ALONSO URRUTIA LEGUIZAMO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70504",
+    "name": "LEONEL GARJEDA MEJIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70505",
+    "name": "DULCE ESTEFANI RODRIGUEZ MORA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70506",
+    "name": "LEONEL ESTEFANO GRAJERA RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70537",
+    "name": "ISABEL ARANGO OSORIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70665",
+    "name": "BLANCA ESTHER MENDOZA ALARCON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70598",
+    "name": "LEONARDO URRUTIA MIRAMON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70600",
+    "name": "FABIAN ALVARADO GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70603",
+    "name": "MARIA MINERVA ALEJANDRA ARROYO CHAVEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70607",
+    "name": "JAZMIN ADRIANA HERNANDEZ MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70609",
+    "name": "DANIELA MUÑOZ LEVY",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70629",
+    "name": "JOSE EMILIANO HERNANDEZ MENESES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70630",
+    "name": "LAURA BEATRIZ ZAPATA JUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70631",
+    "name": "LEONARDO MANUEL CADENA ZAPATA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70644",
+    "name": "EDDIE ALBERT SANTACRUZ PULIDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70653",
+    "name": "ROBERTO TEPATZI CARRANCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70175",
+    "name": "JOSE LUIS FELIPE CALVA MORENO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70176",
+    "name": "LILIAN SOPHIA CALVA MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70177",
+    "name": "AILEN CALVA MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70180",
+    "name": "ALMA PAOLA TREJO PEÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70181",
+    "name": "EMMA CONSTANZA REYES TREJO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70183",
+    "name": "JAHACIEL MORALES LORENZANA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70184",
+    "name": "MARIA DE LOURDES VERA FRANCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70185",
+    "name": "DANNA SHERLYN VERA MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70194",
+    "name": "JUAN CARLOS LOPEZ GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70195",
+    "name": "PAOLA GARCI A GUERRERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70196",
+    "name": "DANA PAOLA LOPEZ GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70197",
+    "name": "JUAN LOPEZ MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70198",
+    "name": "GRACIELA GOMEZ GRACIDA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70221",
+    "name": "ALEJANDRA RAMOS TLATELPA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70247",
+    "name": "MANUEL MANCEBO DFEL CASTILL SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70251",
+    "name": "ERIKA ROJAS BECERRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70252",
+    "name": "MANUEL MANCEBO DEL CASTILLO ROJAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70253",
+    "name": "PAMELA MANCEBO DEL CASTILLO ROJAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70254",
+    "name": "ANDRE MANCEBO DEL CASTILLO ROJAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70363",
+    "name": "GUSTAVO IVAN LAPOLA DIAZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70364",
+    "name": "LUIS FERNANDO AVENA GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70365",
+    "name": "JOSE FERMIN JUAREZ SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70366",
+    "name": "GUIZEL INDIRA LUEVANO GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70367",
+    "name": "MARIA FERNANDA JUAREZ LUEVANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70306",
+    "name": "ALEJANDRO CARDOSO BERMUDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70307",
+    "name": "ERIKA GUEDES MARQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70308",
+    "name": "SANTIAGO CARDOSO GUEDES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70317",
+    "name": "ANGELICA VIRIDIANA FLORES PAEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70319",
+    "name": "ZAIDA SUSANA SANTIAGO BELTRAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70320",
+    "name": "OSCAR SAMUEL HERMIDA SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70321",
+    "name": "HILLARY SASHENKA TREJO SANTIAGO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69140",
+    "name": "SUGHAY KAREN CABRERA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69353",
+    "name": "PAOLA FRANCIS NAVA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69217",
+    "name": "VERONICA GONZALEZ GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69259",
+    "name": "MONSERRAT VILLEGAS ROMAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69270",
+    "name": "GUILLERMO MILANO CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69271",
+    "name": "NAYELI APARICIO LEON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69272",
+    "name": "GABRIEL MILANO APARICIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69273",
+    "name": "RAFAEL MILANO APARICIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69367",
+    "name": "BIANCA PEREZ CANSECO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69368",
+    "name": "LEONARDO PEREZ CANSECO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69481",
+    "name": "JESUS HUMBERTO RAMIREZ PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69365",
+    "name": "ANA LORENA CANSECO REYNA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69414",
+    "name": "LUIS GERARDO SERRANO TORRES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69437",
+    "name": "GUADALUPE ALICIA QUIROZ LAZCANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69438",
+    "name": "ENRIQUE MATEO REYES QUIROZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69439",
+    "name": "SOFIA XIMENA REYES QUIROZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69446",
+    "name": "JOSE MIGUEL CALDERON GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69457",
+    "name": "MARIA DE LA PAZ MORENO ALVAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69458",
+    "name": "CHRISTIAN CAMILO ARANGO VALENCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69601",
+    "name": "MIREYA GARCIA PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69606",
+    "name": "ANDREA PEREZ ZERON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69626",
+    "name": "FABIAN ALEXANDER ESTROBER",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69551",
+    "name": "IRASEMA CORDERO CASTRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69511",
+    "name": "FABIOLA ANDREA LAZCANO ALVAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69512",
+    "name": "MARIO DE JESUS VAZQUEZ DE CASTRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69686",
+    "name": "VICTOR HUGO CRUZ SANTIAGO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69687",
+    "name": "CYNTHIA TAPIA MEDRANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69688",
+    "name": "VALENTINA CRUZ TAPIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69689",
+    "name": "MATEO CRUZ TAPIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69700",
+    "name": "JOSE IGNACIO RODRIGUEZ HERRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69701",
+    "name": "SEBASTIAN RODRIGUEZ PERALTA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69702",
+    "name": "NATALIA MORENO RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69703",
+    "name": "ANGEL MORENO RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69706",
+    "name": "DANIEL RIOS ESTRADA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69808",
+    "name": "VICTOR DIEGO VELAZQUEZ VELAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69810",
+    "name": "NOE OSWALDO PALMA MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69820",
+    "name": "MARIA TERESITA GUEVARA CONDE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69822",
+    "name": "DIEGO SANCHEZ UTRILLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69823",
+    "name": "SANTIAGO SANCHEZ UTRILLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69831",
+    "name": "MARIA VIRGINIA MINUTTI COVARRUBIAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69846",
+    "name": "VERONICA MINUTTI COVARRUBIAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69669",
+    "name": "TERESITA ARMENDIA ARGUETA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69920",
+    "name": "GENOVEVA SUSTAITA CASAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69921",
+    "name": "ALEYDIS DOMINGUEZ LOZADA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69943",
+    "name": "JOSE EDUARDO RAMIREZ BARRANCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70101",
+    "name": "ARACELI JOSEFINA RAMOS RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70135",
+    "name": "NAHUMY RAMIREZ BETANCOURT",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70136",
+    "name": "SUHELY MAHELET RAMIREZ BENTANCOURT",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70137",
+    "name": "NAHUM ROBERTO RAMIREZ MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70109",
+    "name": "DIANA CORTES MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70110",
+    "name": "MAXIMILIANO CASTILLO CORTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70111",
+    "name": "CAMILA CASTILLO CORTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70088",
+    "name": "LUIS EDUARDO ROCHA MELENDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70089",
+    "name": "JESUS ALBERTO SANCHEZ SANTOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70090",
+    "name": "STEFANY CEBALLOS ARIZTIZABAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70091",
+    "name": "PASCUALA ORTIZ TLAPALTOTOLI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70092",
+    "name": "MARIA DEL CARMEN MALDONADO ROAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70093",
+    "name": "EMILIANO SANTIAGO SANCHEZ ORTIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70094",
+    "name": "PAULINA ROCHA GONZALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70095",
+    "name": "SANTIAGO ROCHA GOZALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70096",
+    "name": "ALAN SANCHEZ ORTIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70097",
+    "name": "HECTOR ALFONSO ROCHA MELENDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70098",
+    "name": "ALEXA MASIEL SANCHEZ ORTIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70099",
+    "name": "MARIA ESPERANZA MELENDEZ TLACUILO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69946",
+    "name": "ADRIANA SOLEDAD RAMIREZ SALAZAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69947",
+    "name": "JOSUE GAEL RAMIREZ SALAZAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69948",
+    "name": "CLARITZA ORDAZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69984",
+    "name": "PEDRO GUZMAN CABALLERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69985",
+    "name": "BLANCA ESTELA BARRIOS RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69994",
+    "name": "LORENA MOZZOCO ZAGO",
+    "club": "CIME RA"
+  },
+  {
+    "id": "69995",
+    "name": "CONSTANZA MINUTTI MAZZOCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69997",
+    "name": "MARIO JAVIER BARRERA ALEJANDRE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69998",
+    "name": "MARIA DE CARMEN RIVERA MASS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70081",
+    "name": "AMALIA DE MONTESINOS ZAPATA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69719",
+    "name": "LUIS ALFONSO ZENEN ZAMBRANO BARROSO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69724",
+    "name": "KARLA MARCELA GARCIA VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70007",
+    "name": "LUCILA TAPIA CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70008",
+    "name": "XIMENA RIOS TAPIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70012",
+    "name": "VICTOR MANUEL GUTIERREZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70037",
+    "name": "NORMA EDITH GONZALEZ RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70038",
+    "name": "NORMA EDITH RODRIGUEZ CARVAJAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68992",
+    "name": "DARIANA ABIGAIL XICOHTENCATL MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68993",
+    "name": "LUIS ARTURO CABRERA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68990",
+    "name": "KAMILA TAPIA RIOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69026",
+    "name": "HECTOR ENRIQUE NUÑEZ LIZARRAGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69027",
+    "name": "ALMA ROSA VALLEJO LARA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69028",
+    "name": "EDITH GUTIERREZ SALOMA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69078",
+    "name": "YADIRA LILIA ROMAN GUERRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68979",
+    "name": "MABEL RIOS OROZCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68940",
+    "name": "ANDRE FERRAN RIVADENEYRA PABLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68934",
+    "name": "ELIZABETH TLAPA TECPANECATL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68872",
+    "name": "LUZ PAULA YEPEZ MACIAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68824",
+    "name": "JESUS ADRIAN SANCHEZ VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68895",
+    "name": "BERTHA MENESES ORTEGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68907",
+    "name": "ERIK IVAN GOMEZ SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68908",
+    "name": "NORMA ANGELICA AGUILAR ARECHAVALA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68909",
+    "name": "MICHELLE GOMEZ AGUILAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68910",
+    "name": "JUAN RAMÓN ROMERO WALLS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68911",
+    "name": "JOSE RENE ROMERO RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68819",
+    "name": "MONICA XOCHITLQUIAHUATL VAZQUEZ ESTRADA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68820",
+    "name": "JESUS ALEJANDRO SANCHEZ GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68544",
+    "name": "SUSANA ANGELICA CEBADO RESENDIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68545",
+    "name": "EMILIANO PAVON CEBADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68546",
+    "name": "REGINA PAVON CEBADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68660",
+    "name": "MARIANA SUAREZ GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68662",
+    "name": "EDGAR GERARDO BAÑOS GUERRERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68783",
+    "name": "OSCAR CASTELAN LOZADA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68439",
+    "name": "ELIAN MARTINEZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68423",
+    "name": "KEVIN TRIPLETT ROBERT",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68424",
+    "name": "TANIA BELLO CASTELAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68458",
+    "name": "YEDENI SIMON RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68296",
+    "name": "GABRIELA NAIARA NASAGASTI PRIETO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68395",
+    "name": "LEIDY OKARINA MORALES RENDON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68396",
+    "name": "MANUEL PEREZ TORRES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68397",
+    "name": "NATALIA PEREZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68398",
+    "name": "DANNA PAOLA MORALES RENDON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68399",
+    "name": "TATIANA VALENTINA CASTELAN VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68400",
+    "name": "CARLOS EDUARDO CASTELAN VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68401",
+    "name": "ANGELICA PATRICIA ALVARADO JUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68405",
+    "name": "ENRIQUE MURRIETA VARGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68406",
+    "name": "MAGALY ALEJANDRA CARPINTEYRO SANTAMARIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68231",
+    "name": "ANDRES CAMERO ROMERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68251",
+    "name": "ANDREA ESTEFANIA COLEXCUA MOLINA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68226",
+    "name": "SOCORRO WENDOLYNE ROMERO SALAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68275",
+    "name": "ROSA HILDA SUAREZ VALLEJO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68277",
+    "name": "LUIS ODIN MEDELLIN MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68280",
+    "name": "FRANCISCO MUÑOZ AMADOR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68293",
+    "name": "MAIA VALENTINA MUÑOZ ANASAGASTI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68294",
+    "name": "IKER SEBASTIAN MUÑOZ ANASAGASTI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68190",
+    "name": "ADRIAN TAVARES ECHEGARAY",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68191",
+    "name": "CRISO L CASTREJON RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68211",
+    "name": "MANUEL AUGUSTO FUENTES LIRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68214",
+    "name": "LAURA CECILIA CABA SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68219",
+    "name": "MICHAEL BLACK",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68220",
+    "name": "MARISOL JIMENEZ QUINTANA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68086",
+    "name": "ERNESTO PEREZ ORTIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68097",
+    "name": "MARIA DEL PILAR CARRASCO MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68098",
+    "name": "ROGELIO SOTOMAYOR CARRASCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68160",
+    "name": "ADOLFO MORENO MANCHINELY",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68118",
+    "name": "EDGAR IVAN PEÑA CRUZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67793",
+    "name": "ANA PAOLA UGALDE RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67747",
+    "name": "MARIO ROCHA URRUTIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67750",
+    "name": "DIANA LOPEZ SUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67774",
+    "name": "DANIELA TRIGO SLIM",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67782",
+    "name": "JOSEFINA ALICIA HERRERIAS RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67696",
+    "name": "JUAN PABLO TIBURCIO PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67719",
+    "name": "JOSE LUIS CUAUTLE GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67724",
+    "name": "CARLOS ISMAEL VERA PEREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67725",
+    "name": "KARLA PAOLA ZAMORANO MALDONADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67814",
+    "name": "PABLO NAIROBY MORALES ROSALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67832",
+    "name": "JULIO ANTONIO GARCIA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67833",
+    "name": "LUCY GRAY ROSALYN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67873",
+    "name": "JUAN CARLOS GONZALEZ RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67874",
+    "name": "GABRIELA QUINTANA BALESTRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67946",
+    "name": "JOSE LUIS LOYO TEPALE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67947",
+    "name": "KAREN ANDREA RICO MONDRAGON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67970",
+    "name": "BRENDA NICOLE PEÑA CARRASCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68008",
+    "name": "ROSA MARIA CHAZARO ARELLANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67969",
+    "name": "PAMELA MICHELLE PEÑA CARRASCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67892",
+    "name": "LEONARDA MARISOL ABAD IBARRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67937",
+    "name": "JUAN PABLO MELGAREJO LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67796",
+    "name": "MARIO ENRIQUE LEON GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67739",
+    "name": "MIRIAM GONZALEZ DOMINGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67742",
+    "name": "BABO SCHOKKER .",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67448",
+    "name": "PATRICIA GORBEA URIBE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68124",
+    "name": "JOSHUA VEGA CISNERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68126",
+    "name": "KARLA ALVARADO RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68188",
+    "name": "JESUS OCAMPO CORONA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68186",
+    "name": "MATEO OLEA FERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68113",
+    "name": "DAYSIE ROMERO PARRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68217",
+    "name": "CONCEPCION SANCHEZ DORADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68209",
+    "name": "MANUEL FUENTES RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68210",
+    "name": "ZULMA DEUSDEDITH LIRA PEREA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68295",
+    "name": "DIEGO UNAI MUÑOZ ANASAGASTI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68325",
+    "name": "ISIS MORENO COSME",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68326",
+    "name": "ALEJANDRO CAMPOS RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68255",
+    "name": "ANDREA FERNANDA CONCHA CASTAÑEDA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68417",
+    "name": "MIAH MEDELLIN DE LA GARZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68418",
+    "name": "ANDREE MEDELLIN DE LA GARZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68419",
+    "name": "IAN ODIN MEDELLIN DE LA GARZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68490",
+    "name": "GILDA YURITZI CONTRERAS ORTEGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68491",
+    "name": "ARELI CONTRERAS ORTEGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68827",
+    "name": "JOSE MANUEL TORRES LOYA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68449",
+    "name": "LUIS DAVID ZARAGOZA MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68894",
+    "name": "BEATRIZ EUGENIA GALVAN AVALOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68939",
+    "name": "ANDREA DURAN CORTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68977",
+    "name": "GERARDO CORTES JIMENEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69082",
+    "name": "ROBERTO CARLOS ZACARIAS ROJAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68995",
+    "name": "DANIEL CABRERA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69106",
+    "name": "XIMENA GIRON MONTALVO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69062",
+    "name": "VALERIA YAZMIN ROMERO HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69366",
+    "name": "RAUL PEREZ RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69369",
+    "name": "CARLOS ALBERTO VAZQU EZ ZARCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69370",
+    "name": "ELIZABETH AGUILAR VELASCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69371",
+    "name": "EMILIO VAZQUEZ AGUILAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69372",
+    "name": "MATTEO VAZQUEZ AGUILAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69358",
+    "name": "ANA SOFIA VIAL AGUILAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69360",
+    "name": "SANTINO RAMON FRANCIS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69361",
+    "name": "JORGE RAMON FRANCIS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69317",
+    "name": "ALEJANDRO DE JESUS SANTIAGO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66534",
+    "name": "ROGELIO BERNAL GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66535",
+    "name": "SILVIA CARDENA ARELLANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66504",
+    "name": "LUIS ANGEL ROSAS REYNA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66500",
+    "name": "LUIS FELIPE FERNANDEZ JUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66537",
+    "name": "ROGELIO BERNAL CARDENAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66538",
+    "name": "RICARDO MALDONADO PACHECO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66539",
+    "name": "DEA INGRID JIMENEZ CALLEJA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66647",
+    "name": "YESSICA ISABEL GARCIA TELLEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66696",
+    "name": "MIA MONSERRAT LOPEZ MANRIQUE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66761",
+    "name": "PABLO URBINA MACIP",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66674",
+    "name": "DAVID REYES UREÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66675",
+    "name": "BERENICE GARCIA ORDAZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66676",
+    "name": "VALERY ESTEFANIA REYES GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66677",
+    "name": "DAVID GAMALIEL REYES GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66691",
+    "name": "ROCIO ZUÑIGA MORA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66692",
+    "name": "PAULINA GARCIA ZUÑIGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66850",
+    "name": "MARCO DANIEL CABAÑAS CHAVARIN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66851",
+    "name": "ALEJANDRA MARTINEZ ELIZONDO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66818",
+    "name": "LUIS ALBERTO BRAVO GORVEA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66891",
+    "name": "AMADO HERNANDEZ MORSE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67006",
+    "name": "RAFAEL SOTERO CUAQUENTZI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67075",
+    "name": "ANA GABRIELA BLASCO AGIS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67076",
+    "name": "PATRYCK VENTURA BLASCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67045",
+    "name": "CARLOS HERRERA ESCOBAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "669 38",
+    "name": "LUIS OSWALDO GUITIERREZ FUENTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66939",
+    "name": "RICARDO ROMERO VALERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67674",
+    "name": "JULIO MARTINEZ ORTEGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67682",
+    "name": "ALEJANDRO RODRIGUEZ MUÑOZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67670",
+    "name": "MARIA GUADALUPE MARTINEZ SALDAÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67671",
+    "name": "VERONICA MARTINEZ SALDAÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67608",
+    "name": "BLANCA ALEGRE RAMOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67619",
+    "name": "KAREN NOELLA ROETS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67564",
+    "name": "CARINA ENRIQUEZ RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67565",
+    "name": "FRIDA NICOLE IBARRA ENRIQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67568",
+    "name": "VALENTINO DUGAS AZOMOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67548",
+    "name": "GABRIELA LUNA ESPINOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67577",
+    "name": "MATTIAS COSIO VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67457",
+    "name": "LILIA PATRICIA GUTIERREZ CUEVAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67458",
+    "name": "RAFAEL ZOLA GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67397",
+    "name": "MARIO ANDRES LOPEZ ZARATRE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67424",
+    "name": "MARCELA FABIOLA GONZALEZ CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67394",
+    "name": "TIRZO YOEL GARCIA OCHOA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67310",
+    "name": "JOSE LUIS ROBERTO HERNANDEZ ROBLES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67134",
+    "name": "ZAYDA LYNNETE MANZANO CRUZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67258",
+    "name": "MARCO EDUARDO LUMBRERAS MAYORAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67149",
+    "name": "NADIA TENORIO GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67150",
+    "name": "GUILLERMO URIEL VARELA PARRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67152",
+    "name": "CLAUDIA DE LOURDES RODRIGUEZ CRUZADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67153",
+    "name": "VICTOR MANUEL ORTEGA LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67181",
+    "name": "ESTEBAN EDUARDO MORENO RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67182",
+    "name": "ARELI JIMENEZ CASCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67185",
+    "name": "MARIA DE LA LUZ FLORES NEGRETE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67207",
+    "name": "LUIS ANTONIO DELGADILLO ORTUÑO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67208",
+    "name": "JOSE LUIS JUAREZ MANCERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67209",
+    "name": "MARIA G UADALUPE HERNANDEZ RIOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67255",
+    "name": "IRAIS MAYORAL DELGADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66250",
+    "name": "JENIFER VIVIANA RUIZ MORGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66221",
+    "name": "DIANA OLGUIN BORJA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66222",
+    "name": "LUCAS HORACIO JOZEF HAAGEN CANTU",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66265",
+    "name": "IRMA MORLAES HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66266",
+    "name": "VALERIA MICHELLE GARCIA MORALES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66442",
+    "name": "RODRIGO BENJAMIN PARRA MALDONADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66443",
+    "name": "JOSE GUILLERMO PEREZ PARRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66142",
+    "name": "HECTOR ADALI PALACIOS VALADEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66144",
+    "name": "INES DIAZ GUERRERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66179",
+    "name": "XIMENA PEREZ RAMOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66092",
+    "name": "RODRIGO PERES RENTE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66051",
+    "name": "VICTOR ANTONIO LOPEZ CALVA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66069",
+    "name": "IVO HUMBERTO PINEDA SOMODEVILLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66070",
+    "name": "GRISELL RODRIGUEZ VARA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65541",
+    "name": "AHMED FIGUEROA CONDE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65542",
+    "name": "JESUS ALBERTO GONZALEZ ESPINOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65543",
+    "name": "ALMA BEATRIZ FABIAN MORA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65544",
+    "name": "CAMILA ISABEL GONZALEZ FABIAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65460",
+    "name": "LUCERO CISNEROS ESPINOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65476",
+    "name": "CONSTANZA CUELLAR ALVAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65602",
+    "name": "JOSE ASUNCION MARTIN LUNA GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65603",
+    "name": "IRVING MARTIN LUNA GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65659",
+    "name": "GUILLERMO DOMINGUEZ JIMENEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65660",
+    "name": "FERNANDO DOMINGUEZ JIMENEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65745",
+    "name": "BRANDON ALONSO SUSTAITA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65984",
+    "name": "KATYA ESTEFANIA TORRES GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65995",
+    "name": "FERNANDO VELAZQUEZ CHIRINOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65981",
+    "name": "TANIA OCHOA PORTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65793",
+    "name": "BERNAT COSTES ANAYA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "6 5801",
+    "name": "CLAUDIA SHARENY VERA GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65804",
+    "name": "AITANA BELLIDO VERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65441",
+    "name": "MARIA ALEJANDRA CARMONA MONTIEL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64777",
+    "name": "CARLOS JOSHUA CHAMBERS MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64838",
+    "name": "MARIO ALBERTO MARTINEZ DE ITA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65118",
+    "name": "DANIELA STEFANNY PRADO BARRON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65151",
+    "name": "CLARA HUERTA MAXIL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65153",
+    "name": "IRMA DEL CARMEN ZAMORA GINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65154",
+    "name": "JOSE DE JESUS SEBASTIAN MENESES RIVAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65127",
+    "name": "MICHAEL GAMBOA GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65128",
+    "name": "DIANA JUAREZ COTZOMI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65129",
+    "name": "CEDRIC GAMBOA JUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64928",
+    "name": "JOSE PABLO LUNA MALDONADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65099",
+    "name": "DIEGO ECHEAGARAY MARROQUIN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64595",
+    "name": "KARLA ORTEGA ISIDRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64604",
+    "name": "JORGE BARRADAS DEL CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64606",
+    "name": "JORGE BARRADAS ZORRILLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64089",
+    "name": "CAMILA LECONA FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64416",
+    "name": "URIEL GONZALEZ LOBATO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64129",
+    "name": "ANTONIO MAXIMILIANO DEOLARTE SEINOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64194",
+    "name": "JOSE PEDRO RAMIREZ VELEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64195",
+    "name": "MARIA DE LOURDES ESTOLIA MONTIEL JIMENEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63379",
+    "name": "VIVIANA ARELI ROJAS CARBAJAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63763",
+    "name": "ALVARO LOPEZ VELARDE HERRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64087",
+    "name": "ADRIANA FLORES SANTOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52748",
+    "name": "AMANDA LEON REYES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "55795",
+    "name": "ELSI PATRICIA VALADEZ GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "54427",
+    "name": "HECTOR AGUILAR GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59145",
+    "name": "MIGUEL VALADEZ RIVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59146",
+    "name": "MARIA MARGARITA CHAVEZ CRUZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59543",
+    "name": "CHRISTIAN RENE ALVA LUNA",
+    " club": "CIMERA"
+  },
+  {
+    "id": "59544",
+    "name": "EMILIA MELENDEZ SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59545",
+    "name": "MARIANA LIZBETH HERRERA FIGUEROA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59286",
+    "name": "JOSE PEDRO GUADALUPE VAZQUEZ TEPOZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60299",
+    "name": "YANERIS TITO COLUMBIE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60280",
+    "name": "VENUS GUADALUPE ACUÑA MENDOZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60274",
+    "name": "ANTONIO ACUÑA URBINA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59801",
+    "name": "SANDRA TRINIDAD GUERRERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59802",
+    "name": "DARIO HERNANDEZ TRINIDAD",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61948",
+    "name": "JORGE PALALIA COSME",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61327",
+    "name": "EDGAR GONZALEZ RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61397",
+    "name": "ZYANYA TOXQUI JUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60468",
+    "name": "ARELI HERNANDEZ PEÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60778",
+    "name": "PAOLA MENESES ZAMORA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62780",
+    "name": "ALEJANDRA PAMELA ESCOBEDO RUIZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61956",
+    "name": "MARIA FERNANDA LEON ORTEGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62233",
+    "name": "ODILON FLORES BEDOLLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62234",
+    "name": "LETICIA VARGAS GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62365",
+    "name": "JESSICA ANDREA AVENDAÑO LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62366",
+    "name": "ANA GABRIELA AVENDAÑO LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62367",
+    "name": "LUIS GERARDO AVENDAÑO ESTEVEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62368",
+    "name": "VERONICA LOPEZ HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62236",
+    "name": "LUIS MANUEL FLORES VARGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "5195",
+    "name": "ROSA NELLY PEREZ FICACHI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "6809",
+    "name": "LAURA PATRICIA SOSA CASO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "7236",
+    "name": "CARLOS JESUS GAMEZ CORTEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18324",
+    "name": "LUZ MARIA PONCE CASTRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "19049",
+    "name": "JOSE MOISES ANDRADE CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "19053",
+    "name": "ANA ELENA GUADALUPE MENA SOTO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "19054",
+    "name": "SARA ANDRADE MENA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "19055",
+    "name": "MOISES ANDRADE MENA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "17744",
+    "name": "EDGAR ALFREDO LUNA RENDON",
+    "club": "CIM ERA"
+  },
+  {
+    "id": "18028",
+    "name": "CARLOS MANUEL ANDRADE JASSO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18029",
+    "name": "MONICA ANDRADE JASSO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1507",
+    "name": "MARTHA GABRIELA JUAREZ ZENTENO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1508",
+    "name": "DIEGO FLORES JUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1535",
+    "name": "JORGE ESCOBEDO CALDERON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1579",
+    "name": "ANGELA CUATZIL MORENO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "3575",
+    "name": "ALEJANDRO TONATIUH SANCHEZ ANDRADE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "654",
+    "name": "ILIANA DE ITA MONJARAZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "406",
+    "name": "PATRYCK VENTURA RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "459",
+    "name": "LEONARDO GARRIDO DEL VALLE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "870",
+    "name": "MARIA CRISTINA FLORES MACHORRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "284",
+    "name": "ALEJANDRO MOZO CUAUTLE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "145",
+    "name": "MATILDE RODRIGUEZ CORDOVA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "99",
+    "name": "BELEN AIDA DIAZ PALMERIN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "77",
+    "name": "JAIME MACIAS RAMIREZ DE ARELLANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "22845",
+    "name": "MARIA LUISA PULIDO GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "23448",
+    "name": "ELIZABETH MENDEZ RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "23449",
+    "name": "JOSE LUIS REYES GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "21336",
+    "name": "SANDRA CORDEIRO MEJIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "21339",
+    "name": "JOSE LUIS CANAL CORDEIRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "20508",
+    "name": "MIGUEL MORALES OSORIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "33794",
+    "name": "ARETH SAN ROMAN TOLAMA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "28046",
+    "name": "JOSE RAFAEL TORIZ SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "32903",
+    "name": "CAROLINA ROJAS RIVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "32904",
+    "name": "JOSE ALBERTO ZACARIAS JUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "31548",
+    "name": "SERGIO ARTURO DIAZ ROSETE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "36210",
+    "name": "DANIEL ALVAREZ MANJARREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52465",
+    "name": "ANA PAOLA CADENA ZAPATA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52305",
+    "name": "FLOR AMADOR DIAZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "53113",
+    "name": "CLAUDIA MENESES ZAMORA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52751",
+    "name": "ALEJANDRO ISA AMADOR LEON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "50070",
+    "name": "FELI PE SAMUEL RODRIGUEZ MENDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42086",
+    "name": "XIMENA ZACARIAS ROJAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41256",
+    "name": "MATEO JOSE PIÑA MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41253",
+    "name": "ITZA CAROLINA MARTINEZ DE LA PEÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42525",
+    "name": "JESUS ALBERTO GIL ANDRADE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "42526",
+    "name": "RIGELL SACNITE HERNANDEZ FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "46977",
+    "name": "CLAUDIA UTRILLA SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "46152",
+    "name": "MIGUEL ANGEL ROBLES Y ZALDIVAR",
+    "club": "CIMERA"
+  },
+  {
+    "id": "46708",
+    "name": "MABEL ALINE GARCIA BARBOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44384",
+    "name": "XIMENA HERNANDEZ MANRIQUE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44382",
+    "name": "MARIA ANGELICA MANRIQUE GODINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44073",
+    "name": "GIOVANNA MICHEL IBARRA ENRIQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44074",
+    "name": "MOISES ALEJANDRO FLORES ANDREW",
+    "club": "CIMERA"
+  },
+  {
+    "id": "46911",
+    "name": "JOSE PASCUAL PEREGRINA LARA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "44995",
+    "name": "CARLOS ALBERTO RIVAS HERRERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41255",
+    "name": "SAMUEL JOSE PIÑA MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "41202",
+    "name": "FRANCISCO VARGAS SANTILLAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "52673",
+    "name": "JUAN ALFREDO SAMPEDRO SAMPABLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "48033",
+    "name": "BAJA ROBERTO FRANCISCO PLIEGO FRANCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "49825",
+    "name": "GABRIELA FERNANDEZ VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "36085",
+    "name": "JUAN JOSE SALVADOR CUAUTLE OLIVARES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "38426",
+    "name": "ROCIO HERNANDEZ RAMOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "38429",
+    "name": "JOSE VICTOR ARRIAGA BENAVENTE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34102",
+    "name": "ATZIRI IRERI VILLEGAS GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34103",
+    "name": "ALEJANDRO REYES OLIVER",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34107",
+    "name": "ALEJANDRO REYES VILLEGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "34178",
+    "name": "ARELI DEL CARMEN UREÑA AÑAZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18814",
+    "name": "SILVIA VIRGINIA VALERO MEDINA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "19545",
+    "name": "MARIA DE LOS ANGELES HERRERA PEÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "21645",
+    "name": "BAJA RODRIGO OSVALDO COLIN RIVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "27927",
+    "name": "LETICIA DE LOS ANGELES SANCHEZ ROMERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "341",
+    "name": "VERONICA CASTRO OLVERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "259",
+    "name": "CARLOS IVAN MENDOZA GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "226",
+    "name": "SARA DEL VALLE LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1019",
+    "name": "JOSE GUADALUPE PATLAN PEREYRA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "961",
+    "name": "FABIAN TOXQUI RODRIGUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "418",
+    "name": "JOSE LUIS FLORES GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "356",
+    "name": "ROBERTO HUERTA QUINTERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "299",
+    "name": "JOSE LUIS FUENTES CASTILLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "665",
+    "name": "RODERICK GARCIA RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "570",
+    "name": "VICTOR MORENO SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "762",
+    "name": "ALDO MIGUEL DE LA ROSA NATIVITAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "3458",
+    "name": "EUGENIO SANCHEZ LARA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1892",
+    "name": "ESTEFANY CRUZ FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1204",
+    "name": "AGUSTIN PALACIOS AGUADO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "1208",
+    "name": "SOFIA GARDUÑO LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "18112",
+    "name": "JULIAN ZARATE LARA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "17743",
+    "name": "CARLOS ALBERTO LOPEZ MONTESINOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "16665",
+    "name": "JAIME BERNABE MANILLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "6648",
+    "name": "JOAQUIN SANCHEZ MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62482",
+    "name": "BAJA ALEJANDRA BARBABOSA BARRAGAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "62914",
+    "name": "BAJA ANDREA GABRIELA SHAN MERINO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60469",
+    "name": "LEONARDO JARA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "60442",
+    "name": "RAQUEL CARMONA VAILLARD",
+    "club": "CIMERA"
+  },
+  {
+    "id": "61300",
+    "name": "HECTOR MANUEL GONZALEZ RUBIO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "59803",
+    "name": "MARCO JOSUE HERNANDEZ TRINIDAD",
+    "club": "CIMERA"
+  },
+  {
+    "id": "55459",
+    "name": "JOSE JAVIER ORDUÑA GARCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "57782",
+    "name": "GABRIELA ESPINO CALVO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63973",
+    "name": "CYNTHIA DANIELA TOVAR VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63470",
+    "name": "MARIA JOSE LOPEZ TELLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63764",
+    "name": "ALVARO LOPEZ VELARDE PLACENCIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "63385",
+    "name": "ALMA LETICIA HERNANDEZ ROMERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64690",
+    "name": "EMILIANO ROBLEDO BLANCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65150",
+    "name": "PEDRO LAGUERENNE GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64904",
+    "name": "MIGUEL DE JESUS DE LA LUZ LOZANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65444",
+    "name": "MARIA FERNANDA SALAZAR CARMONA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65389",
+    "name": "FRANCISCO HERIBERTO GONZALEZ FABIAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65229",
+    "name": "DIEGO EMILIO GONZALEZ LAGUNAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65255",
+    "name": "EMILIO MUÑOZ MENDIOLA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65293",
+    "name": "PAOLA DEL RIO RICARDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65373",
+    "name": "MIGUEL EDUARDO MORLET MACIEL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65783",
+    "name": "ERICK SARMIENTO DEL ANGEL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65816",
+    "name": "FRANCISCO REYES MUÑOZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65837",
+    "name": "MARIA FERNANDA MERINO AVILA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65858",
+    "name": "EMILIO HERNANDEZ CASTRO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65960",
+    "name": "ZACHARY ARMEN ASLANIAN WILLIAMS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65961",
+    "name": "BAJA ROSARIO KARIME HAGOPIAN ARIZMENDI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65746",
+    "name": "LUCIO ALONSO MATIAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65724",
+    "name": "YAGO VIZCAINO DIAZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65717",
+    "name": "ENRIQUE MARTIN AGUIRRE MARTINEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65643",
+    "name": "IKER DAVID MUÑOZ ORDOÑEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65473",
+    "name": "CARLOS CUELLAR MORENO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65560",
+    "name": "BASTIAN VENGHAUS PATRINOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "65569",
+    "name": "SEBASTIAN PEREZ PONCE DE LEON",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66042",
+    "name": "ANUAR TAME CARRILES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66102",
+    "name": "GUILLERMO SANCHEZ LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66116",
+    "name": "ZURY RENATA HERNANDEZ GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66184",
+    "name": "JAQUELIN CHAVEZ FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66217",
+    "name": "CARLOS FERNANDO GARAVITO GASTELUM",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66218",
+    "name": "RODRIGO DIAZ MEJIA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66366",
+    "name": "JAVIER YUKUU VASQUEZ TELLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66466",
+    "name": "DIEGO AX EL PIÑA BAILLERES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66364",
+    "name": "MARIBEL TELLO BELLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67256",
+    "name": "MARIO ALBERTO GUTIERREZ BELTRAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67187",
+    "name": "EMILIO MARTINEZ MANZANERO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67509",
+    "name": "URIEL MUÑOZ TLACUAYO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67524",
+    "name": "LUIS ARMANDO GARDUÑO DOLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67528",
+    "name": "LUIS FERNANDO GARCIA VELAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67529",
+    "name": "ANGEL ALEXIS SANCHEZ FUENTES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67447",
+    "name": "GABRIELA CERVANTES CUE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67031",
+    "name": "CONCEPCION CABA SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66894",
+    "name": "MA MAGDALENA SANDRA HERNANDEZ ESQUIVEL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66937",
+    "name": "BAJA MARIANA JIMENEZ MORAN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66660",
+    "name": "ALEJANDRA LEONOR SALDAÑA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "66506",
+    "name": "OFELIA SAUCE FLORES",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69224",
+    "name": "VALERIA GALEANA GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69226",
+    "name": "GALO GALEANA GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69356",
+    "name": "CLAUDIA AGUILAR VELASCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69334",
+    "name": "KHALED ALI AVALOS OROZCO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69726",
+    "name": "MARCELA DEL RIO ARTASANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69958",
+    "name": "JOSE ARTURO TOBON AGUILA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69707",
+    "name": "IDANIA GOMEZ CANTU",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69063",
+    "name": "FABIOLA IVONNE ROMERO HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68450",
+    "name": "VICTOR ORLANDO MARQUEZ ZUÑIGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68494",
+    "name": "DIEGO ARMANDO CONTRERAS CUEVAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "68822",
+    "name": "DANIEL ALEJANDRO SANCHEZ VAZQUEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70380",
+    "name": "AXEL VERA LOPEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70769",
+    "name": "ANDRE BETANZOS ZUÑIGA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67277",
+    "name": "CORSARIOS VARONIL DIV 2",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67281",
+    "name": "LORDS VARONIL DIV 2",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67347",
+    "name": "SAN DIEGO MIXTO B",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67349",
+    "name": "PEDREGAL MIXTO B",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64779",
+    "name": "NISA CHAMBERS HE RNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64775",
+    "name": "CARLOS ERNESTO CHAMBERS ARROYO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "64776",
+    "name": "ELIZABETH HERNANDEZ GUTIERREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "17715",
+    "name": "MAURICIO ALEXANDER MAXIL GONZALEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "3830",
+    "name": "DAYANNA MORENO LECONA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "690",
+    "name": "KYTZIA ELENA GUTIERREZ OLMOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70770",
+    "name": "MAURO SOLIS TOTOTZINTLE",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70780",
+    "name": "JOSE CARLOS MOTA XX",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70782",
+    "name": "ESPOSA ESPOSA ESPOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70783",
+    "name": "HIJO HIJO HIJO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70784",
+    "name": "HIJA HIJA HIJA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70740",
+    "name": "MARIA JOSE LICHTLE LEZAMA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70746",
+    "name": "PAULO JONATHAN TEJEDA CASTELLANOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70747",
+    "name": "MARIA FERNANDA JUAREZ GARZA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70748",
+    "name": "PAOLA TEJEDA ESPINOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70749",
+    "name": "RICARDO BELMONTE JUAREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70737",
+    "name": "MARIA ALEJANDRA MURILLO GOMEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70721",
+    "name": "AXEL QUITERIO TELLO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70707",
+    "name": "XIMENA DENEB DOMINGUEZ CORTEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70873",
+    "name": "MARCO ANTONIO MOLINA MUÑOZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70875",
+    "name": "MARIA CONCEPCION MUÑOZ SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "71020",
+    "name": "JAVIER ZACARIAS MENDIETA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70381",
+    "name": "FAUSTO MIGUEL VERA CASELI",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70496",
+    "name": "EFRAIN DESCHAMPS GUTIERREZ DE VELAZQU",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70445",
+    "name": "HUGO SEVILLA AGUILERA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70450",
+    "name": "ADRIANA MORA HERNANDEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70546",
+    "name": "GERARDO ALBERTO REYNA RAMOS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70663",
+    "name": "VICTOR ZEFERINO CONTRERAS MARIN",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70664",
+    "name": "ALEJANDRA ARACELI TORRES ARANGO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70667",
+    "name": "DANTE ANTONIO CERVANTES ROJAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70668",
+    "name": "TANIA ALEJANDRA SANCHEZ ESPINOSA",
+    "club": "CIMERA"
+  },
+  {
+    "id": "7 0669",
+    "name": "DANTE CERVANTES SANCHEZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70584",
+    "name": "LAURA LILIA TELLO LEAL",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70370",
+    "name": "SILVIA OFELIA HIGUERA RAMIREZ",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67714",
+    "name": "LESLIE SUSANA ARCILA LOZANO",
+    "club": "CIMERA"
+  },
+  {
+    "id": "67715",
+    "name": "LUIS RAMIRO CASO VARGAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "69717",
+    "name": "JOSE LUIS LOZANO CONTRERAS",
+    "club": "CIMERA"
+  },
+  {
+    "id": "70122",
+    "name": "HERMELINDA ARELY BETANCOURT VALENZUELA",
+    "club": "CIMERA"
+  }
+]

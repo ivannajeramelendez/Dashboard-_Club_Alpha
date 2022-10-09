@@ -1,0 +1,710 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Sports Plaza - Inicio{% endblock %}
+{% block Apartados %}active{% endblock %}
+{% block Apartados_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Horario</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Agendar Citas - Horario Completo</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <a class="btn btn-sm btn-outline-dark" data-bs-toggle="modal" data-bs-target="#citas_usuario">
+            Citas por Usuario
+          </a>
+          <!-- SALONES SEMANA -->
+          <a class="btn btn-sm bg-gradient-primary" href="{{url_for('aforo.aforo_inicio_sport_plaza')}}">
+            Salones
+          </a>
+        </div>
+        <div class="collapse show">
+          <!-- CANCHAS SEMANA -->
+          <form method="post" action="{{url_for('aforo.aforo_inicio_sport_plaza')}}"> 
+            <input class="form-control" type="text" name="tipo" value="canchas" hidden>
+            <button class="btn btn-sm bg-gradient-success text-white">Canchas</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MENSAJE SIS -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="col-md-auto">
+        <div class="{{category}}" role="alert">
+          <strong>Sistema: </strong> {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- FECHA -->
+  <div align="center">
+    <h4 class="card-title text-club text-gradient" style="padding-bottom: 1%;"><b><i>La fecha Actual es {{fecha_title}}</i></b></h4>
+    <button class="btn btn-sm bg-gradient-alpha text-white" data-bs-toggle="modal" data-bs-target="#modal_dia">
+      BUSQUEDA POR DÍA
+    </button>
+    <button class="btn btn-sm btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      FILTRAR POR TIPO DE ACTIVIDAD
+    </button>
+    <div class="collapse" id="collapseExample">
+      <div class="row">
+        {% for dato in all %}
+          <div class="col-sm-auto" style="margin-left: 1%;">
+            <form method="POST" action="{{url_for('aforo.aforo_inicio_sport_plaza_segmentacion')}}">
+              <input type="text" name="segmento_dato" value="{{dato.nombre}}" hidden>
+              <input type="text" name="tipo_dato" value="{{dato.segmentacion}}" hidden>
+              <input type="text" name="club_segmento"  value="{{club}}" hidden>
+              <button type="submit" class="btn btn-sm bg-gradient-sp" style="color: aliceblue;">{{dato.nombre}}</button>
+            </form>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- CAJA BOTONES -->
+  <div class="card bg-gradient-default mb-3" hidden>
+    <div class="card-body" align="center">
+      <h5 class="card-title text-club text-gradient"> La fecha Actual es {{fecha_title}}</h5>
+    </div>
+    <div align="center">
+      <button class="btn btn-sm bg-gradient-alpha text-white" data-bs-toggle="modal" data-bs-target="#modal_dia">
+        BUSQUEDA POR DÍA
+      </button>
+      <button class="btn btn-sm btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        FILTRAR POR TIPO DE ACTIVIDAD
+      </button>
+      <div class="collapse" id="collapseExample">
+        <div class="row">
+          {% for dato in all %}
+            <div class="col-sm-auto" style="margin-left: 1%;">
+              <form method="POST" action="{{url_for('aforo.aforo_inicio_sport_plaza_segmentacion')}}">
+              <input type="text" name="segmento_dato" value="{{dato.nombre}}" hidden>
+              <input type="text" name="tipo_dato" value="{{dato.segmentacion}}" hidden>
+              <input type="text" name="club_segmento"  value="{{club}}" hidden>
+              <button type="submit" class="btn btn-sm bg-gradient-sp" style="color: aliceblue;">{{dato.nombre}}</button>
+              </form>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLA DE HORARIOS -->
+  <div class="table-responsive">
+    <table id="Datos_tabla" style="width:100%">
+      <tr align="center">
+        <td>
+          <div class="border-dashed border-1 border-secondary border-radius-md py-3" data-bs-toggle="tooltip" data-bs-placement="top" title="LUNES">
+            <b><i>LUNES<br>{{lunes}}</i></b>
+          </div>
+        </td>
+        <td>
+          <div class="border-dashed border-1 border-secondary border-radius-md py-3" data-bs-toggle="tooltip" data-bs-placement="top" title="MARTES">
+            <b><i>MARTES<br>{{martes}}</i></b>
+          </div>
+        </td>
+        <td>
+          <div class="border-dashed border-1 border-secondary border-radius-md py-3" data-bs-toggle="tooltip" data-bs-placement="top" title="MIERCOLES">
+            <b><i>MIERCOLES<br>{{miercoles}}</i></b>
+          </div>
+        </td>
+        <td>
+          <div class="border-dashed border-1 border-secondary border-radius-md py-3" data-bs-toggle="tooltip" data-bs-placement="top" title="JUEVES">
+            <b><i>JUEVES<br>{{jueves}}</i></b>
+          </div>
+        </td>
+        <td>
+          <div class="border-dashed border-1 border-secondary border-radius-md py-3" data-bs-toggle="tooltip" data-bs-placement="top" title="VIERNES">
+            <b><i>VIERNES<br>{{viernes}}</i></b>
+          </div>
+        </td>
+        <td>
+          <div class="border-dashed border-1 border-secondary border-radius-md py-3" data-bs-toggle="tooltip" data-bs-placement="top" title="SABADO">
+            <b><i>SABADO<br>{{sabado}}</i></b>
+          </div>
+        </td>
+        <td>
+          <div class="border-dashed border-1 border-secondary border-radius-md py-3" data-bs-toggle="tooltip" data-bs-placement="top" title="DOMINGO">
+            <b><i>DOMINGO<br>{{domingo}}</i></b>
+          </div>
+        </td>
+      </tr>
+      <tr align="center">
+        <td style="vertical-align:top">
+          {% for dato in lun %}
+          <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+            <div class="px-1 py-1">
+              <div class="card" style="width: 11rem;">
+                <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                <div class="row">
+                  <div class="col-sm-6" align="center">
+                    <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                  </div>
+                  <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                    <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                  </div>
+                  <div class="col-sm-12" align="center">
+                    <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                  </div>
+                  <div class="col-sm-12" align="left">
+                    <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                    <label style="color: gray; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </td>
+        <td style="vertical-align:top">
+          {% for dato in mar %}
+          <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+            <div class="px-1 py-1">
+              <div class="card" style="width: 11rem;">
+                <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                <div class="row">
+                  <div class="col-sm-6" align="center">
+                    <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                  </div>
+                  <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                    <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                  </div>
+                  <div class="col-sm-12" align="center">
+                    <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                  </div>
+                  <div class="col-sm-12" align="left">
+                    <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                    <label style="color: gray; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </td>
+        <td style="vertical-align:top">
+          {% for dato in mie %}
+          <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+            <div class="px-1 py-1">
+              <div class="card" style="width: 11rem;">
+                <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                <div class="row">
+                  <div class="col-sm-6" align="center">
+                    <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                  </div>
+                  <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                    <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                  </div>
+                  <div class="col-sm-12" align="center">
+                    <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                  </div>
+                  <div class="col-sm-12" align="left">
+                    <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                    <label style="color: gray; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </td>
+        <td style="vertical-align:top">
+          {% for dato in jue %}
+          <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+            <div class="px-1 py-1">
+              <div class="card" style="width: 11rem;">
+                <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                <div class="row">
+                  <div class="col-sm-6" align="center">
+                    <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                  </div>
+                  <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                    <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                  </div>
+                  <div class="col-sm-12" align="center">
+                    <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                  </div>
+                  <div class="col-sm-12" align="left">
+                    <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                    <label style="color: gray; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </td>
+        <td style="vertical-align:top">
+          {% for dato in vie %}
+          <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+            <div class="px-1 py-1">
+              <div class="card" style="width: 11rem;">
+                <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                <div class="row">
+                  <div class="col-sm-6" align="center">
+                    <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                  </div>
+                  <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                    <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                  </div>
+                  <div class="col-sm-12" align="center">
+                    <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                  </div>
+                  <div class="col-sm-12" align="left">
+                    <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                    <label style="color: gray; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </td>
+        <td style="vertical-align:top">
+          {% for dato in sab %}
+          <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+            <div class="px-1 py-1">
+              <div class="card" style="width: 11rem;">
+                <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                <div class="row">
+                  <div class="col-sm-6" align="center">
+                    <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                  </div>
+                  <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                    <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                  </div>
+                  <div class="col-sm-12" align="center">
+                    <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                  </div>
+                  <div class="col-sm-12" align="left">
+                    <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                    <label style="color: gray; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </td>
+        <td style="vertical-align:top">
+          {% for dato in dom %}
+          <a href="#{{dato.id_apartados}}" data-bs-toggle="modal" data-bs-target="#edit{{dato.id_apartados}}">
+            <div class="px-1 py-1">
+              <div class="card" style="width: 11rem;">
+                <span style="background-color: #{{dato.color}}; color:#{{dato.color}}; font-size: 25%;">.</span>
+                <div class="row">
+                  <div class="col-sm-6" align="center">
+                    <label style="color: gray; margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Club">{{dato.club}}</label>
+                  </div>
+                  <div class="col-sm-6" align="center" data-bs-toggle="tooltip" data-bs-placement="right" title="Aforo">
+                    <label style="background-color: #ECECEA; border-radius: 35%; padding-left: 5%; padding-right: 5%;">{{dato.cupo_actual}} / {{dato.cupo_maximo}}</label>
+                  </div>
+                  <div class="col-sm-12" align="center">
+                    <div data-bs-toggle="tooltip" data-bs-placement="right" title="Horario" align="center"><h5 class="text-club"><b><i>{{dato.rango}}</i></b></h5></div>
+                  </div>
+                  <div class="col-sm-12" align="left">
+                    <div class="text-gradient text-dark" style="margin-left: 4%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Actividad"><b><i>{{dato.nombre}}</i></b></div>
+                    <label style="color: gray; margin-left: 4%; font-size: 80%;" data-bs-toggle="tooltip" data-bs-placement="right" title="Lugar"><i>{{dato.lugar}}</i></label>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- BUSQUEDA MODAL -->
+  <div class="modal fade" id="citas_usuario" tabindex="-1" role="dialog" aria-labelledby="citas_usuario" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Busqueda de Citas por Usuario</h3>
+                </div>
+              </div>
+              <div class="col-md-3">
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('aforo.aforo_inicio_citas_por_usuario')}}" method="post">
+                <div class="row">
+                  <div class="input-group mb-3">
+                    <input type="number" class="form-control" placeholder="ID Cliente" name="id">
+                    <button class="btn btn-outline-club mb-0">Buscar Citas</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DIA -->
+  <div class="modal fade" id="modal_dia" tabindex="-1" role="dialog" aria-labelledby="modal_dia" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+                <h3 class="font-weight-bolder text-club text-gradient">Selecciona el día</h3>
+                <p class="mb-0">Visualiza los horarios por día</p>
+            </div>
+            <div class="card-body pb-3">
+              <form method="post" action="{{url_for('aforo.aforo_inicio_sport_plaza_dia_sala')}}"> 
+                <div class="form-group">
+                  <label>Fecha: </label>
+                  <input class="form-control datepicker" type="text" name="dia_salas" value="dia" hidden>
+                  <input class="form-control datepicker" type="date" name="Fecha_Inicio" required>
+                </div>
+                <button class="btn btn-sm btn-club btn-lg w-100">Consultar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAR AGENDAR CITAS LUNES -->
+  {% for dato in lun %}
+  <div class="modal fade" id="edit{{dato.id_apartados}}" tabindex="-1" role="dialog" aria-labelledby="{{dato.id_apartados}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{dato.nombre}} - <label class="h3 font-weight-bolder text-info text-gradient">{{dato.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza')}}" method="post">
+                <input type="text" value="{{dato.id}}" name="actividad" hidden>
+                <input type="text" value="dia_apartado" name="apartado_dia" hidden>
+                <input type="text" value="{{dato.dia}}" name="dia_apartado" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario en esta Sala">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza_informacion_sala')}}" method="post">
+                <input type="text" name="ver_apartado" value="vista" hidden>
+                <input type="text" name="dia_apartado" value="{{lunes}}" hidden>
+                <input type="text" name="id_apartado" value="{{dato.id}}" hidden>
+                <input type="text" name="nombre_apartado" value="{{dato.nombre}}" hidden>
+                <input type="text" name="horario_apartado" value="{{dato.rango}}" hidden>
+                <input type="text" name="sala_apartado" value="{{dato.id_apartados}}" hidden>
+                <button class="btn btn-sm btn-secondary" align="right" data-bs-toggle="tooltip" data-bs-placement="right" title="Ver Usuarios en esta Sala">Ver Sala</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- MODAR AGENDAR CITAS MARTES -->
+  {% for dato in mar %}
+  <div class="modal fade" id="edit{{dato.id_apartados}}" tabindex="-1" role="dialog" aria-labelledby="{{dato.id_apartados}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{dato.nombre}} - <label class="h3 font-weight-bolder text-info text-gradient">{{dato.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza')}}" method="post">
+                <input type="text" value="{{dato.id}}" name="actividad" hidden>
+                <input type="text" value="dia_apartado" name="apartado_dia" hidden>
+                <input type="text" value="{{dato.dia}}" name="dia_apartado" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario en esta Sala">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza_informacion_sala')}}" method="post">
+                <input type="text" name="ver_apartado" value="vista" hidden>
+                <input type="text" name="dia_apartado" value="{{martes}}" hidden>
+                <input type="text" name="id_apartado" value="{{dato.id}}" hidden>
+                <input type="text" name="nombre_apartado" value="{{dato.nombre}}" hidden>
+                <input type="text" name="horario_apartado" value="{{dato.rango}}" hidden>
+                <input type="text" name="sala_apartado" value="{{dato.id_apartados}}" hidden>
+                <button class="btn btn-sm btn-secondary" align="right" data-bs-toggle="tooltip" data-bs-placement="right" title="Ver Usuarios en esta Sala">Ver Sala</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- MODAR AGENDAR CITAS MIERCOLES -->
+  {% for dato in mie %}
+  <div class="modal fade" id="edit{{dato.id_apartados}}" tabindex="-1" role="dialog" aria-labelledby="{{dato.id_apartados}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{dato.nombre}} - <label class="h3 font-weight-bolder text-info text-gradient">{{dato.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza')}}" method="post">
+                <input type="text" value="{{dato.id}}" name="actividad" hidden>
+                <input type="text" value="dia_apartado" name="apartado_dia" hidden>
+                <input type="text" value="{{dato.dia}}" name="dia_apartado" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario en esta Sala">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza_informacion_sala')}}" method="post">
+                <input type="text" name="ver_apartado" value="vista" hidden>
+                <input type="text" name="dia_apartado" value="{{miercoles}}" hidden>
+                <input type="text" name="id_apartado" value="{{dato.id}}" hidden>
+                <input type="text" name="nombre_apartado" value="{{dato.nombre}}" hidden>
+                <input type="text" name="horario_apartado" value="{{dato.rango}}" hidden>
+                <input type="text" name="sala_apartado" value="{{dato.id_apartados}}" hidden>
+                <button class="btn btn-sm btn-secondary" align="right" data-bs-toggle="tooltip" data-bs-placement="right" title="Ver Usuarios en esta Sala">Ver Sala</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- MODAR AGENDAR CITAS JUEVES -->
+  {% for dato in jue %}
+  <div class="modal fade" id="edit{{dato.id_apartados}}" tabindex="-1" role="dialog" aria-labelledby="{{dato.id_apartados}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{dato.nombre}} - <label class="h3 font-weight-bolder text-info text-gradient">{{dato.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza')}}" method="post">
+                <input type="text" value="{{dato.id}}" name="actividad" hidden>
+                <input type="text" value="dia_apartado" name="apartado_dia" hidden>
+                <input type="text" value="{{dato.dia}}" name="dia_apartado" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario en esta Sala">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza_informacion_sala')}}" method="post">
+                <input type="text" name="ver_apartado" value="vista" hidden>
+                <input type="text" name="dia_apartado" value="{{jueves}}" hidden>
+                <input type="text" name="id_apartado" value="{{dato.id}}" hidden>
+                <input type="text" name="nombre_apartado" value="{{dato.nombre}}" hidden>
+                <input type="text" name="horario_apartado" value="{{dato.rango}}" hidden>
+                <input type="text" name="sala_apartado" value="{{dato.id_apartados}}" hidden>
+                <button class="btn btn-sm btn-secondary" align="right" data-bs-toggle="tooltip" data-bs-placement="right" title="Ver Usuarios en esta Sala">Ver Sala</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- MODAR AGENDAR CITAS VIERNES -->
+  {% for dato in vie %}
+  <div class="modal fade" id="edit{{dato.id_apartados}}" tabindex="-1" role="dialog" aria-labelledby="{{dato.id_apartados}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{dato.nombre}} - <label class="h3 font-weight-bolder text-info text-gradient">{{dato.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza')}}" method="post">
+                <input type="text" value="{{dato.id}}" name="actividad" hidden>
+                <input type="text" value="dia_apartado" name="apartado_dia" hidden>
+                <input type="text" value="{{dato.dia}}" name="dia_apartado" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario en esta Sala">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza_informacion_sala')}}" method="post">
+                <input type="text" name="ver_apartado" value="vista" hidden>
+                <input type="text" name="dia_apartado" value="{{viernes}}" hidden>
+                <input type="text" name="id_apartado" value="{{dato.id}}" hidden>
+                <input type="text" name="nombre_apartado" value="{{dato.nombre}}" hidden>
+                <input type="text" name="horario_apartado" value="{{dato.rango}}" hidden>
+                <input type="text" name="sala_apartado" value="{{dato.id_apartados}}" hidden>
+                <button class="btn btn-sm btn-secondary" align="right" data-bs-toggle="tooltip" data-bs-placement="right" title="Ver Usuarios en esta Sala">Ver Sala</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- MODAR AGENDAR CITAS SABADO -->
+  {% for dato in sab %}
+  <div class="modal fade" id="edit{{dato.id_apartados}}" tabindex="-1" role="dialog" aria-labelledby="{{dato.id_apartados}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{dato.nombre}} - <label class="h3 font-weight-bolder text-info text-gradient">{{dato.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza')}}" method="post">
+                <input type="text" value="{{dato.id}}" name="actividad" hidden>
+                <input type="text" value="dia_apartado" name="apartado_dia" hidden>
+                <input type="text" value="{{dato.dia}}" name="dia_apartado" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario en esta Sala">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza_informacion_sala')}}" method="post">
+                <input type="text" name="ver_apartado" value="vista" hidden>
+                <input type="text" name="dia_apartado" value="{{sabado}}" hidden>
+                <input type="text" name="id_apartado" value="{{dato.id}}" hidden>
+                <input type="text" name="nombre_apartado" value="{{dato.nombre}}" hidden>
+                <input type="text" name="horario_apartado" value="{{dato.rango}}" hidden>
+                <input type="text" name="sala_apartado" value="{{dato.id_apartados}}" hidden>
+                <button class="btn btn-sm btn-secondary" align="right" data-bs-toggle="tooltip" data-bs-placement="right" title="Ver Usuarios en esta Sala">Ver Sala</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- MODAR AGENDAR CITAS DOMINGO -->
+  {% for dato in dom %}
+  <div class="modal fade" id="edit{{dato.id_apartados}}" tabindex="-1" role="dialog" aria-labelledby="{{dato.id_apartados}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Coloca el ID del Cliente</h3>
+                </div>
+              </div>
+              <div class="col-md-6" align="right">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder" data-bs-toggle="tooltip" data-bs-placement="top" title="Actividad">{{dato.nombre}} - <label class="h3 font-weight-bolder text-info text-gradient">{{dato.rango}}</label></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza')}}" method="post">
+                <input type="text" value="{{dato.id}}" name="actividad" hidden>
+                <input type="text" value="dia_apartado" name="apartado_dia" hidden>
+                <input type="text" value="{{dato.dia}}" name="dia_apartado" hidden>
+                <div class="input-group mb-3">
+                  <input type="number" class="form-control" placeholder="ID Cliente" name="id" data-bs-toggle="tooltip" data-bs-placement="top" title="Agenda Usuario en esta Sala">
+                  <button class="btn btn-outline-club mb-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Agendar">Agendar Cita</button>
+                </div>
+              </form>
+              <form action="{{url_for('aforo.aforo_inicio_sport_plaza_informacion_sala')}}" method="post">
+                <input type="text" name="ver_apartado" value="vista" hidden>
+                <input type="text" name="dia_apartado" value="{{domingo}}" hidden>
+                <input type="text" name="id_apartado" value="{{dato.id}}" hidden>
+                <input type="text" name="nombre_apartado" value="{{dato.nombre}}" hidden>
+                <input type="text" name="horario_apartado" value="{{dato.rango}}" hidden>
+                <input type="text" name="sala_apartado" value="{{dato.id_apartados}}" hidden>
+                <button class="btn btn-sm btn-secondary" align="right" data-bs-toggle="tooltip" data-bs-placement="right" title="Ver Usuarios en esta Sala">Ver Sala</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+{% endblock %}

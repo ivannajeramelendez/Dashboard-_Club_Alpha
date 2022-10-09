@@ -1,0 +1,333 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Dashboar - Club{% endblock %}
+{% block Apartados %}active{% endblock %}
+{% block Apartados_boton %}white{% endblock %} 
+{% block contenido %}
+  {% if current_user.is_user_apartados() %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Club</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Fundación Club Alpha</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          {% if current_user.is_user_gerente() or current_user.is_user_subgerente() %}
+          <a class="btn btn-sm btn-club" data-bs-toggle="modal" data-bs-target="#modal_restablecer_password">
+            Restablecer Contraseña App Movil
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- FIN NAVBAR -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="col-md-auto">
+        <div class="{{category}}" role="alert">
+          <strong>Sistema: </strong> {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <!-- FIN NAVBAR -->
+  <div class="card card-frame mb-3">
+    <div class="card-body" align="center">
+      <h4 class="text-gradient text-dark"><b>Selecciona el Club</b></h4>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    {% if current_user.is_alpha_2() %}
+    <div class="col-md-6 mb-4">
+      <div class="card card-pricing">
+        <div class="card-header bg-gradient-alpha text-center pt-4 pb-5 position-relative">
+          <div class="z-index-1 position-relative">
+            <h5 class="text-white">Club</h5>
+            <h1 class="mt-2 mb-0" style="color:rgb(255, 255, 255);">CLUB ALPHA 2</h1>
+          </div>
+        </div>
+        <div class="position-relative mt-n5" style="height: 50px;">
+          <div class="position-absolute w-100">
+            <svg class="waves waves-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+              <defs>
+                <path id="card-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+              </defs>
+              <g class="moving-waves">
+                <use xlink:href="#card-wave" x="48" y="-1" fill="rgba(10, 93, 193,0.30"></use>
+                <use xlink:href="#card-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                <use xlink:href="#card-wave" x="48" y="5" fill="rgba(10, 93, 193,0.25)"></use>
+                <use xlink:href="#card-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                <use xlink:href="#card-wave" x="48" y="13" fill="rgba(10, 93, 193,0.15)"></use>
+                <use xlink:href="#card-wave" x="48" y="16" fill="rgba(255,255,255,0.99)"></use>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="card-body text-center">
+          <a href="{{url_for('dashboard.dashboard_inicio_alpha_2')}}" class="btn bg-gradient-alpha w-100 mt-4 mb-0 text-white">
+            Seleccionar por Semana
+          </a>
+          <button type="button" class="btn bg-gradient-alpha w-100 mt-4 mb-0 text-white" data-bs-toggle="modal" data-bs-target="#modal_a2">
+            Seleccionar Por Día
+          </button>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if current_user.is_alpha_3() %}
+    <div class="col-md-6 mb-4">
+      <div class="card card-pricing">
+        <div class="card-header bg-gradient-alpha text-center pt-4 pb-5 position-relative">
+          <div class="z-index-1 position-relative">
+            <h5 class="text-white">Club</h5>
+            <h1 class="mt-2 mb-0" style="color:rgb(255, 255, 255);">CLUB ALPHA 3</h1>
+          </div>
+        </div>
+        <div class="position-relative mt-n5" style="height: 50px;">
+          <div class="position-absolute w-100">
+            <svg class="waves waves-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+              <defs>
+                <path id="card-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+              </defs>
+              <g class="moving-waves">
+                <use xlink:href="#card-wave" x="48" y="-1" fill="rgba(10, 93, 193,0.30"></use>
+                <use xlink:href="#card-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                <use xlink:href="#card-wave" x="48" y="5" fill="rgba(10, 93, 193,0.25)"></use>
+                <use xlink:href="#card-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                <use xlink:href="#card-wave" x="48" y="13" fill="rgba(10, 93, 193,0.15)"></use>
+                <use xlink:href="#card-wave" x="48" y="16" fill="rgba(255,255,255,0.99)"></use>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="card-body text-center">
+          <a href="{{url_for('dashboard.dashboard_inicio_alpha_3')}}" class="btn bg-gradient-alpha w-100 mt-4 mb-0 text-white">
+            Seleccionar por Semana
+          </a>
+          <button type="button" class="btn bg-gradient-alpha w-100 mt-4 mb-0 text-white" data-bs-toggle="modal" data-bs-target="#modal_a3">
+            Seleccionar Por Día
+          </button>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if current_user.is_alpha_4() %}
+    <div class="col-md-6 mb-4">
+      <div class="card card-pricing">
+        <div class="card-header bg-gradient-sp text-center pt-4 pb-5 position-relative">
+          <div class="z-index-1 position-relative">
+            <h5 class="text-white">Club</h5>
+            <h1 class="mt-2 mb-0" style="color:rgb(255, 255, 255);">SPORTS PLAZA</h1>
+          </div>
+        </div>
+        <div class="position-relative mt-n5" style="height: 50px;">
+          <div class="position-absolute w-100">
+            <svg class="waves waves-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+              <defs>
+                <path id="card-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+              </defs>
+              <g class="moving-waves">
+                <use xlink:href="#card-wave" x="48" y="-1" fill="rgba(111, 18, 229,0.30"></use>
+                <use xlink:href="#card-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                <use xlink:href="#card-wave" x="48" y="5" fill="rgba(111, 18, 229,0.25)"></use>
+                <use xlink:href="#card-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                <use xlink:href="#card-wave" x="48" y="13" fill="rgba(111, 18, 229,0.15)"></use>
+                <use xlink:href="#card-wave" x="48" y="16" fill="rgba(255,255,255,0.99)"></use>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="card-body text-center">
+          <a href="{{url_for('dashboard.dashboard_inicio_sport_plaza')}}" class="btn bg-gradient-sp w-100 mt-4 mb-0 text-white" >
+            Seleccionar Por Semana
+          </a>
+          <button type="button" class="btn bg-gradient-sp w-100 mt-4 mb-0 text-white" data-bs-toggle="modal" data-bs-target="#modal_sp">
+            Seleccionar Por Día
+          </button>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if current_user.is_cimera() %}
+    <div class="col-md-6 mb-4">
+      <div class="card card-pricing">
+        <div class="card-header bg-gradient-cimera text-center pt-4 pb-5 position-relative">
+          <div class="z-index-1 position-relative">
+            <h5 class="text-white">Club</h5>
+            <h1 class="mt-2 mb-0" style="color:rgb(255, 255, 255);">CIMERA</h1>
+          </div>
+        </div>
+        <div class="position-relative mt-n5" style="height: 50px;">
+          <div class="position-absolute w-100">
+            <svg class="waves waves-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+              <defs>
+                <path id="card-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+              </defs>
+              <g class="moving-waves">
+                <use xlink:href="#card-wave" x="48" y="-1" fill="rgba(193, 163, 10 ,0.30"></use>
+                <use xlink:href="#card-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                <use xlink:href="#card-wave" x="48" y="5" fill="rgba(193, 163, 10 ,0.25)"></use>
+                <use xlink:href="#card-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                <use xlink:href="#card-wave" x="48" y="13" fill="rgba(193, 163, 10 ,0.15)"></use>
+                <use xlink:href="#card-wave" x="48" y="16" fill="rgba(255,255,255,0.99)"></use>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="card-body text-center">
+          <a href="{{url_for('dashboard.dashboard_inicio_cimera')}}" class="btn bg-gradient-cimera w-100 mt-4 mb-0 text-white">
+            Seleccionar por Semana
+          </a>
+          <button type="button" class="btn bg-gradient-cimera w-100 mt-4 mb-0 text-white" data-bs-toggle="modal" data-bs-target="#modal_cim">
+            Seleccionar Por Día
+          </button>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+    <!-- MODAL SPORTS PLAZA -->
+    <div class="modal fade" id="modal_sp" tabindex="-1" role="dialog" aria-labelledby="modal_sp" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-body p-0">
+            <div class="card card-plain">
+              <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Selecciona el día</h3>
+                  <p class="mb-0">Visualiza los horarios por día</p>
+              </div>
+              <div class="card-body pb-3">
+                <form method="post" action="{{url_for('dashboard.dashboard_inicio_sport_plaza_dia_sala')}}"> 
+                  <div class="form-group mb-3">
+                    <label>Fecha: </label>
+                    <input class="form-control" type="text" name="dia_salas" value="dia" hidden>
+                    <input class="form-control" type="date" name="Fecha_Inicio" required>
+                  </div>
+                  <button class="btn btn-sm btn-club btn-lg w-100">Consultar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL ALPHA 2 -->
+    <div class="modal fade" id="modal_a2" tabindex="-1" role="dialog" aria-labelledby="modal_a2" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-body p-0">
+            <div class="card card-plain">
+              <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Selecciona el día</h3>
+                  <p class="mb-0">Visualiza los horarios por día</p>
+              </div>
+              <div class="card-body pb-3">
+                <form method="post" action="{{url_for('dashboard.dashboard_inicio_alpha_2_dia_sala')}}"> 
+                  <div class="form-group mb-3">
+                    <label>Fecha: </label>
+                    <input class="form-control" type="text" name="dia_salas" value="dia" hidden>
+                    <input class="form-control" type="date" name="Fecha_Inicio" required>
+                  </div>
+                  <button class="btn btn-sm btn-club btn-lg w-100">Consultar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL ALPHA 3 -->
+    <div class="modal fade" id="modal_a3" tabindex="-1" role="dialog" aria-labelledby="modal_a3" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-body p-0">
+            <div class="card card-plain">
+              <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Selecciona el día</h3>
+                  <p class="mb-0">Visualiza los horarios por día</p>
+              </div>
+              <div class="card-body pb-3">
+                <form method="post" action="{{url_for('dashboard.dashboard_inicio_alpha_3_dia_sala')}}"> 
+                  <div class="form-group mb-3">
+                    <label>Fecha: </label>
+                    <input class="form-control" type="text" name="dia_salas" value="dia" hidden>
+                    <input class="form-control" type="date" name="Fecha_Inicio" required>
+                  </div>
+                  <button class="btn btn-sm btn-club btn-lg w-100">Consultar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL CIMERA -->
+    <div class="modal fade" id="modal_cim" tabindex="-1" role="dialog" aria-labelledby="modal_cim" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-body p-0">
+            <div class="card card-plain">
+              <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Selecciona el día</h3>
+                  <p class="mb-0">Visualiza los horarios por día</p>
+              </div>
+              <div class="card-body pb-3">
+                <form method="post" action="{{url_for('dashboard.dashboard_inicio_cimera_dia_sala')}}"> 
+                  <div class="form-group mb-3">
+                    <label>Fecha: </label>
+                    <input class="form-control" type="text" name="dia_salas" value="dia" hidden>
+                    <input class="form-control" type="date" name="Fecha_Inicio" required>
+                  </div>
+                  <button class="btn btn-sm btn-club btn-lg w-100">Consultar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESTABLECER CONTRASEÑA -->
+    <div class="modal fade" id="modal_restablecer_password" tabindex="-1" role="dialog" aria-labelledby="modal_restablecer_password" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-body p-0">
+            <div class="card card-plain">
+              <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Restablecer Contraseña App Movil</h3>
+                  <p class="mb-0"><i>Puedes restablecer la Contraseña de la App Movil a su modo por defecto</i></p>
+                  <p class="mb-0"><i>El Modo por defecto es: <b>ID.FECHA_DE_NACIMIENTO</b> (Ejemplo: 65123.19900229)</i></p>
+              </div>
+              <div class="card-body pb-3">
+                <form method="post" action="{{url_for('dashboard.dashboard_club')}}"> 
+                  <div class="form-group mb-3">
+                    <label>SOLICITA: </label>
+                    <input type="text" class="form-control" value="{{current_user.nombre}}" readonly>
+                    <br>
+                    <label>ID CLIENTE: </label>
+                    <input class="form-control" type="text" name="restablecer" value="restablecer" hidden>
+                    <input class="form-control" type="number" name="ID_Cliente" required>
+                  </div>
+                  <button class="btn btn-sm btn-club btn-lg w-100">Restablecer</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% endif %}
+{% endblock %}

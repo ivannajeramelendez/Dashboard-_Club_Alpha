@@ -1,0 +1,202 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Reportes - Club{% endblock %}
+{% block Reportes %}active{% endblock %}
+{% block Reportes_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Club</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Reportes</h6>
+      </nav>
+    </div>
+    <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+      <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+        <div class="input-group" hidden>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TITULO -->
+  <div class="card card-frame">
+    <div class="card-body">
+      <div align="center">
+        <h4>Selecciona el Club</h4>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div>
+    <div class="row justify-content-center">
+      {% if current_user.is_user_fi() or current_user.is_alpha_4() or current_user.is_user_auditor() %}
+      <div class="col-md-6 mb-4">
+        <div class="card card-pricing">
+          <div class="card-header bg-gradient-sp text-center pt-4 pb-5 position-relative">
+            <div class="z-index-1 position-relative">
+              <h5 class="text-white">Club</h5>
+              <h1 class="mt-2 mb-0" style="color:rgba(255, 255, 255);">SPORT PLAZA</h1>
+            </div>
+          </div>
+          <div class="position-relative mt-n5" style="height: 50px;">
+            <div class="position-absolute w-100">
+              <svg class="waves waves-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                  <path id="card-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+                </defs>
+                <g class="moving-waves">
+                  <use xlink:href="#card-wave" x="48" y="-1" fill="rgba(111, 18, 229,0.30"></use>
+                  <use xlink:href="#card-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                  <use xlink:href="#card-wave" x="48" y="5" fill="rgba(111, 18, 229,0.25)"></use>
+                  <use xlink:href="#card-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                  <use xlink:href="#card-wave" x="48" y="13" fill="rgba(111, 18, 229,0.15)"></use>
+                  <use xlink:href="#card-wave" x="48" y="16" fill="rgba(255,255,255,0.99)"></use>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="card-body text-center">
+            <button type="button" class="btn bg-gradient-sp w-100 mt-4 mb-0 text-white" data-bs-toggle="modal" data-bs-target="#modal_a4">
+              Seleccionar
+            </button>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% if current_user.is_alpha_2() or current_user.is_alpha_3() or current_user.is_cimera() or current_user.is_user_auditor() %}
+      <div class="col-md-6 mb-4">
+        <div class="card card-pricing">
+          <div class="card-header bg-gradient-alpha text-center pt-4 pb-5 position-relative">
+            <div class="z-index-1 position-relative">
+              <h5 class="text-white">Club</h5>
+              <h1 class="mt-2 mb-0" style="color:rgba(255, 255, 255);">Asistencia Usuarios</h1>
+            </div>
+          </div>
+          <div class="position-relative mt-n5" style="height: 50px;">
+            <div class="position-absolute w-100">
+              <svg class="waves waves-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                  <path id="card-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+                </defs>
+                <g class="moving-waves">
+                  <use xlink:href="#card-wave" x="48" y="-1" fill="rgba(36, 107, 203,0.30"></use>
+                  <use xlink:href="#card-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                  <use xlink:href="#card-wave" x="48" y="5" fill="rgba(36, 107, 203,0.25)"></use>
+                  <use xlink:href="#card-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                  <use xlink:href="#card-wave" x="48" y="13" fill="rgba(36, 107, 203,0.15)"></use>
+                  <use xlink:href="#card-wave" x="48" y="16" fill="rgba(255,255,255,0.99)"></use>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="card-body text-center">
+            <button type="button" class="btn bg-gradient-alpha w-100 mt-4 mb-0 text-white" data-bs-toggle="modal" data-bs-target="#modal_asistencia">
+              Seleccionar
+            </button>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- MODAL ALPHA 4 -->
+  <div class="modal fade" id="modal_a4" tabindex="-1" role="dialog" aria-labelledby="exampleModalSignTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+              <h3 class="font-weight-bolder text-club text-gradient">Selecciona el Rango del Reporte</h3>
+              <p class="mb-0">Reporte del Club</p>
+            </div>
+            <div class="card-body pb-3">
+              <div class="justify-content-center">
+                <form method="post" action="{{url_for('reportes.reportes_inicio_reportes')}}">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Fecha Inicio</label>
+                        <input class="form-control datepicker" type="date" name="fecha_inicio" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Fecha Fin</label>
+                        <input class="form-control datepicker" type="date" name="fecha_fin" required>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-sm btn-club bg-gradient-club btn-lg w-100">Consultar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL ASISTENCIA -->
+  <div class="modal fade" id="modal_asistencia" tabindex="-1" role="dialog" aria-labelledby="modal_asistencia" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+              <h3 class="font-weight-bolder text-club text-gradient">Selecciona el Rango del Reporte</h3>
+              <p class="mb-0">Reporte de Asistencia en el Club</p>
+            </div>
+            <div class="card-body pb-3">
+              <div class="justify-content-center">
+                <form method="post" action="{{url_for('reportes.reportes_inicio_reportes_asistencia')}}">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Fecha Inicio</label>
+                        <input class="form-control datepicker" type="date" name="fecha_inicio" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Fecha Fin</label>
+                        <input class="form-control datepicker" type="date" name="fecha_fin" required>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Club</label>
+                        <select name="Club" class="form-control" required>
+                          <option value="" selected>Selecciona el Club</option>
+                          {% if current_user.is_alpha_2() %}
+                          <option value="Club Alpha 2">Club Alpha 2</option>
+                          {% endif %}
+                          {% if current_user.is_alpha_3() %}
+                          <option value="Club Alpha 3">Club Alpha 3</option>
+                          {% endif %}
+                          {% if current_user.is_alpha_4() %}
+                          <option value="Sports Plaza">Sports Plaza</option>
+                          {% endif %}
+                          {% if current_user.is_cimera() %}
+                          <option value="CIMERA">Cimera</option>
+                          {% endif %}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-sm btn-club bg-gradient-club btn-lg w-100">Consultar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Dashboard - Logs{% endblock %}
+{% block Logs %}active{% endblock %}
+{% block Logs_boton %}white{% endblock %} 
+{% block contenido %}
+  <div class="container-fluid" >
+    <div class="page-header min-height-100 border-radius-xl mt-4">
+      <span class="mask" style="background-color: black;"></span>
+      <div class="terminal">
+        <p class="prompt output new-output"></p>
+          <table style="width: 100%">
+            <colgroup>
+              <col span="1" style="width: 15%;">
+              <col span="1" style="width: 60%;">
+              <col span="1" style="width: 15%;">
+            </colgroup>
+            {% for dato in logs %}
+            <tr>
+              {% if dato.tipo_suceso == 'error' or dato.tipo_suceso == 'cancelacion' %}
+              <td><p class="prompt_4">Grupo: {{dato.tipo_suceso}}</p></td>
+              {% else %}
+              <td><p class="prompt">Grupo: {{dato.tipo_suceso}}</p></td>
+              {% endif %}
+              <td><p class="prompt_2">Suceso: {{dato.descripcion}}</p></td>
+              <td><p class="prompt_3">Hora: {{dato.fecha_captura}}</p></td>
+            </tr>
+            {% endfor %}
+          </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

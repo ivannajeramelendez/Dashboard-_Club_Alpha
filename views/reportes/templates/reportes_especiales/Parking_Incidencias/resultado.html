@@ -1,0 +1,65 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Reporte - Incidencias{% endblock %}
+{% block Reportes %}active{% endblock %}
+{% block Reportes_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Reporte</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Reporte Parking Incidencias</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="input-group">
+            <button type="button" class="btn btn-sm bg-gradient-success" onclick="ExportToExcel('xlsx')">
+              Exportar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- FIN NAVBAR -->
+  <!-- DATOS -->
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table align-items-center mb-0" id="Datos_tabla">
+        <tr align="center">
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tipo</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hora Entrada</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hora Salida</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Observaciones</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID Cliente</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Membresia</td>
+          <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Club</td>
+        </tr>
+        {% for dato in resp %}
+        <tr align="center">
+          <td>{{dato.incidencia}}</td>
+          <td>{{dato.horaEntrada}}</td>
+          <td>{{dato.horaSalida}}</td>
+          <td>{{dato.texto}}</td>
+          <td>{{dato.idCliente}}</td>
+          <td>{{dato.membresia}}</td>
+          <td>{{club}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <!-- SCRIPT PARA EXPORTAR -->
+  <script>
+    function ExportToExcel(type, fn, dl) {
+          var elt = document.getElementById('Datos_tabla');
+          var wb = XLSX.utils.table_to_book(elt, { sheet: "Datos_2021-11-09" });
+          return dl ?
+              XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+              XLSX.writeFile(wb, fn || ('Datos_Completos.' + (type || 'xlsx')));
+      }
+  </script>
+{% endblock %}

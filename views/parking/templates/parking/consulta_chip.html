@@ -1,0 +1,191 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Parking - Consulta Chips{% endblock %}
+{% block Parking %}active{% endblock %}
+{% block Parking_boton %}white{% endblock %} 
+{% block contenido %}
+  <div class="container-fluid">
+    <div class="page-header min-height-100 border-radius-xl mt-4">
+      <span class="mask bg-gradient-dark opacity-2"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="row gx-4">
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              Hola, {{current_user.nombre}} 
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              Excelente Dia!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+              <li class="nav-item">
+                <button class="btn btn-sm btn-club w-100" onclick="ExportToExcel('xlsx')">
+                  Exportar
+                </button>
+                <!-- SCRIPT PARA EXPORTAR -->
+                <script>
+                  function ExportToExcel(type, fn, dl) {
+                        var elt = document.getElementById('Datos_tabla');
+                        var wb = XLSX.utils.table_to_book(elt, { sheet: "Datos_Chips_Activos" });
+                        return dl ?
+                            XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                            XLSX.writeFile(wb, fn || ('Datos_Completos.' + (type || 'xlsx')));
+                    }
+                </script>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- REPORTES PEQUEÑOS  -->
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-body p-3">
+            <div class="row">
+              <div class="col-8">
+                <div class="numbers">
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold">Chips Activos</p>
+                  <h5 class="font-weight-bolder mb-0">
+                    {{ dato_3|length }} Activos
+                  </h5>
+                </div>
+              </div>
+              <div class="col-4 text-end">
+                <div class="icon icon-shape bg-gradient-club shadow text-center border-radius-md">
+                  <i class="fas fa-ticket-alt text-lg opacity-10"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-body p-3">
+            <div class="row">
+              <div class="col-8">
+                <div class="numbers">
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold">Chips Asignados</p>
+                  <h5 class="font-weight-bolder mb-0">
+                    {% for dato in dato_count_3 %}
+                      {{dato.total}} Pzas.
+                    {% endfor %}
+                  </h5>
+                </div>
+              </div>
+              <div class="col-4 text-end">
+                <div class="icon icon-shape bg-gradient-club shadow text-center border-radius-md">
+                  <i class="fas fa-archive text-lg opacity-10"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- INPUT BUSQUEDA -->
+  <div class="container">
+    <div class="card card-body blur shadow-blur overflow-hidden">
+      <input type="text" class="form-control" placeholder="Buscar por ID de Usuario" id="myInput" onkeyup="myFunction()">
+      <script>
+        function myFunction() {
+          // Declare variables
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("Datos_tabla");
+          tr = table.getElementsByTagName("tr");
+        
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+          }
+        }
+      </script>
+    </div>
+  </div>
+  <!-- TABLA CON DATOS -->
+  <div class="container-fluid py-4">
+    <div class="card">
+      <div class="table-responsive">
+        <table class="table align-items-center mb-0" id="Datos_tabla">
+          <thead>
+            <tr align="center">
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ID Cliente</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Club</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Marca</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Modelo</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Placa</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Activo</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Vigencia</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Color</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ID Chip</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for dato in dato_3 %}
+            <tr align="center">
+              {% if dato.id_cliente == None %}
+              <td>
+                <h6 class="mb-0 text-xs">{{dato.id_empleado}} <span class="badge bg-gradient-primary">Emp.</span></h6>
+              </td>
+              {% elif dato.id_cliente == 0 %}
+              <td>
+                <h6 class="mb-0 text-xs">{{dato.id_empleado}} <span class="badge btn-club">Emp.</span></h6>
+              </td>
+              {% else %}
+              <td>
+                <h6 class="mb-0 text-xs">{{dato.id_cliente}}</h6>
+              </td>
+              {% endif %}
+              <td>
+                <h6 class="mb-0 text-xs">{{dato.club}}</h6>
+              </td>
+              <td>
+                <h6 class="mb-0 text-xs">{{dato.marca}}</h6>
+              </td>
+              <td>
+                <h6 class="mb-0 text-xs">{{dato.modelo}}</h6>
+              </td>
+              <td>
+                <h6 class="mb-0 text-xs">{{dato.placa}}</h6>
+              </td>
+              <td>
+                <h6 class="mb-0 text-xs">
+                  <span class="badge bg-success">Activo</span>
+                </h6>
+              </td>
+              <td>
+                <h6 class="mb-0 text-xs">{{dato.vigencia}}</h6>
+              </td>
+              <td>
+                <h6 class="mb-0 text-xs">{{dato.color}}</h6>
+              </td>
+              <td>
+                <h6 class="mb-0 text-xs">{{dato.id_chip}}</h6>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Configuracion - Salas{% endblock %}
+{% block Configuracion %}active{% endblock %}
+{% block Configuracion_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Clases</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Configuración de Horario</h6>
+      </nav>
+    </div>
+  </nav>
+  <!-- CARDS -->
+  <div class="card card-frame mb-4">
+    <div class="card-body">
+      <div align="center">
+        <h4 class="font-weight-bolder text-dark text-gradient">Selecciona configuración</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6 mb-4">
+      <div class="card card-pricing">
+        <div class="card-header bg-gradient-club text-center pt-4 pb-5 position-relative">
+          <div class="z-index-1 position-relative">
+            <h5 class="text-white">Cancelar</h5>
+            <h1 class="text-white mt-2 mb-0">CLASES</h1>
+          </div>
+        </div>
+        <div class="position-relative mt-n5" style="height: 50px;">
+          <div class="position-absolute w-100">
+            <svg class="waves waves-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+              <defs>
+                <path id="card-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+              </defs>
+              <g class="moving-waves">
+                <use xlink:href="#card-wave" x="48" y="-1" fill="rgba(36, 203, 189 ,0.30"></use>
+                <use xlink:href="#card-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                <use xlink:href="#card-wave" x="48" y="5" fill="rgba(36, 203, 189 ,0.25)"></use>
+                <use xlink:href="#card-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                <use xlink:href="#card-wave" x="48" y="13" fill="rgba(36, 203, 189 ,0.15)"></use>
+                <use xlink:href="#card-wave" x="48" y="16" fill="rgba(255,255,255,0.99)"></use>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="card-body text-center">
+          <a href="{{url_for('configuracion.configuracion_cancelar_sala')}}" class="btn bg-gradient-club text-white w-100 mt-4 mb-0">
+            Seleccionar
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card card-pricing">
+        <div class="card-header bg-gradient-club text-center pt-4 pb-5 position-relative">
+          <div class="z-index-1 position-relative">
+            <h5 class="text-white">Restablecer</h5>
+            <h1 class="text-white mt-2 mb-0">CLASES</h1>
+          </div>
+        </div>
+        <div class="position-relative mt-n5" style="height: 50px;">
+          <div class="position-absolute w-100">
+            <svg class="waves waves-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+              <defs>
+                <path id="card-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+              </defs>
+              <g class="moving-waves">
+                <use xlink:href="#card-wave" x="48" y="-1" fill="rgba(36, 203, 189 ,0.30"></use>
+                <use xlink:href="#card-wave" x="48" y="3" fill="rgba(255,255,255,0.35)"></use>
+                <use xlink:href="#card-wave" x="48" y="5" fill="rgba(36, 203, 189 ,0.25)"></use>
+                <use xlink:href="#card-wave" x="48" y="8" fill="rgba(255,255,255,0.20)"></use>
+                <use xlink:href="#card-wave" x="48" y="13" fill="rgba(36, 203, 189 ,0.15)"></use>
+                <use xlink:href="#card-wave" x="48" y="16" fill="rgba(255,255,255,0.99)"></use>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="card-body text-center">
+          <a href="{{url_for('configuracion.configuracion_restablecer_sala')}}" class="btn bg-gradient-club text-white w-100 mt-4 mb-0">
+            Seleccionar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,208 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Aforo - Consulta Usuario{% endblock %}
+{% block Apartados %}active{% endblock %}
+{% block Apartados_boton %}white{% endblock %} 
+{% block contenido %}
+  <div class="container-fluid">
+    <div class="page-header min-height-100 border-radius-xl mt-4">
+      <span class="mask bg-gradient-dark opacity-2"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="row gx-4">
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              Hola, {{current_user.nombre}} 
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              Excelente Dia!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+              <li class="nav-item">
+                <a class="btn btn-sm bg-gradient-primary w-100" href="javascript: history.go(-1)">Volver atrás</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="col-md-auto">
+          <div class="{{category}}" role="alert">
+            <strong>Sistema: </strong> {{ message }}
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <br>
+  <!-- INFORMACION -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body pb-0">
+          <div class="row align-items-center mb-3">
+            <div class="col-8">
+              <h5 class="mb-1 text-gradient text-club">
+                Información del Usuario
+              </h5>
+            </div>
+            <div class="col-4 text-center">
+              <div class="dropstart">
+                <a class="btn btn-sm btn-club w-100" data-bs-toggle="modal" data-bs-target="#edit">Nueva Busqueda</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Nombre</label>
+              <div class="input-group">
+                <h5>{{dato.Nombre}} {{dato.ApellidoPaterno}} {{dato.ApellidoMaterno}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">ID Cliente</label>
+              <div class="input-group">
+                <h5>{{dato.IdCliente}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Membresia</label>
+              <div class="input-group">
+                <h5>{{dato.NoMembresia}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Club</label>
+              <div class="input-group">
+                <h5>{{dato.Club.Nombre}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Tipo de Membresia</label>
+              <div class="input-group">
+                <h5>{{dato.TipoMembresia.Nombre}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Estatus del Cliente</label>
+              <div class="input-group">
+                <h5>{{dato.EstatusCliente.Nombre}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Estatus de Cobranza</label>
+              <div class="input-group">
+                <h5>{{dato.EstatusCobranza.Nombre}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Correo</label>
+              <div class="input-group">
+                <h5>{{dato.EMail}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- REGRISTRO DE TODAS LAS SOLICITUDES -->
+  <br>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="mb-1 text-gradient text-club">
+            Registro de Citas - {{dato.Nombre}} {{dato.ApellidoPaterno}} {{dato.ApellidoMaterno}}
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr align="center">
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7">SALA</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7">IMPARTE</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">ACTIVIDAD</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">LUGAR</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">NIVEL</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">HORA</th>
+            <th class="text-center text-uppercase text-dark text-xxs font-weight-bolder opacity-7">RANGO</th>
+            <th class="text-center text-uppercase text-dark text-xxs font-weight-bolder opacity-7">FECHA</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for dato in dato_api %}
+          <tr align="center">
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.nombre}}</h6>
+            </td>
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.tecnico}}</h6>
+            </td>
+            <td>
+              <p class="text-xs font-weight-bold mb-0">{{dato.tipoActividad}}</p>
+            </td>
+            <td class="align-middle text-center text-sm">
+              <p class="text-xs font-weight-bold mb-0">{{dato.lugar}}</p>
+            </td>
+            <td class="align-middle text-center">
+              <p class="text-xs font-weight-bold mb-0">{{dato.nivel}}</p>
+            </td>
+            <td class="align-middle text-center">
+              <p class="text-xs font-weight-bold mb-0">{{dato.hora}}</p>
+            </td>
+            <td class="align-middle text-center">
+              <p class="text-xs font-weight-bold mb-0">{{dato.rango}}</p>
+            </td>
+            <td class="align-middle text-center">
+              <p class="font-weight-bold mb-0"><span class="badge btn-club">{{dato.dia}}</span></p>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- BUSQUEDA MODAL -->
+  <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="card-header pb-0 text-left">
+                  <h3 class="font-weight-bolder text-club text-gradient">Busqueda de Citas por Usuario</h3>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card-header pb-0 text-end">
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="{{url_for('dashboard.dashboard_inicio_citas_por_usuario')}}" method="post">
+                <div class="row">
+                  <div class="input-group mb-3">
+                    <input type="number" class="form-control" placeholder="ID Cliente" name="id">
+                    <button class="btn btn-outline-club mb-0">Buscar Citas</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

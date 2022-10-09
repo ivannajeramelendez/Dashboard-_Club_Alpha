@@ -1,0 +1,272 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Asistencia - Reportes{% endblock %}
+{% block Reportes %}active{% endblock %}
+{% block Reportes_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Horario</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Reportes Asistencia </h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="input-group">
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- FIN NAVBAR -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+          {% for category, message in messages %}
+          <div class="col-md-auto">
+            <div class="{{category}}" role="alert">
+              <strong>Sistema: </strong> {{ message }}
+            </div>
+          </div>
+          {% endfor %}
+      {% endif %}
+  {% endwith %}
+  <figure>
+    <blockquote class="blockquote text-center">
+      <p class="ps-2">La fecha Actual es <b>{{fecha_title}}</b></p> 
+      <p class="ps-2">
+        <span class="badge bg-gradient-dark">Datos del</span>
+        <span class="badge bg-gradient-secondary">{{lunes}}</span>
+        <span class="badge bg-gradient-dark">al</span>
+        <span class="badge bg-gradient-success">{{domingo}}</span>
+      </p>
+    </blockquote>
+  </figure>
+  <!-- REPORTES PEQUEÑOS  -->
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-body p-3">
+            <div class="row">
+              <div class="col-8">
+                <div class="numbers">
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold">Citas Agendadas</p>
+                  <h5 class="font-weight-bolder mb-0">
+                    {% for cupo_actual in cupo_actual %}
+                      {{cupo_actual.sum}}
+                    {% endfor %}
+                  </h5>
+                </div>
+              </div>
+              <div class="col-4 text-end">
+                <div class="icon icon-shape bg-gradient-club shadow text-center border-radius-md">
+                  <i class="fas fa-archway text-lg opacity-10"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-body p-3">
+            <div class="row">
+              <div class="col-8">
+                <div class="numbers">
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold">Mas Popular</p>
+                  <h5 class="font-weight-bolder mb-0">
+                    {% for dato in usuarios_fitness %}
+                      {{dato.nombre}}
+                    {% endfor %}
+                  </h5>
+                </div>
+              </div>
+              <div class="col-4 text-end">
+                <div class="icon icon-shape bg-gradient-club shadow text-center border-radius-md">
+                  <i class="fas fa-ticket-alt text-lg opacity-10"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-body p-3">
+            <div class="row">
+              <div class="col-8">
+                <div class="numbers">
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold">Asistencia en GYM</p>
+                  <h5 class="font-weight-bolder mb-0">
+                    {% for dato in apartados_gym %}
+                      {{dato.sum}}
+                    {% endfor %}
+                  </h5>
+                </div>
+              </div>
+              <div class="col-4 text-end">
+                <div class="icon icon-shape bg-gradient-club shadow text-center border-radius-md">
+                  <i class="fas fa-dumbbell text-lg opacity-10"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6">
+        <div class="card">
+          <div class="card-body p-3">
+            <div class="row">
+              <div class="col-8">
+                <div class="numbers">
+                  <p class="text-sm mb-0 text-capitalize font-weight-bold">Asistencia en FITNESS</p>
+                  <h5 class="font-weight-bolder mb-0">
+                    {% for dato in usuarios_totales %}
+                      {{dato.sum}}
+                    {% endfor %}
+                  </h5>
+                </div>
+              </div>
+              <div class="col-4 text-end">
+                <div class="icon icon-shape bg-gradient-club shadow text-center border-radius-md">
+                  <i class="fas fa-walking text-lg opacity-10"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- GRAFICAS -->
+  <div class="row">
+    <div class="col-md-6">
+      <div id="grafica_salas"></div>
+    </div>
+    <div class="col-md-6">
+      <div id="grafica_canchas"></div>
+    </div>
+    <div class="col-md-6">
+      <div id="grafica_user"></div>
+    </div>
+  </div>
+  <!-- TABLA DE GRAFICAS -->
+  <div>
+    <!-- SALAS -->
+    <table id="datos_salas" hidden>
+      <tr align="center">
+        <td>Nombre</td>
+        <td>Cupo Actual</td>
+      </tr>
+      {% for dato in sala %}
+      <tr align="center">
+        <td>{{dato.nombre}}</td>
+        <td>{{dato.actual}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <!-- CANCHAS -->
+    <table id="datos_canchas" hidden>
+      <tr align="center">
+        <td>Nombre</td>
+        <td>Cupo Actual</td>
+        <!-- <td>Cupo Maximo</td> -->
+      </tr>
+      {% for dato in cancha %}
+      <tr align="center">
+        <td>{{dato.nombre}}</td>
+        <td>{{dato.actual}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <!-- DATATABLES SCRIPTS -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <!-- SALAS -->
+    <script>
+      Highcharts.chart('grafica_salas', {
+          data: {
+              table: 'datos_salas'
+          },
+          chart: {
+            type: 'spline'
+          },
+          title: {
+              text: 'Citas por Sala'
+          },
+          yAxis: [{
+            title: {
+              text: 'Usuarios'
+            }}],
+          tooltip: {
+            crosshairs: true,
+            shared: true
+          },
+          plotOptions: {
+              spline: {
+                  marker: {
+                      radius: 4,
+                      lineColor: '#666666',
+                      lineWidth: 1
+                  }
+              },
+              series: {
+                dataLabels: {
+                    enabled: true,
+                    inside: false
+                }
+            }
+          },
+          credits: {
+            enabled: false
+          },
+      });
+    </script>
+    <!-- CANCHAS -->
+    <script>
+      Highcharts.chart('grafica_canchas', {
+          data: {
+              table: 'datos_canchas'
+          },
+          chart: {
+            type: 'spline'
+          },
+          title: {
+              text: 'Citas por Cancha'
+          },
+          yAxis: [{
+            title: {
+              text: 'Usuarios'
+            }}],
+          tooltip: {
+            crosshairs: true,
+            shared: true
+          },
+          plotOptions: {
+              spline: {
+                  marker: {
+                      radius: 4,
+                      lineColor: '#666666',
+                      lineWidth: 1
+                  }
+              },
+              series: {
+                dataLabels: {
+                    enabled: true,
+                    inside: false
+                }
+            }
+          },
+          credits: {
+            enabled: false
+          },
+      });
+    </script>
+  </div>
+
+{% endblock %}

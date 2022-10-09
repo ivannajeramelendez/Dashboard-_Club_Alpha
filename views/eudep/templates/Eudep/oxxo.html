@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static', filename='login_css/img/apple-icon.png') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='login_css/img/favicon_alpha.png') }}">
+  <title>
+    EUDEP - OXXO
+  </title>
+  <!-- Fonts and icons -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='login_css/css/nucleo-svg.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='login_css/css/nucleo-icons.css') }}"/>
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='login_css/css/soft-ui-dashboard.css') }}"/>
+  <!-- PRELOADER -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- DATATABLES -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+  <!-- BUSQUEDAS EN TABLAS -->
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></script>
+  <!-- EXPORT EXCEL -->
+  <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+</head>
+
+  <body class="g-sidenav-show  bg-gray-100">
+    <div class="container position-sticky z-index-sticky top-0">
+      <div class="row">
+        <div class="col-12">
+        </div>
+      </div>
+    </div>
+    {% if request.method == 'POST' %}
+    {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+          {% for category, message in messages %}
+          <div class="col-md-auto">
+            <div class="{{category}}" role="alert">
+              <strong>Sistema: </strong> {{ message }}
+            </div>
+          </div>
+          {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% endif %}
+    <main class="main-content  mt-0">
+      <section>
+        <div class="page-header min-vh-75">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+                <div class="card card-plain mt-8">
+                  <div class="card-header pb-0 text-left bg-transparent">
+                    <h3 class="font-weight-bolder text-info text-gradient">¡Referencia Oxxo!</h3>
+                    <p class="mb-0">Ingresa la información para crear la referencia.</p>
+                  </div>
+                  <div class="card-body">
+                    <form action="{{url_for('eudep.eudep_oxxo_enviar')}}" method="POST">
+                      <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text">Cliente</span>
+                            <input name="cliente" type="text" class="form-control" placeholder="Cliente" value="" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text">Telefono</span>
+                            <input name="telefono" type="number" class="form-control" placeholder="Telefono" value="52">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text">Correo</span>
+                            <input name="correo" type="email" class="form-control" placeholder="Correo" value="" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text">Dirección</span>
+                            <input name="direccion" type="text" class="form-control" placeholder="Dirección" value="NA">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text">Tipo de Pago</span>
+                            <input name="tipo_pago" type="text" class="form-control" placeholder="Tipo de Pago" value="">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text">Monto</span>
+                            <input name="monto" type="number" class="form-control" placeholder="Monto" value="">
+                        </div>
+                        <label>$4.000 = 4000.00 | Sin puntos o comas.</label>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text">Dias para pagar</span>
+                            <input name="dias_pago" type="number" class="form-control" placeholder="Dias para pagar" value="">
+                        </div>
+                      </div>
+                      <button class="btn">Generar</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+                  <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" 
+                  style="background-image: url({{url_for('static', filename='login_css/img/curved-images/curved6.jpg')}})"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+    <footer class="footer py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-8 mx-auto text-center mt-1">
+            <p class="mb-0 text-secondary">
+              Copyright © 
+              <script>
+                document.write(new Date().getFullYear())
+              </script> Club Alpha.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- JS -->
+  <script src="{{ url_for('static', filename='login_css/js/calendario.js') }}"></script>
+  <script src="{{ url_for('static', filename='login_css/js/core/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='login_css/js/core/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='login_css/js/plugins/perfect-scrollbar.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='login_css/js/plugins/sweetalert.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='login_css/js/plugins/smooth-scrollbar.min.js') }}"></script>
+  <!-- LOGO 2021 CLUB -->
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- BOTONES GITHUB -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- CENTRO DE CONTROL PARA CAMBIAR COLORES -->
+  <script src="{{ url_for('static', filename='login_css/js/soft-ui-dashboard.min.js') }}"></script>
+  <!-- PRELOADER -->
+  <script src="{{ url_for('static', filename='login_css/javascript_per/preloader.js') }}"></script>
+  </body>
+</html>

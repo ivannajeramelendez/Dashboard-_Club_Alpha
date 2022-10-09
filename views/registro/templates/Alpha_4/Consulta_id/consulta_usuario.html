@@ -1,0 +1,182 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}RH - Historico Empleado{% endblock %}
+{% block Rh %}active{% endblock %}
+{% block Registro_boton %}white{% endblock %} 
+{% block contenido %}
+  <div class="container-fluid">
+    <div class="page-header min-height-100 border-radius-xl mt-4">
+      <span class="mask bg-gradient-dark opacity-2"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="row gx-4">
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              Hola, {{current_user.nombre}} 
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              Excelente Dia!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+              <li class="nav-item">
+                <a class="btn btn-sm bg-gradient-primary w-100" href="javascript: history.go(-1)">Volver atrás</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="col-md-auto">
+        <div class="{{category}}" role="alert">
+          <strong>Sistema: </strong> {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <br>
+  <!-- INFORMACION DEL EMPLEADO -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body pb-0">
+          <div class="row align-items-center mb-3">
+            <div class="col-9">
+              <h5 class="mb-1 text-gradient text-primary">
+                Información del Empleado
+              </h5>
+            </div>
+            <div class="col-3 text-end">
+              <div class="dropstart">
+                <!-- <a class="btn btn-sm bg-gradient-secondary" data-bs-toggle="modal" data-bs-target="#edit">Solicita</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            {% for dato in rh_vacaciones %}
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Nombre</label>
+              <div class="input-group">
+                <h5>{{dato.empleado}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">ID Empleado</label>
+              <div class="input-group">
+                <h5>{{dato.id_empleado}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Clave</label>
+              <div class="input-group">
+                <h5>{{dato.clave_externa}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Club</label>
+              <div class="input-group">
+                <h5>{{dato.club}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Antiguedad</label>
+              <div class="input-group">
+                <h5>{{dato.antiguedad}} Años</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Fecha de Ingreso</label>
+              <div class="input-group">
+                <h5>{{dato.ingreso}}</h5>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- REGRISTRO DE TODAS LAS SOLICITUDES -->
+  <br>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="mb-1 text-gradient text-club">
+            Registro Compelto de Solicitud Vacaciones 
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr align="center">
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7">N° Solicitud</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7">Solicita</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Fecha de Solicitud</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Fecha Inicio</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Fecha Fin</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Días Solicitados</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Días no contables</th>
+            <th class="text-center text-uppercase text-dark text-xxs font-weight-bolder opacity-7">Solicitud Aprobada</th>
+            <th class="text-center text-uppercase text-dark text-xxs font-weight-bolder opacity-7">Formato Aprobado</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for dato in dato_api %}
+          <tr align="center">
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.id}}</h6>
+            </td>
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.solicita}}</h6>
+            </td>
+            <td>
+              <p class="text-xs font-weight-bold mb-0">{{dato.fechaSolicitud}}</p>
+            </td>
+            <td class="align-middle text-center text-sm">
+              <p class="text-xs font-weight-bold mb-0">{{dato.fechaInicio}}</p>
+            </td>
+            <td class="align-middle text-center">
+              <p class="text-xs font-weight-bold mb-0">{{dato.fechaFin}}</p>
+            </td>
+            <td class="align-middle text-center">
+              {{dato.diasSolicitados}}
+            </td>
+            <td class="align-middle text-center">
+              {{dato.diasMenos}}
+            </td>
+            {% if dato.aprovados == 'NO' %}
+            <td>
+              <span class="badge bg-gradient-danger">{{dato.aprovados}}</span>
+            </td>
+            {% else %}
+            <td>
+              <span class="badge bg-gradient-info">{{dato.aprovados}}</span>
+            </td>
+            {% endif %}
+            {% if dato.validacion == 'NO' %}
+            <td>
+              <span class="badge bg-gradient-danger">{{dato.validacion}}</span>
+            </td>
+            {% else %}
+            <td>
+              <span class="badge bg-gradient-info">{{dato.validacion}}</span>
+            </td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

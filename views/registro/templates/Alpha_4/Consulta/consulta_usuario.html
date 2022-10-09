@@ -1,0 +1,265 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Registro - Consulta Usuarios{% endblock %}
+{% block Registro %}active{% endblock %}
+{% block Registro_boton %}white{% endblock %} 
+{% block contenido %}
+  <div class="container-fluid">
+    <div class="page-header min-height-100 border-radius-xl mt-4">
+      <span class="mask bg-gradient-dark opacity-2"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="row gx-4">
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              Hola, {{current_user.nombre}} 
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              Excelente Dia!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+              <li class="nav-item">
+                <a class="btn btn-sm bg-gradient-primary w-100" href="javascript: history.go(-1)">Volver atrás</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="col-md-auto">
+        <div class="{{category}}" role="alert">
+          <strong>Sistema: </strong> {{ message }}
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <br>
+  <!-- INFORMACION DEL EMPLEADO -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body pb-0">
+          <div class="row align-items-center mb-3">
+            <div class="col-9">
+              <h5 class="mb-1 text-gradient text-club">
+                Información del Usuario Titular
+              </h5>
+            </div>
+            <div class="col-3 text-end">
+              <div class="dropstart">
+                <a class="btn btn-sm bg-success text-white" data-bs-toggle="modal" data-bs-target="#incidencias">Registrar Dependiente</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Nombre</label>
+              <div class="input-group">
+                <h5>{{dato_titular.nombreCompleto}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Club</label>
+              <div class="input-group">
+                <h5>{{dato_titular.club}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Sexo</label>
+              <div class="input-group">
+                <h5>{{dato_titular.sexo}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Telefono</label>
+              <div class="input-group">
+                <h5>{{dato_titular.telefono}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Correo</label>
+              <div class="input-group">
+                <h5>{{dato_titular.correoElectronico}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Tipo</label>
+              <div class="input-group">
+                <h5>{{dato_titular.tipo}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Fecha Registro</label>
+              <div class="input-group">
+                <h5>{{dato_titular.fechaRegistro}}</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label mb-0 text-start text-secondary">Titular</label>
+              <div class="input-group">
+                <h5>
+                  {% if dato_titular.titular == True %}
+                  Si
+                  {% endif %}
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- REGRISTRO DE TODOS LOS DEPENDIENTES -->
+  <br>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="mb-1 text-gradient text-club">
+            Dependientes Registrados
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr align="center">
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7">Nombre</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7">Sexo</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Telefono</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Tipo</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Fecha Registro</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Dependiente</th>
+            <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Club</th>
+            <!-- <th class="text-center text-uppercase text-dark text-xxs font-weight-bolder opacity-7">Formato</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          {% for dato in dator_con_dependiente %}
+          <tr align="center">
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.nombreCompleto}}</h6>
+            </td>
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.sexo}}</h6>
+            </td>
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.telefono}}</h6>
+            </td>
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.tipo}}</h6>
+            </td>
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.fechaRegistro}}</h6>
+            </td>
+            {% if dato.titular == False %}
+            <td>
+              <h6 class="mb-0 text-xs">Si</h6>
+            </td>
+            {% endif %}
+            <td>
+              <h6 class="mb-0 text-xs">{{dato.club}}</h6>
+            </td>
+            <!-- <td>
+              <a class="badge bg-gradient-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Necesita ser Aprobado" data-container="body" data-animation="true">Descargar formato</a>
+            </td> -->
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- MODAL REGISTRO DE USUARIO -->
+  <div class="modal fade" id="incidencias" tabindex="-1" role="dialog" aria-labelledby="exampleModalSignTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="card card-plain">
+            <div class="card-header pb-0 text-left">
+              <h3 class="font-weight-bolder text-club text-gradient">Ingresa los datos del Usuario Dependiente</h3>
+              <p class="mb-0">Registro de Usuarios Parking</p>
+            </div>
+            <div class="card-body pb-3">
+              <div class="d-flex justify-content-center">
+                <form method="post">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input class="form-control datepicker" type="text" name="Nombre" placeholder="Nombre Completo" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Club</label>
+                        <select name="Club" class="form-control" readonly>
+                          <option value="Sports Plaza" selected>Sports Plaza</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Sexo</label>
+                        <select name="Sexo" class="form-control" required>
+                          <option value="" selected>Selecciona</option>
+                          <option value="Masculino">Masculino</option>
+                          <option value="Femenino">Femenino</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Telefono</label>
+                        <input class="form-control datepicker" type="number" name="Telefono" placeholder="222-222-2222" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Correo</label>
+                        <input class="form-control datepicker" type="email" name="Correo" placeholder="ejemplo@ejemplo.com" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Tipo</label>
+                        <select name="Tipo" class="form-control" readonly>
+                          <option value="Parking" selected>Parking</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Registro</label>
+                        <input class="form-control datepicker" type="date" name="Registro" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Titular</label>
+                        <select name="Titular" class="form-control" readonly>
+                          <option value="No" selected>No</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-sm btn-club btn-lg w-100">Registrar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

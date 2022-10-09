@@ -1,0 +1,209 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Clientes - Estatus{% endblock %}
+{% block Clientes %}active{% endblock %}
+{% block Clientes_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Clientes</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Estado de Acceso</h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- PRESENTACION -->
+  <div class="container-fluid" hidden>
+    <div class="page-header min-height-100 border-radius-xl mt-4">
+      <span class="mask bg-gradient-dark opacity-2"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+      <div class="row gx-4">
+        <!-- <div class="col-auto">
+          <div class="avatar avatar-xl position-relative">
+            <img src="{{ url_for('static', filename='login_css/img/qr.png') }}">
+          </div>
+        </div> -->
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              Hola, {{current_user.nombre}} 
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              Excelente Dia!
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+          <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link mb-0 px-0 py-1 active " data-bs-toggle="tab" href="#!">
+                  <span class="ms-1">Control de Acceso</span>
+                </a>
+              </li>
+              <li class="nav-item" hidden>
+                <a class="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="#!" role="tab">
+                  <span class="ms-1">App</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FORMULARIO -->
+  <form action="{{url_for('acceso.acceso_busqueda')}}" method="POST">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12 col-xl-12">
+          <div class="card h-100">
+            <div class="card-header pb-0 p-3">
+              <h4 class="font-weight-bolder text-club text-gradient mb-0">Información del Cliente</h4>
+            </div>
+            <div class="card-body p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 px-0">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="input-group mb-3">
+                          {{form.id(class="form-control", placeholder="Buscar ID de Cliente", type="number")}}
+                          {{form.submit(class="btn btn-outline-club mb-0", id="form-submit")}}
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  {% if request.method == 'POST' %}
+  <!-- LLAMADO DE DATOS -->
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12 col-xl-9">
+        <div class="card h-100">
+          <div class="card-header pb-0 p-3">
+            <div class="row">
+              <div class="col-md-8 d-flex align-items-center">
+                <h5 class="font-weight-bolder text-club text-gradient mb-0">Información Actual del Cliente</h5>
+              </div>
+            </div>
+          </div>
+          <div class="card-body p-3">
+            <hr class="horizontal gray-light my-2">
+            <table class="table">
+              <tr align="center">
+                <th><strong class="text-dark">Membresia:</strong></th>
+                <td>{{mem}}</td>
+              </tr>
+              <tr align="center">
+                <th><strong class="text-dark">Nombre:</strong></th>
+                <td>{{nom}} {{ape}} {{ape_2}}</td>
+              </tr>
+              <tr align="center">
+                <th><strong class="text-dark">Club:</strong></th>
+                <td>{{club}}</td>
+              </tr>
+              <tr align="center">
+                <th><strong class="text-dark">Tipo de Cliente:</strong></th>
+                <td>{{tipo}}</td>
+              </tr>
+              <tr align="center">
+                <th><strong class="text-dark">Categoria:</strong></th>
+                <td>{{cate}}</td>
+              </tr>
+              <tr align="center">
+                <th><strong class="text-dark">Estatus:</strong></th>
+                <td>
+                  {% if esta == 'Cliente Vigente' %}
+                  <span class="badge bg-gradient-success">{{esta}}</span>
+                  {% elif esta == 'Etapa 2' %}
+                  <span class="badge bg-gradient-warning">{{esta}}</span>
+                  {% elif esta == 'Etapa 3' %}
+                  <span class="badge bg-gradient-warning">{{esta}}</span>
+                  {% elif esta == 'Inactivo' %}
+                  <span class="badge bg-gradient-danger">{{esta}}</span>
+                  {% elif esta == 'Activo - Al Corriente' %}
+                  <span class="badge bg-gradient-primary">{{esta}}</span>
+                  {% endif %}
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-xl-3">
+        <div class="card h-100">
+          <div class="card-header pb-0 p-3" align="center">
+            <h5 class="font-weight-bolder text-club text-gradient mb-0">Estado del Cliente</h5>
+          </div>
+          <div class="card-body p-3">
+            <ul class="list-group">
+              <li class="list-group-item border-0 d-flex align-items-center px-0 mb-1">
+                <div class="d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="mb-0 text-sm">Estado de Cobranza</h6>
+                  <p class="mb-0 text-xs">
+                    {% if cob == 'Etapa 1' %}
+                    <span class="badge bg-gradient-warning">FALTA PAGO {{cob}}</span>
+                    {% elif cob == 'Etapa 2' %}
+                    <span class="badge bg-gradient-warning">FALTA PAGO {{cob}}</span>
+                    {% elif cob == 'Etapa 3' %}
+                    <span class="badge bg-gradient-warning">FALTA PAGO {{cob}}</span>
+                    {% elif cob == 'Inactivo' %}
+                    <span class="badge bg-gradient-danger">FALTA PAGO {{cob}}</span>
+                    {% elif cob == 'Activo - Al Corriente' %}
+                    <span class="badge bg-gradient-primary">{{cob}}</span>
+                    {% endif %}
+                  </p>  
+                </div>
+              </li>
+              <li class="list-group-item border-0 d-flex align-items-center px-0 mb-1">
+                <div class="d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="mb-0 text-sm">Estado de Acceso</h6>
+                  <p class="mb-0 text-xs">
+                    {% if acc == 'Sin Acceso' %}
+                    <span class="badge bg-gradient-warning">{{acc}}</span>
+                    {% elif acc == 'Acceso Permitido' %}
+                    <span class="badge bg-gradient-info">{{acc}}</span>
+                    {% endif %}
+                  </p>
+                </div>
+              </li>
+              <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                <div class="d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="mb-0 text-sm">Correo</h6>
+                  <p class="mb-0 text-xs">{{mail}}</p>
+                </div>
+              </li>
+              <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                <div class="d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="mb-0 text-sm">Fecha Fin de Acceso</h6>
+                  <p class="mb-0 text-xs">{{fin}}</p>
+                </div>
+              </li>
+              <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                <div class="d-flex align-items-start flex-column justify-content-center">
+                  <h6 class="mb-0 text-sm">Fecha de Nacimiento</h6>
+                  <p class="mb-0 text-xs">{{nac}}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}

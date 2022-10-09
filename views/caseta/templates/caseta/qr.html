@@ -1,0 +1,192 @@
+{% extends "mainpages/page-layout.html" %}
+{% block titulo %}Caseta - Ingreso{% endblock %}
+{% block Caseta %}active{% endblock %}
+{% block Caseta_boton %}white{% endblock %} 
+{% block contenido %}
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Inicio</a></li>
+          <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Caseta</li>
+        </ol>
+        <h6 class="font-weight-bolder mb-0">Registrar Entrada por QR </h6>
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ERRORES -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="{{category}}" role="alert">
+        <strong>Sistema:</strong> {{ message }}
+      </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- BOTON GENERAR QR -->
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12 col-xl-12">
+        <div class="card h-100">
+          <div class="card-body p-3">
+            <h3 class="font-weight-bolder text-primary text-gradient mt-4">Registrar Entrada Parking</h3>
+            <ul class="list-group">
+              <li class="list-group-item border-0 px-0">
+                <div class="col-md-12">
+                  <!-- BOTON PARA CASETA ALPHA 3 -->
+                  {% if current_user.is_user_auditor() %}
+                  <form method="post">
+                    <div class="form-group">
+                      <input name="club" value="A3" hidden>
+                      <div class="input-group mb-3">
+                        <button class="btn btn-sm bg-gradient-primary btn-lg w-100">Caseta A3 - Generar QR</button>
+                      </div>
+                    </div>
+                  </form>
+                  {% endif %}
+                  <!-- BOTON PARA CAJERA -->
+                  {% if current_user.is_user_am() and current_user.is_alpha_3() %}
+                  <form method="post" action="{{url_for('caseta.caseta_registro_qr_caja')}}">
+                    <div class="form-group">
+                      <input name="club" value="A3" hidden>
+                      <div class="input-group mb-3">
+                        <button class="btn btn-sm bg-gradient-primary btn-lg w-100">Caja General A3 - Generar QR</button>
+                      </div>
+                    </div>
+                  </form>
+                  {% endif %}
+                  <!-- BOTON PARA CASETA CIMERA -->
+                  {% if current_user.is_user_caseta_cim() %}
+                  <form method="post">
+                    <div class="form-group">
+                      <input name="club" value="CIM" hidden>
+                      <div class="input-group mb-3">
+                        <button class="btn btn-sm bg-gradient-primary btn-lg w-100">Caseta CIM - Generar QR</button>
+                      </div>
+                    </div>
+                  </form>
+                  {% endif %}
+                  <!-- PERDIDA POR HORARIO -->
+                  {% if dato_boton == 1 and current_user.is_user_auditor() and current_user.is_alpha_3() %}
+                  <form method="post" action="{{url_for('caseta.caseta_perdida_qr')}}">
+                    <div class="form-group">
+                      <div class="input-group mb-3">
+                        <button class="btn btn-sm bg-gradient-info btn-lg w-100">Caseta A3 - Pérdida de QR</button>
+                      </div>
+                    </div>
+                  </form>
+                  {% endif %}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTON GENERAR PERDIDA QR -->
+  {% if current_user.is_user_am() %}
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12 col-xl-12">
+        <div class="card h-100">
+          <div class="card-body p-3">
+            <h3 class="font-weight-bolder text-primary text-gradient mt-4">Perdida QR</h3>
+            <ul class="list-group">
+              <li class="list-group-item border-0 px-0">
+                <div class="col-md-12">
+                  {% if current_user.is_alpha_3() %}
+                  <!-- BOTON PARA CAJERA A3 -->
+                  <form method="post" action="{{url_for('caseta.caseta_perdida_qr_caja')}}">
+                    <input name="club" value="A3" hidden>
+                    <button class="btn btn-club btn-sm btn-club btn-lg w-100">Caja General A3 - Pérdida de QR</button>
+                  </form>
+                  {% endif %}
+                  {% if current_user.is_alpha_2() %}
+                  <!-- BOTON PARA CAJERA A2 -->
+                  <form method="post" action="{{url_for('caseta.caseta_perdida_qr_caja')}}">
+                    <input name="club" value="A2" hidden>
+                    <button class="btn btn-club btn-sm btn-club btn-lg w-100">Caja General A2 - Pérdida de QR</button>
+                  </form>
+                  {% endif %}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- BOTON GENERAR CORTESIA QR -->
+  {% if current_user.is_user_am() or current_user.is_user_subgerente() %}
+  <!-- <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12 col-xl-12">
+        <div class="card h-100">
+          <div class="card-body p-3">
+            <h3 class="font-weight-bolder text-primary text-gradient mt-4">Cortesia Parking</h3>
+            <ul class="list-group">
+              <li class="list-group-item border-0 px-0">
+                <div class="col-md-12">
+                  <form method="post" action="{{url_for('caseta.caseta_registro_qr_caja_cortesia')}}">
+                    <div class="form-group">
+                      <button class="btn btn-sm bg-gradient-warning btn-lg w-100">Caja General A3 - Cortesia QR</button>
+                    </div>
+                  </form>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  {% endif %}
+
+  <!-- BOTON IMPRIMIR QR -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+          {% for category, message in messages %}
+            {% if category == 'alert alert-success' %}
+            <div class="card card-frame">
+              <div class="card-body"  align="center">
+                <img src="{{ url_for('caseta.static', filename='qr/img/code_qr_parking.png') }}" alt="">
+                <div align="center">
+                  <a type="button" class="btn btn-sm btn-lg btn-primary" href="#" onClick="Imprimir('{{ url_for('caseta.static', filename='qr/img/code_qr_parking.png') }}');">
+                    Imprimir Codigo QR
+                  </a>
+                </div>
+                <script>
+                  function Imprimir(imagen) {
+                    newWindow = window.open("","Imagenes","width=350,height=400,left=100,top=60");
+                    newWindow.document.open();
+                    newWindow.document.write('<html><head></head><body onload="window.print()">\
+                      <small>Cuota de recuperación de $100 por la pérdida de QR y la comprobación de la propiedad del vehículo.</small><br>\
+                      <img src="'+ imagen +'"/><br>\
+                      <small>\
+                        La Fundación Club Alpha de Puebla, no se hace responsable <br>de cualquier daño o robo, sea parcial o total, \
+                        de tu automóvil, el hecho de ingresar al estacionamiento <br>implica una aceptación tácita del Reglamento de Estacionamiento.\
+                      </small></body></html>');  
+                    newWindow.document.close();
+                    newWindow.focus();
+                  }
+                </script>
+              </div>
+            </div>
+            {% endif %}
+          {% endfor %}
+      {% endif %}
+  {% endwith %}
+  
+{% endblock%}
